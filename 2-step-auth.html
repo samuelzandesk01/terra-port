@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Log In | Terra</title>
+  <title>Basic 2-step Verification | Front - Admin &amp; Dashboard Template</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -138,89 +138,99 @@
 
     <!-- Content -->
     <div class="container py-5 py-sm-7">
-      <a class="d-flex justify-content-center mb-5 " href="index.html">
-        <img class="zi-2 bg-light p-2" src="assets/svg/logos/logo.png" alt="Image Description" style="width: 8rem;">
+      <a class="d-flex justify-content-center mb-5" href="index.html">
+        <img class="zi-2" src="assets/svg/logos/logo.svg" alt="Image Description" style="width: 8rem;">
       </a>
 
       <div class="mx-auto" style="max-width: 30rem;">
         <!-- Card -->
         <div class="card card-lg mb-5">
-          <div class="card-body">
-            <!-- Form -->
-            <form class="js-validate needs-validation" novalidate="">
-              <div class="text-center">
-                <div class="mb-5">
-                  <h1 class="display-5">Sign in</h1>
-                  <p>Don't have an account yet? <a class="link" href="individual.html">Sign up here</a></p>
+          <div class="card-body text-center">
+            <div class="mb-4">
+              <img class="avatar avatar-xxl avatar-4x3" src="assets/svg/illustrations/oc-unlock.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="avatar avatar-xxl avatar-4x3" src="assets/svg/illustrations-light/oc-unlock.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </div>
+
+            <div class="mb-5">
+              <h1 class="display-5">2-step Verification</h1>
+              <p class="mb-0">We sent a verification code to your email.</p>
+              <p>Enter the code from the email in the field below.</p>
+            </div>
+
+            <div class="row gx-2 gx-sm-3">
+              <div class="col">
+                <!-- Form -->
+                <div class="mb-4">
+                  <input type="text" class="form-control form-control-single-number" name="code1" id="twoStepVerificationSrCodeInput1" placeholder="" aria-label="" maxlength="1" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus="">
                 </div>
-
-                <!-- <div class="d-grid mb-4">
-                  <a class="btn btn-white btn-lg" href="#">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <img class="avatar avatar-xss me-2" src="assets/svg/brands/google-icon.svg" alt="Image Description">
-                      Sign in with Google
-                    </span>
-                  </a>
-                </div> -->
-
-                <span class="divider-center text-muted mb-4">OR</span>
+                <!-- End Form -->
               </div>
 
-              <!-- Form -->
-              <div class="mb-4">
-                <!-- <label class="form-label" for="signinSrEmail">Your email</label> -->
-                <label for="locationLabel" class="col-form-label form-label">Username
-                  <i class="bi-info-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="You can use your email or phone number" data-bs-original-title="You can use your email or phone number"></i>
-                </label>
-                <input type="email" class="form-control form-control-lg" name="username" id="signinSrEmail" tabindex="1" placeholder="phone number or email address" aria-label="email@address.com" required="">
-                <span class="invalid-feedback">Please enter a valid phone number or email address.</span>
-              </div>
-              <!-- End Form -->
-
-              <!-- Form -->
-              <div class="mb-4">
-                <label class="form-label w-100" for="signupSrPassword" tabindex="0">
-                  <span class="d-flex justify-content-between align-items-center">
-                    <span>Password</span>
-                    <a class="form-label-link mb-0" href="reset-password.html">Forgot Password?</a>
-                  </span>
-                </label>
-
-                <div class="input-group input-group-merge" data-hs-validation-validate-class="">
-                  <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters Okhf839/%^&" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
-                           "target": "#changePassTarget",
-                           "defaultClass": "bi-eye-slash",
-                           "showClass": "bi-eye",
-                           "classChangeTarget": "#changePassIcon"
-                         }'>
-                  <a id="changePassTarget" class="input-group-append input-group-text" href="javascript:;">
-                    <i id="changePassIcon" class="bi-eye"></i>
-                  </a>
+              <div class="col">
+                <!-- Form -->
+                <div class="mb-4">
+                  <input type="text" class="form-control form-control-single-number" name="code2" id="twoStepVerificationSrCodeInput2" placeholder="" aria-label="" maxlength="1" autocomplete="off" autocapitalize="off" spellcheck="false">
                 </div>
-
-                <span class="invalid-feedback">Please enter a valid password.</span>
+                <!-- End Form -->
               </div>
-              <!-- End Form -->
 
-              <!-- Form Check -->
-              <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" value="" id="termsCheckbox">
-                <label class="form-check-label" for="termsCheckbox">
-                  Remember me
-                </label>
+              <div class="col">
+                <!-- Form -->
+                <div class="mb-4">
+                  <input type="text" class="form-control form-control-single-number" name="code3" id="twoStepVerificationSrCodeInput3" placeholder="" aria-label="" maxlength="1" autocomplete="off" autocapitalize="off" spellcheck="false">
+                </div>
+                <!-- End Form -->
               </div>
-              <!-- End Form Check -->
 
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+              <div class="col">
+                <!-- Form -->
+                <div class="mb-4">
+                  <input type="text" class="form-control form-control-single-number" name="code4" id="twoStepVerificationSrCodeInput4" placeholder="" aria-label="" maxlength="1" autocomplete="off" autocapitalize="off" spellcheck="false">
+                </div>
+                <!-- End Form -->
               </div>
-            </form>
-            <!-- End Form -->
+            </div>
+
+            <div class="d-grid mb-3">
+              <button type="submit" class="btn btn-primary btn-lg">Verify my account</button>
+            </div>
+
+            <div class="text-center">
+              <p>Haven't received it? <a href="#">Resend a new code.</a></p>
+            </div>
           </div>
         </div>
         <!-- End Card -->
 
- 
+        <!-- Footer -->
+        <div class="text-center">
+          <small class="text-cap text-body mb-4">Trusted by the world's best teams</small>
+
+          <div class="w-85 mx-auto">
+            <div class="row justify-content-between">
+              <div class="col">
+                <img class="img-fluid" src="assets/svg/brands/gitlab-gray.svg" alt="Logo">
+              </div>
+              <!-- End Col -->
+
+              <div class="col">
+                <img class="img-fluid" src="assets/svg/brands/fitbit-gray.svg" alt="Logo">
+              </div>
+              <!-- End Col -->
+
+              <div class="col">
+                <img class="img-fluid" src="assets/svg/brands/flow-xo-gray.svg" alt="Logo">
+              </div>
+              <!-- End Col -->
+
+              <div class="col">
+                <img class="img-fluid" src="assets/svg/brands/layar-gray.svg" alt="Logo">
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+        </div>
         <!-- End Footer -->
       </div>
     </div>
