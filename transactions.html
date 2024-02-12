@@ -853,23 +853,51 @@
     </aside>
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <div class="content container-fluid">
+      <div class="content bg-light container-fluid">
         <!-- Page Header -->
-        <div class="page-header">
-          <div class="row align-items-center">
-            <div class="col-sm mb-sm-0">
+        <div class="page-header border-bottom">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-4 mb-sm-0">
               <h1 class="page-header-title">Transactions</h1>
-              <!-- <p class="page-header-text">
-                Here's what's happening with your store today.
-              </p> -->
             </div>
+            <div class="col-lg-8 justify-content-end align-items-end mb-sm-0">
+              <form class="d-flex ">
+                <div>
+                  <div>
+                    <select class="form-select form-select-lg">
+                      <option selected="">All</option>
+                      <option value="1">Agent</option>
+                      <option value="2">Merchant</option>
+                      <option value="3">Agent and Merchant</option>
+                      <option value="4">Aggregator</option>
+                      <option value="5">Banker</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <!-- <label for="locationLabel" class="col-form-label form-label"></label> -->
+                    <input class="form-control" type="date" placeholder="Default input">
+
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <input class="form-control" type="date" placeholder="Default input">
+
+                  </div>
+                </div>
+              </form>
+            </div>
+            
             <!-- End Col -->
           </div>
         </div>
         <!-- End Page Header -->
 
         
-        <div class="card">
+        <div class="card mb-4">
           <div class="card-body">
             <div class="col-lg-12">
               <div class="col-sm my-sm-2">
@@ -882,21 +910,20 @@
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <div class="my-2">
-                <div class="bi bi-target"></div>
+              <div class="my-3">
+                <i class="bi bg-soft-info rounded-circle bi-arrows-move p-2"></i>
               </div>
               <h6 class="card-subtitle mb-2">Total Transactions</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
                   <span class="js-counter display-5 text-dark">
-                    <span>N</span>
-                    24,950,000</span>
+                    ₦24,950,000</span>
                 </div>
                 <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="badge bg-soft-success display-5 text-success">
+                  <span class="badge bg-info display-5 text text-white">
                     4,009
                   </span>
                 </div>
@@ -912,20 +939,25 @@
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Active Agents</h6>
+              <div class="my-3">
+                <i class="bi bg-soft-success rounded-circle bi-check-circle p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Successful Transaction</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
-                  <span class="js-counter display-4 text-dark">12</span>
-                  <span class="text-body fs-5 ms-1">from 11</span>
+                  <span class="js-counter display-5 text-dark">
+                    ₦16,950,000</span>
                 </div>
+                <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="badge bg-soft-success text-success p-1">
-                    <i class="bi-graph-up"></i> 1.2%
+                  <span class="badge bg-success display-5 text-white">
+                    3,009
                   </span>
                 </div>
-              </div>
+                <!-- End Col -->
+              </div>  
               <!-- End Row -->
             </div>
           </div>
@@ -936,74 +968,90 @@
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Pending Agents</h6>
+              <div class="my-3">
+                <i class="bi bg-soft-danger rounded-circle bi-check-circle p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Failed Transaction</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
-                  <span class="js-counter display-4 text-dark">56</span>
-                  <span class="display-4 text-dark">%</span>
-                  <span class="text-body fs-5 ms-1">from 48.7</span>
+                  <span class="js-counter display-5 text-dark">
+                    ₦16,950,000</span>
                 </div>
+                <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="badge bg-soft-danger text-danger p-1">
-                    <i class="bi-graph-down"></i> 2.8%
+                  <span class="badge bg-danger display-5 text-white">
+                    3,009
                   </span>
                 </div>
-              </div>
+                <!-- End Col -->
+              </div>  
               <!-- End Row -->
             </div>
           </div>
           <!-- End Card -->
         </div>
+
+
         <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Pending Agents</h6>
+              <div class="mb-3">
+                <i class="bi bg-soft-warning rounded-circle bi-check-circle p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Pending Transaction</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
-                  <span class="js-counter display-4 text-dark">56</span>
-                  <span class="display-4 text-dark">%</span>
-                  <span class="text-body fs-5 ms-1">from 48.7</span>
+                  <span class="js-counter display-5 text-dark">
+                    ₦16,950,000</span>
                 </div>
+                <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="badge bg-soft-danger text-danger p-1">
-                    <i class="bi-graph-down"></i> 2.8%
+                  <span class="badge bg-warning display-5 text-dark">
+                    39
                   </span>
                 </div>
-              </div>
+                <!-- End Col -->
+              </div>  
               <!-- End Row -->
             </div>
           </div>
           <!-- End Card -->
         </div>
+
         <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Pending Agents</h6>
+              <div class="mb-3">
+                <i class="bi bg-soft-warning rounded-circle bi-check-circle p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Pending Transaction</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
-                  <span class="js-counter display-4 text-dark">56</span>
-                  <span class="display-4 text-dark">%</span>
-                  <span class="text-body fs-5 ms-1">from 48.7</span>
+                  <span class="js-counter display-5 text-dark">
+                    ₦16,950,000</span>
                 </div>
+                <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="badge bg-soft-danger text-danger p-1">
-                    <i class="bi-graph-down"></i> 2.8%
+                  <span class="badge bg-warning display-5 text-dark">
+                    3,009
                   </span>
                 </div>
-              </div>
+                <!-- End Col -->
+              </div>  
               <!-- End Row -->
             </div>
           </div>
           <!-- End Card -->
         </div>
+
 
      
       </div>
