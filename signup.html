@@ -214,11 +214,11 @@
                 </div>
 
                 <div class="col-sm-6 mt-3">
-                  <label for="emailLabel" class="form-label">Date of birth
+                  <label for="numberLabel" class="form-label">Phone Number
                   </label>
 
-                  <input type="date" class="form-control" name="dob" id="DOBLabel"
-                    placeholder="12/31/1900" />
+                  <input type="text" class="form-control" name="phoneNumber" id="phoneLabel"
+                    placeholder="09083747247" minlength="11" maxlength="11" />
                 </div>
               </div>
 
@@ -226,50 +226,53 @@
              
 
               <!-- Form -->
-              <div class="mb-4">
-                <label class="form-label" for="signupSrPassword">Password</label>
-
-                <div class="input-group input-group-merge" data-hs-validation-validate-class="">
-                  <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
-                           "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
-                           "defaultClass": "bi-eye-slash",
-                           "showClass": "bi-eye",
-                           "classChangeTarget": ".js-toggle-password-show-icon-1"
-                         }'>
-                  <a class="js-toggle-password-target-1 input-group-append input-group-text" href="javascript:;">
-                    <i class="js-toggle-password-show-icon-1 bi-eye"></i>
-                  </a>
-                </div>
-
-                <span class="invalid-feedback">Your password is invalid. Please try again.</span>
-              </div>
-              <!-- End Form -->
-
-              <!-- Form -->
-              <div class="mb-1">
-                <label class="form-label" for="signupSrConfirmPassword">Confirm password</label>
-
-                <div class="input-group input-group-merge" data-hs-validation-validate-class="">
-                  <input type="password" class="js-toggle-password form-control form-control-lg" name="confirmPassword" id="signupSrConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
-                           "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
-                           "defaultClass": "bi-eye-slash",
-                           "showClass": "bi-eye",
-                           "classChangeTarget": ".js-toggle-password-show-icon-2"
-                         }'>
-                  <a class="js-toggle-password-target-2 input-group-append input-group-text" href="javascript:;">
-                    <i class="js-toggle-password-show-icon-2 bi-eye"></i>
-                  </a>
-                </div>
-
-                <span class="invalid-feedback">Password does not match the confirm password.</span>
-              </div>
+             
               <!-- End Form -->
               <div class="row mb-3">
+                <div class="col-lg-6">
+                  <label class="form-label" for="signupSrPassword">Password</label>
+  
+                  <div class="input-group input-group-merge" data-hs-validation-validate-class="">
+                    <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
+                             "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
+                             "defaultClass": "bi-eye-slash",
+                             "showClass": "bi-eye",
+                             "classChangeTarget": ".js-toggle-password-show-icon-1"
+                           }'>
+                    <a class="js-toggle-password-target-1 input-group-append input-group-text" href="javascript:;">
+                      <i class="js-toggle-password-show-icon-1 bi-eye"></i>
+                    </a>
+                  </div>
+  
+                  <span class="invalid-feedback">Your password is invalid. Please try again.</span>
+                </div>
+                <!-- End Form -->
+  
+                <!-- Form -->
+                <div class="col-lg-6">
+                  <label class="form-label" for="signupSrConfirmPassword">Confirm password</label>
+  
+                  <div class="input-group input-group-merge" data-hs-validation-validate-class="">
+                    <input type="password" class="js-toggle-password form-control form-control-lg" name="confirmPassword" id="signupSrConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
+                             "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
+                             "defaultClass": "bi-eye-slash",
+                             "showClass": "bi-eye",
+                             "classChangeTarget": ".js-toggle-password-show-icon-2"
+                           }'>
+                    <a class="js-toggle-password-target-2 input-group-append input-group-text" href="javascript:;">
+                      <i class="js-toggle-password-show-icon-2 bi-eye"></i>
+                    </a>
+                  </div>
+  
+                  <span class="invalid-feedback">Password does not match the confirm password.</span>
+                </div>
+
+
+                <div class="col-sm-12 mt-2">
+                  
                 <label class="col-sm-12 col-form-label form-label">
                   <strong>Want to be Agent, Merchant or
                     Aggregator?</strong></label>
-
-                <div class="col-sm-12">
                   <div class="input-group input-group-sm-vertical">
                     <!-- Radio Check -->
                     <label class="form-control" for="userAccountTypeRadio1">
@@ -300,16 +303,16 @@
               </div>
 
               <!-- Form Check -->
-              <div class="form-check mb-4">
+              <!-- <div class="form-check mb-4">
                 <input class="form-check-input" type="checkbox" value="" id="termsCheckbox" required="">
                 <label class="form-check-label" for="termsCheckbox">
                   I accept the <a href="#">Terms and Conditions</a>
                 </label>
                 <span class="invalid-feedback">Please accept our Terms and Conditions.</span>
-              </div>
+              </div> -->
               <!-- End Form Check -->
 
-              <div class="d-grid gap-2">
+              <div class="d-grid gap-2 mt-3">
                 <button type="submit" class="btn btn-primary btn-lg">Create an account</button>
 
               </div>
