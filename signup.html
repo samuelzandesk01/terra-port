@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Log In | Terra</title>
+  <title>Terra Sign Up </title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -142,7 +142,7 @@
         <img class="zi-2 bg-light p-2" src="assets/svg/logos/logo.png" alt="Image Description" style="width: 8rem;">
       </a>
 
-      <div class="mx-auto" style="max-width: 30rem;">
+      <div class="mx-auto" style="max-width: 45rem;">
         <!-- Card -->
         <div class="card card-lg mb-5">
           <div class="card-body">
@@ -150,69 +150,168 @@
             <form class="js-validate needs-validation" novalidate="">
               <div class="text-center">
                 <div class="mb-5">
-                  <h1 class="display-5">Sign in</h1>
-                  <p>Don't have an account yet? <a class="link" href="signup.html">Sign up here</a></p>
+                  <h1 class="display-5">Create your account</h1>
+                  <p>Already have an account? <a class="link" href="index.html">Sign in here</a></p>
                 </div>
 
                 <!-- <div class="d-grid mb-4">
                   <a class="btn btn-white btn-lg" href="#">
                     <span class="d-flex justify-content-center align-items-center">
                       <img class="avatar avatar-xss me-2" src="assets/svg/brands/google-icon.svg" alt="Image Description">
-                      Sign in with Google
+                      Sign up with Google
                     </span>
-                  </a>
-                </div> -->
-
-                <span class="divider-center text-muted mb-4">OR</span>
-              </div>
-
-              <!-- Form -->
-              <div class="mb-4">
-                <!-- <label class="form-label" for="signinSrEmail">Your email</label> -->
-                <label for="locationLabel" class="col-form-label form-label">Username
-                  <i class="bi-info-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="You can use your email or phone number" data-bs-original-title="You can use your email or phone number"></i>
-                </label>
-                <input type="email" class="form-control form-control-lg" name="username" id="signinSrEmail" tabindex="1" placeholder="phone number or email address" aria-label="email@address.com" required="">
-                <span class="invalid-feedback">Please enter a valid phone number or email address.</span>
-              </div>
-              <!-- End Form -->
-
-              <!-- Form -->
-              <div class="mb-4">
-                <label class="form-label w-100" for="signupSrPassword" tabindex="0">
-                  <span class="d-flex justify-content-between align-items-center">
-                    <span>Password</span>
-                    <a class="form-label-link mb-0" href="reset-password.html">Forgot Password?</a>
-                  </span>
-                </label>
-
-                <div class="input-group input-group-merge" data-hs-validation-validate-class="">
-                  <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters Okhf839/%^&" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
-                           "target": "#changePassTarget",
-                           "defaultClass": "bi-eye-slash",
-                           "showClass": "bi-eye",
-                           "classChangeTarget": "#changePassIcon"
-                         }'>
-                  <a id="changePassTarget" class="input-group-append input-group-text" href="javascript:;">
-                    <i id="changePassIcon" class="bi-eye"></i>
                   </a>
                 </div>
 
-                <span class="invalid-feedback">Please enter a valid password.</span>
+                <span class="divider-center text-muted mb-4">OR</span> -->
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-lg-6">
+                  <div class="">
+                    <label for="firstNameLabel" class="form-label">First Name
+                    </label>
+
+                    <input type="text" class="form-control" name="firstName" id="firstNameLabel"
+                      placeholder="James" aria-label="James" />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="">
+                    <label for="middleNameLabel" class="form-label">Middle Name
+                    </label>
+
+                    <input type="text" class="form-control" name="middleName" id="middleNameLabel"
+                      placeholder="Clarice" aria-label="Clarice" />
+                  </div>
+                </div>
+                <div class="col-lg-6 mt-3">
+                  <div class="">
+                    <label for="lastNameLabel" class="form-label">Last Name
+                    </label>
+
+                    <input type="text" class="form-control" name="lastName" id="lastNameLabel"
+                      placeholder="Donald" aria-label="Donald" />
+                  </div>
+                </div>
+
+                <div class="col-lg-6 mt-3">
+                  <label for="emailLabel" class="form-label">Email
+                  </label>
+
+                  <input type="email" class="form-control" name="email" id="emailLabel"
+                    placeholder="clarice@site.com" aria-label="clarice@site.com" />
+                </div>
+                <div class="col-sm-6 mt-3">
+                  <label for="emailLabel" class="form-label">Gender
+                  </label>
+
+                  <select id="inputGroupLightGenderSelect" class="form-select">
+                    <option>Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-6 mt-3">
+                  <label for="emailLabel" class="form-label">Date of birth
+                  </label>
+
+                  <input type="date" class="form-control" name="dob" id="DOBLabel"
+                    placeholder="12/31/1900" />
+                </div>
+              </div>
+
+       
+             
+
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" for="signupSrPassword">Password</label>
+
+                <div class="input-group input-group-merge" data-hs-validation-validate-class="">
+                  <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
+                           "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
+                           "defaultClass": "bi-eye-slash",
+                           "showClass": "bi-eye",
+                           "classChangeTarget": ".js-toggle-password-show-icon-1"
+                         }'>
+                  <a class="js-toggle-password-target-1 input-group-append input-group-text" href="javascript:;">
+                    <i class="js-toggle-password-show-icon-1 bi-eye"></i>
+                  </a>
+                </div>
+
+                <span class="invalid-feedback">Your password is invalid. Please try again.</span>
               </div>
               <!-- End Form -->
 
+              <!-- Form -->
+              <div class="mb-1">
+                <label class="form-label" for="signupSrConfirmPassword">Confirm password</label>
+
+                <div class="input-group input-group-merge" data-hs-validation-validate-class="">
+                  <input type="password" class="js-toggle-password form-control form-control-lg" name="confirmPassword" id="signupSrConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required="" minlength="8" data-hs-toggle-password-options='{
+                           "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
+                           "defaultClass": "bi-eye-slash",
+                           "showClass": "bi-eye",
+                           "classChangeTarget": ".js-toggle-password-show-icon-2"
+                         }'>
+                  <a class="js-toggle-password-target-2 input-group-append input-group-text" href="javascript:;">
+                    <i class="js-toggle-password-show-icon-2 bi-eye"></i>
+                  </a>
+                </div>
+
+                <span class="invalid-feedback">Password does not match the confirm password.</span>
+              </div>
+              <!-- End Form -->
+              <div class="row mb-3">
+                <label class="col-sm-12 col-form-label form-label">
+                  <strong>Want to be Agent, Merchant or
+                    Aggregator?</strong></label>
+
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm-vertical">
+                    <!-- Radio Check -->
+                    <label class="form-control" for="userAccountTypeRadio1">
+                      <span class="form-check">
+                        <input type="radio" class="form-check-input" name="userAccountTypeRadio" id="userAccountTypeRadio1">
+                        <span class="form-check-label">Agent</span>
+                      </span>
+                    </label>
+                    <!-- End Radio Check -->
+
+                    <!-- Radio Check -->
+                    <label class="form-control" for="userAccountTypeRadio2">
+                      <span class="form-check">
+                        <input type="radio" class="form-check-input" name="userAccountTypeRadio" id="userAccountTypeRadio2">
+                        <span class="form-check-label">Merchant
+                        </span>
+                      </span>
+                    </label>
+                    <label class="form-control" for="userAccountTypeRadio3">
+                      <span class="form-check">
+                        <input type="radio" class="form-check-input" name="userAccountTypeRadio" id="userAccountTypeRadio3">
+                        <span class="form-check-label">Aggregator</span>
+                      </span>
+                    </label>
+                    <!-- End Radio Check -->
+                  </div>
+                </div>
+              </div>
+
               <!-- Form Check -->
               <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" value="" id="termsCheckbox">
+                <input class="form-check-input" type="checkbox" value="" id="termsCheckbox" required="">
                 <label class="form-check-label" for="termsCheckbox">
-                  Remember me
+                  I accept the <a href="#">Terms and Conditions</a>
                 </label>
+                <span class="invalid-feedback">Please accept our Terms and Conditions.</span>
               </div>
               <!-- End Form Check -->
 
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">Create an account</button>
+
               </div>
             </form>
             <!-- End Form -->
@@ -220,8 +319,7 @@
         </div>
         <!-- End Card -->
 
- 
-        <!-- End Footer -->
+       
       </div>
     </div>
     <!-- End Content -->
