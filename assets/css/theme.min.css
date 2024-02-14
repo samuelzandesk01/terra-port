@@ -3200,6 +3200,13 @@ fieldset:disabled .btn {
   --bs-btn-disabled-bg: #00c9a7;
   --bs-btn-disabled-border-color: #00c9a7;
 }
+
+.account-balance-header{
+  background-color: black;
+  color: white;
+  
+}
+
 .btn-info {
   --bs-btn-color: #fff;
   --bs-btn-bg: #09a5be;
