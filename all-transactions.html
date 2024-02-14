@@ -22,6 +22,8 @@
 
   <link rel="preload" href="assets/css/theme.min-1.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
   <style data-hs-appearance-onload-styles="">
     *
@@ -2292,7 +2294,7 @@
           </div>
           <div class="d-flex justify-content-between">
             <div>
-              <button type="button" class="btn btn-outline-success" >Report Transaction</button>
+              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" >Report Transaction</button>
             </div>
             <div>
               <button type="button" class="btn btn-primary"  >View Commission
@@ -2307,7 +2309,128 @@
 </div>
 
 <!-- End Modal -->
+<!-- Modal -->
+<div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Specify Issue</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>What is the problem?</p>
+        <div class="py-2">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="d-flex justify-content-evenly">
+                <div>
+                  <span class="icon icon-lg icon-soft-primary icon-circle">
+                    <i class="bi-arrow-left-right"></i>
+                  </span>
+                </div>
+                <div>
+                  <h5 class="page-header-title">Agents Name</h5>
+                  <span>19, February 2024</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-auto  ">
+              <div class="d-flex justify-content-end align-item-end align-items-end" >
+               <div>
+                <h5 class="page-header-title ">Agents Name</h5>
+                <span class="text-success">
+                  <strong>NGN 20,000</strong>
+                </span>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- Accordion -->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <div class="accordion-header" id="headingOne">
+              <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                I successfully sent money from my account but no credit yet in my wallet
 
+              </a>
+            </div>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Description</strong>
+                <form class="py-2">
+                  <div class="mb-3">
+                    <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                    <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field" rows="4"></textarea>
+                  </div>
+
+                  <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                    <div class="dz-message">
+                      <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg" alt="Image Description">
+                
+                      <h5>Drag and drop your file here</h5>
+                
+                      <p class="mb-2">or</p>
+                
+                      <span class="btn btn-white btn-sm">Browse files</span>
+                    </div>
+                  </div>
+                <div class="mt-2">
+                  <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" id="headingTwo">
+              <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                My wallet was credited twice for this transaction
+              </a>
+            </div>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Description</strong>
+                <form class="py-2">
+                  <div class="mb-3">
+                    <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                    <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field" rows="4"></textarea>
+                  </div>
+
+                    <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                      <div class="dz-message">
+                        <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg" alt="Image Description" width="50px">
+                  
+                        <h5>Drag and drop your file here</h5>
+                  
+                        <p class="mb-2">or</p>
+                  
+                        <span class="btn btn-white btn-sm">Browse files</span>
+                    </div>
+                  </div>
+                 
+                  <div class="mt-2">
+                    <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+<!-- End Accordion -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
 
   <!-- Welcome Message Modal -->
   <div class="modal fade" id="welcomeMessageModal" tabindex="-1" aria-hidden="true">
