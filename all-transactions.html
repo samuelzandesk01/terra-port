@@ -934,7 +934,7 @@
         <div class="table-responsive datatable-custom">
           <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
                    "columnDefs": [{
-                      "targets": [0, 4, 7],
+                      "targets": [0, 4, 8],
                       "width": "5%",
                       "orderable": false
                     }],
@@ -992,7 +992,7 @@
                 </td>
                 <td>₦80000</td>
                 <td>45</td>
-                <td>2</td>
+                <td>Transfer</td>
                 <td>3</td>
                 <td><span class="legend-indicator bg-danger"></span>Blocked</td>
                 <td>
@@ -1023,7 +1023,7 @@
                 </td>
                 <td>₦2000</td>
                 <td>5</td>
-                <td>7</td>
+                <td>Wallet Top-up</td>
                 <td>0</td>
                 <td><span class="legend-indicator bg-success"></span> Active</td>
                 <td>
@@ -1053,7 +1053,7 @@
                 </td>
                 <td>₦80000</td>
                 <td>45</td>
-                <td>2</td>
+                <td>Commision</td>
                 <td>3</td>
                 <td><span class="legend-indicator bg-warning"></span>Pending</td>
                 <td>
@@ -2705,7 +2705,7 @@
         datatable.columns(6).visible(e.target.checked)
       })
 
-      datatable.columns(7).visible(false)
+        // datatable.columns(7).visible(false)
 
       $('#toggleColumn_quantity').change(function (e) {
         datatable.columns(7).visible(e.target.checked)
