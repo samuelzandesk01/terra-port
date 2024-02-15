@@ -2238,7 +2238,7 @@ progress {
   color: #1e2022;
   background-color: #fff;
   background-clip: padding-box;
-  border: 0.0625rem solid rgba(231, 234, 243, 0.7);
+  border: 0.0625rem solid rgba(102, 102, 102, 0.7);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -2442,7 +2442,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 13px 9px;
-  border: 0.0625rem solid rgba(231, 234, 243, 0.7);
+  border: 0.0625rem solid rgba(102, 102, 102, 0.7);
   border-radius: 0.3125rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;

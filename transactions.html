@@ -274,7 +274,6 @@
   </header>
 
 
-
   <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
     <div class="navbar-vertical-container">
       <div class="navbar-vertical-footer-offset">
@@ -302,12 +301,15 @@
           <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
             <!-- Collapse -->
             <div class="nav-item">
-              <a class="nav-link " href="/" >
+              <a class="nav-link active" href="#" >
                 <i class="bi-house-door nav-icon"></i>
                 <span class="nav-link-title">Dashboards</span>
               </a>
 
-            
+              <!-- <div id="navbarVerticalMenuDashboards" class="nav-collapse collapse show" data-bs-parent="#navbarVerticalMenu">
+                <a class="nav-link active" href="dashboard.html">Default</a>
+                <a class="nav-link " href="dashboard-alternative.html">Alternative</a>
+              </div> -->
             </div>
             <!-- End Collapse -->
 
@@ -321,25 +323,53 @@
             <div id="navbarVerticalMenuPagesMenu">
               <!-- Collapse -->
               <div class="nav-item">
-                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu">
+                <a class="nav-link dropdown-toggle  collapsed" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAgents" aria-expanded="false" aria-controls="navbarVerticalMenuAgents">
                   <i class="bi-people nav-icon"></i>
                   <span class="nav-link-title">Agents</span>
                 </a>
 
-                <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
-                  <a class="nav-link " href="add-agent.html">Create Agent</a>
-                  <a class="nav-link " href="agents.html">View Agents</a>
-                  <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
-                  <a class="nav-link " href="aggregators.html">View Aggregators </a>
+                <div id="navbarVerticalMenuAgents" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenu">
+                  <div id="navbarVerticalMenuAuthenticationMenu">
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                      <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuAuthenticationLoginMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAuthenticationLoginMenu" aria-expanded="false" aria-controls="navbarVerticalMenuAuthenticationLoginMenu">
+                      Create Agent
+                      </a>
+
+                      <div id="navbarVerticalMenuAuthenticationLoginMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                        <a class="nav-link " href="add-agent.html">Individual Agent</a>
+                        <a class="nav-link " href="add-sole.html">Sole Agent</a>
+                        <a class="nav-link " href="add-corp.html">Corporate </a>
+                      </div>
+                    </div>
+                    <!-- End Collapse -->
+
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                      <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuViewAgent" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuViewAgent" aria-expanded="false" aria-controls="navbarVerticalMenuViewAgent">
+                        View Agents
+                      </a>
+
+                      <div id="navbarVerticalMenuViewAgent" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                        <!-- <a class="nav-link " href="#">Individual Agent</a>
+                        <a class="nav-link " href="#">Sole Agent</a>
+                        <a class="nav-link " href="#">Corporate </a> -->
+                        <a class="nav-link " href="agents.html">View Agents</a>
+                        <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
+                        <a class="nav-link " href="aggregators.html">View Aggregators </a>
+                      </div>
+                    </div>
+                    <!-- End Collapse -->
+                  </div>
                 </div>
               </div>
-              <!-- End Collapse -->
+         
 
           
 
               <!-- Collapse -->
               <div class="nav-item">
-                <a class="nav-link active" href="transactions.html"   >
+                <a class="nav-link " href="transactions.html"   >
                   <i class="bi-bar-chart  nav-icon"></i>
                   <span class="nav-link-title">Transactions</span>
                 </a>
@@ -533,6 +563,7 @@
       </div>
     </div>
   </aside>
+
 
   <main id="content" role="main" class="main">
     <!-- Content -->

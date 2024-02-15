@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Terr Money | Front - Admin &amp; Dashboard </title>
+  <title>Terra Money | Front - Admin &amp; Dashboard </title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -328,19 +328,47 @@
             <div id="navbarVerticalMenuPagesMenu">
               <!-- Collapse -->
               <div class="nav-item">
-                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu">
+                <a class="nav-link dropdown-toggle  collapsed" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAgents" aria-expanded="false" aria-controls="navbarVerticalMenuAgents">
                   <i class="bi-people nav-icon"></i>
                   <span class="nav-link-title">Agents</span>
                 </a>
 
-                <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
-                  <a class="nav-link " href="add-agent.html">Create Agent</a>
-                  <a class="nav-link " href="agents.html">View Agents</a>
-                  <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
-                  <a class="nav-link " href="aggregators.html">View Aggregators </a>
+                <div id="navbarVerticalMenuAgents" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenu">
+                  <div id="navbarVerticalMenuAuthenticationMenu">
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                      <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuAuthenticationLoginMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAuthenticationLoginMenu" aria-expanded="false" aria-controls="navbarVerticalMenuAuthenticationLoginMenu">
+                      Create Agent
+                      </a>
+
+                      <div id="navbarVerticalMenuAuthenticationLoginMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                        <a class="nav-link " href="add-agent.html">Individual Agent</a>
+                        <a class="nav-link " href="add-sole.html">Sole Agent</a>
+                        <a class="nav-link " href="add-corp.html">Corporate </a>
+                      </div>
+                    </div>
+                    <!-- End Collapse -->
+
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                      <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuViewAgent" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuViewAgent" aria-expanded="false" aria-controls="navbarVerticalMenuViewAgent">
+                        View Agents
+                      </a>
+
+                      <div id="navbarVerticalMenuViewAgent" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                        <!-- <a class="nav-link " href="#">Individual Agent</a>
+                        <a class="nav-link " href="#">Sole Agent</a>
+                        <a class="nav-link " href="#">Corporate </a> -->
+                        <a class="nav-link " href="agents.html">View Agents</a>
+                        <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
+                        <a class="nav-link " href="aggregators.html">View Aggregators </a>
+                      </div>
+                    </div>
+                    <!-- End Collapse -->
+                  </div>
                 </div>
               </div>
-              <!-- End Collapse -->
+         
 
           
 
@@ -555,7 +583,7 @@
           <!-- End Col -->
 
           <div class="col-auto">
-            <a class="btn btn-primary" href="add-agent.html" >
+            <a class="btn btn-primary" href="add-user.html" >
               <i class="bi-person-plus-fill me-1"></i> Invite users
             </a>
           </div>
