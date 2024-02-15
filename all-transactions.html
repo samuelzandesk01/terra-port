@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Required Meta Tags Always Come First -->
@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title> Admin Transaction - Dashboard</title>
+  <title> All Transaction - Dashboard</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -22,6 +22,8 @@
 
   <link rel="preload" href="assets/css/theme.min-1.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
   <style data-hs-appearance-onload-styles="">
     *
@@ -543,14 +545,17 @@
           <div class="col-sm mb-2 mb-sm-0">
             <h1 class="page-header-title">Transactions </h1>
 
-            <!-- <div class="mt-2">
-              <a class="text-body me-3" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
-                <i class="bi-download me-1"></i> Export
+            <div class="mt-2">
+              <a class="text-body me-3" href="javascript:;"  >
+                Transaction List 
               </a>
-              <a class="text-body" href="javascript:;" data-bs-toggle="modal" data-bs-target="#importProductsModal">
-                <i class="bi-upload me-1"></i> Import
+              <a class="text-body me-3"    >
+                /
               </a>
-            </div> -->
+              <a class="text-body" href="javascript:;" >
+                 All Transaction
+              </a>
+            </div> 
           </div>
           <!-- End Col -->
 
@@ -584,6 +589,15 @@
                 </div>
               </div>
             </form>
+            <div class="d-flex mt-2 justify-content-between">
+                <div>
+                    <button class="btn btn-primary ">Repush Transaction</button>
+                </div>
+                <div>
+                    <button class="btn btn-white btn-lg ">
+                        <i class="bi bi-download"></i> Download Report</button>
+                </div>
+            </div>
           </div>
           <!-- End Col -->
         </div>
@@ -813,9 +827,9 @@
           </div>
 
           <div class="d-grid d-sm-flex gap-2">
-            <a href="all-transactions.html" class="btn btn-white" type="button">
-              <i class="bi-eye me-1"></i> View All
-            </a>
+              <!-- <a href="#" class="btn btn-white" type="button">
+                <i class="bi-eye me-1"></i> View All
+              </a> -->
 
             <!-- Dropdown -->
             <div class="dropdown">
@@ -920,7 +934,7 @@
         <div class="table-responsive datatable-custom">
           <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
                    "columnDefs": [{
-                      "targets": [0, 4, 7],
+                      "targets": [0, 4, 8],
                       "width": "5%",
                       "orderable": false
                     }],
@@ -956,7 +970,7 @@
             <tbody>
            
 
-              <tr>
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
                 <td class="table-column-pe-0">
                   1
                 </td>
@@ -972,13 +986,13 @@
                   </a>
                 </td>
                 <td>093874</td>
-                <td>Aggregator</td>
+                <td>Agents</td>
                 <td>
                   Aggregator Customer Fee
                 </td>
                 <td>₦80000</td>
                 <td>45</td>
-                <td>2</td>
+                <td>Transfer</td>
                 <td>3</td>
                 <td><span class="legend-indicator bg-danger"></span>Blocked</td>
                 <td>
@@ -987,7 +1001,7 @@
               </tr>
 
               
-              <tr>
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
                 <td class="table-column-pe-0">
                   2
                 </td>
@@ -1002,22 +1016,50 @@
                     </div>
                   </a>
                 </td>
-                <td>43874</td>
-                <td>Aggregator</td>
+                <td>4563</td>
+                <td>Merchant</td>
                 <td>
                   Banker Service Commision Fee
                 </td>
-                <td>₦90000</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td>₦2000</td>
+                <td>5</td>
+                <td>Wallet Top-up</td>
+                <td>0</td>
                 <td><span class="legend-indicator bg-success"></span> Active</td>
                 <td>
-                 09:40 PM
+                 02:60 PM
                 </td>
               </tr>
 
-           
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
+                <td class="table-column-pe-0">
+                  1
+                </td>
+                <td class="table-column-ps-0">
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="text-inherit mb-0">Agent Name</h5>
+                      <span>09038847848</span>
+                    </div>
+                  </a>
+                </td>
+                <td>093874</td>
+                <td>Agents</td>
+                <td>
+                  Aggregator Customer Fee
+                </td>
+                <td>₦80000</td>
+                <td>45</td>
+                <td>Commision</td>
+                <td>3</td>
+                <td><span class="legend-indicator bg-warning"></span>Pending</td>
+                <td>
+                 12:00 AM
+                </td>
+              </tr>
 
             </tbody>
           </table>
@@ -2074,6 +2116,322 @@
   </div>
   <!-- End Activity -->
 
+  <!-- Modal -->
+>
+<!-- End Button trigger modal -->
+
+<!-- Modal -->
+<div id="exampleModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- Header -->
+      <div class="modal-top-cover  bg-dark text-center">
+        <div class="py-5">
+          <h4 class=" text-white" id="exampleModalScrollableTitle">Aggregator's Service Fee Commision </h4>
+          <span  class="pb-1 text-white" > 11, January 2020 | 07:00 PM</span>
+        </div>
+
+        <figure class="position-absolute end-0 mt-3 bottom-0 start-0" style="top: 2;">
+          <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
+            <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"/>
+          </svg>
+        </figure>
+
+        <div class="modal-close">
+          <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+      <!-- End Header -->
+
+      <div class="modal-top-cover-icon">
+        <span class="icon icon-lg icon-light icon-circle icon-centered shadow-sm">
+          <i class="bi-receipt fs-2"></i>
+        </span> 
+      </div>
+
+        <div class="modal-body">
+          <div class="text-center">
+            <h2 class="display-5">
+              ₦11,000
+            </h2>
+          </div>
+          <div class="row ">
+            <div class="col-lg-6">
+                        <!-- Table -->
+            <table class="table">
+              <thead class="">
+                <tr>
+                    <th scope="row">Transaction Information</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="">Amount  : NGN 5
+
+                  </th>
+                  <td>Amount Charged: NGN 5
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <th scope="">Amount  : NGN 5
+
+                  </th>
+                  <td>Amount Charged: NGN 5
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <th scope="">Amount  : NGN 5
+
+                  </th>
+                  <td>Amount Charged: NGN 5
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <th scope="">Amount  : NGN 5
+
+                  </th>
+                  <td>Amount Charged: NGN 5
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <th scope="">Amount  : NGN 5
+
+                  </th>
+                  <td>Amount Charged: NGN 5
+                  </td>
+                  
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Table -->
+            </div>
+
+            <div class="col-lg-6">
+                        <!-- Table -->
+<table class="table">
+  <thead class="">
+    <tr>
+      
+      <!-- <th scope="col">Last</th> -->
+      <th scope="col">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="">Amount  : NGN 5
+
+      </th>
+      <td>Amount Charged: NGN 5
+      </td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+<!-- End Table -->
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div>
+              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" >Report Transaction</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary"  >View Commission
+              </button>
+            </div>
+          </div>
+        </div>
+      
+      
+    </div>
+  </div>
+</div>
+
+<!-- End Modal -->
+<!-- Modal -->
+<div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Specify Issue</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>What is the problem?</p>
+        <div class="py-2">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="d-flex justify-content-evenly">
+                <div>
+                  <span class="icon icon-lg icon-soft-primary icon-circle">
+                    <i class="bi-arrow-left-right"></i>
+                  </span>
+                </div>
+                <div>
+                  <h5 class="page-header-title">Agents Name</h5>
+                  <span>19, February 2024</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-auto  ">
+              <div class="d-flex justify-content-end align-item-end align-items-end" >
+               <div>
+                <h5 class="page-header-title ">Agents Name</h5>
+                <span class="text-success">
+                  <strong>NGN 20,000</strong>
+                </span>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- Accordion -->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <div class="accordion-header" id="headingOne">
+              <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                I successfully sent money from my account but no credit yet in my wallet
+
+              </a>
+            </div>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Description</strong>
+                <form class="py-2">
+                  <div class="mb-3">
+                    <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                    <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field" rows="4"></textarea>
+                  </div>
+
+                  <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                    <div class="dz-message">
+                      <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg" alt="Image Description">
+                
+                      <h5>Drag and drop your file here</h5>
+                
+                      <p class="mb-2">or</p>
+                
+                      <span class="btn btn-white btn-sm">Browse files</span>
+                    </div>
+                  </div>
+                <div class="mt-2">
+                  <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" id="headingTwo">
+              <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                My wallet was credited twice for this transaction
+              </a>
+            </div>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Description</strong>
+                <form class="py-2">
+                  <div class="mb-3">
+                    <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                    <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field" rows="4"></textarea>
+                  </div>
+
+                    <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                      <div class="dz-message">
+                        <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg" alt="Image Description" width="50px">
+                  
+                        <h5>Drag and drop your file here</h5>
+                  
+                        <p class="mb-2">or</p>
+                  
+                        <span class="btn btn-white btn-sm">Browse files</span>
+                    </div>
+                  </div>
+                 
+                  <div class="mt-2">
+                    <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+<!-- End Accordion -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
   <!-- Welcome Message Modal -->
   <div class="modal fade" id="welcomeMessageModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -2261,10 +2619,6 @@
     </div>
   </div>
 
-  <!-- Button trigger modal -->
-
-<!-- End Button trigger modal -->
-
 
 
   <!-- JS Implementing Plugins -->
@@ -2351,7 +2705,7 @@
         datatable.columns(6).visible(e.target.checked)
       })
 
-      // datatable.columns(7).visible(false)
+        // datatable.columns(7).visible(false)
 
       $('#toggleColumn_quantity').change(function (e) {
         datatable.columns(7).visible(e.target.checked)

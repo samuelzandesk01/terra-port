@@ -20038,7 +20038,7 @@ label.form-control {
 .modal-top-cover {
   position: relative;
   overflow: hidden;
-  min-height: 8rem;
+  min-height: 10rem;
   border-top-right-radius: 0.6875rem;
   border-top-left-radius: 0.6875rem;
 }
