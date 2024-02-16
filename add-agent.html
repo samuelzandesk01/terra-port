@@ -429,7 +429,7 @@
 
                       <div id="navbarVerticalMenuAuthenticationLoginMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
                         <a class="nav-link active" href="add-agent.html ">Individual Agent</a>
-                        <a class="nav-link " href="add-sole.html">Sole Agent</a>
+                        <a class="nav-link " href="add-sole.html">Sole Proprietorship</a>
                         <a class="nav-link " href="add-corp.html">Corporate </a>
                       </div>
                     </div>
@@ -443,7 +443,7 @@
 
                       <div id="navbarVerticalMenuViewAgent" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
                         <!-- <a class="nav-link " href="#">Individual Agent</a>
-                        <a class="nav-link " href="#">Sole Agent</a>
+                        <a class="nav-link " href="#">Sole Proprietorship</a>
                         <a class="nav-link " href="#">Corporate </a> -->
                         <a class="nav-link " href="agents.html">View Agents</a>
                         <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
@@ -721,7 +721,56 @@
                           "container": "#addPhoneFieldContainer",
                           "defaultCreated": 0
                         }'>
-                  
+                        <div class="row mb-4">
+                          <div class="col-lg-6">
+                            <div class="">
+                              <label for="firstNameLabel" class="form-label">First Name
+                              </label>
+          
+                              <input type="text" class="form-control" name="firstName" id="firstNameLabel" placeholder="James" aria-label="James">
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="">
+                              <label for="middleNameLabel" class="form-label">Middle Name
+                              </label>
+          
+                              <input type="text" class="form-control" name="middleName" id="middleNameLabel" placeholder="Clarice" aria-label="Clarice">
+                            </div>
+                          </div>
+                          <div class="col-lg-6 mt-3">
+                            <div class="">
+                              <label for="lastNameLabel" class="form-label">Last Name
+                              </label>
+          
+                              <input type="text" class="form-control" name="lastName" id="lastNameLabel" placeholder="Donald" aria-label="Donald">
+                            </div>
+                          </div>
+          
+                          <div class="col-lg-6 mt-3">
+                            <label for="emailLabel" class="form-label">Email
+                            </label>
+          
+                            <input type="email" class="form-control" name="email" id="emailLabel" placeholder="clarice@site.com" aria-label="clarice@site.com">
+                          </div>
+                          <div class="col-sm-6 mt-3">
+                            <label for="emailLabel" class="form-label">Gender
+                            </label>
+          
+                            <select id="inputGroupLightGenderSelect" class="form-select">
+                              <option>Select</option>
+                              <option>Male</option>
+                              <option>Female</option>
+                            </select>
+                          </div>
+          
+                          <div class="col-sm-6 mt-3">
+                            <label for="numberLabel" class="form-label">Phone Number
+                            </label>
+          
+                            <input type="text" class="form-control" name="phoneNumber" id="phoneLabel" placeholder="09083747247" minlength="11" maxlength="11">
+                          </div>
+                        </div>
 
                     <div class="col-6">
                       <div class="">
