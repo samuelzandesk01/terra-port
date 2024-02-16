@@ -34,6 +34,10 @@
     body {
       opacity: 0;
     }
+
+    tr{
+      cursor: pointer !important;
+    }
   </style>
 
   <!-- ONLY DEV -->
@@ -794,35 +798,7 @@
               <!-- End Card -->
             </div>
 
-            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-              <!-- Card -->
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="mb-3">
-                    <i class="bi bg-soft-warning rounded-circle bi-check-circle p-2"></i>
-                  </div>
-                  <h6 class="card-subtitle mb-2">Pending Transaction</h6>
-
-                  <div class="row align-items-center gx-2">
-                    <div class="col">
-                      <span class="js-counter display-5 text-dark">
-                        ₦16,950,000</span>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-auto">
-                      <span class="badge bg-warning display-5 text-dark">
-                        39
-                      </span>
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-              <!-- End Card -->
-            </div>
-
+         
             <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
               <!-- Card -->
               <div class="card h-100">
@@ -2261,6 +2237,7 @@
   <!-- End Button trigger modal -->
 
   <!-- Modal -->
+  <!-- Wallet Transaction Modal -->
   <div id="exampleModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2293,7 +2270,7 @@
         <div class="modal-body">
           <div class="text-center">
             <h2 class="display-5">
-              ₦11,000
+              ₦13,000
             </h2>
           </div>
           <div class="row ">
@@ -2307,45 +2284,39 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
+                    <td>
+                      <ul class="list-unstyled list-py-2">
+                        <li>
+                          <strong>Amount:</strong> <span>NGN 5</span>
+                        </li>
+                        <li>
+                          <strong>Amount Charged:</strong> <span>NGN 5</span>
+                        </li>
+                        <li>
+                          <strong>Status:</strong> <span class="badge bg-danher">Failed</span>
+                        </li>
+                        <li>
+                          <strong>Transaction Date: </strong> <span>14 February, 2024 12:37 PM</span>
+                        </li>
+                        <li>
+                          <strong>Recipient Name                           : </strong> <span>Aggregator's Service Fee Commission</span>
+                        </li>
+                        <li>
+                          <strong>Refrence: </strong> <span>COM-ae1faf84-d7c6-4db3-82d5-
+                            529ad401d2fc
+                            </span>
+                        </li>
+                        <li>
+                          <strong>Retry Count: </strong> <span>0</span>
+                        </li>
+                        <li>
+                          <strong>Agent Fee : </strong> <span>45</span>
+                        </li>
+                        
+                      </ul>
                     </td>
-
                   </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
 
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
                 </tbody>
               </table>
               <!-- End Table -->
@@ -2356,87 +2327,48 @@
               <table class="table">
                 <thead class="">
                   <tr>
-
-                    <!-- <th scope="col">Last</th> -->
-                    <th scope="col">
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
+                    <td>  <ul class="list-unstyled list-py-2">
+                      <li> 
+                        <strong>Original Amount</strong> <span>13000.00</span> 
+                      </li>
+                      <li> 
+                        <strong>Service Fee</strong> <span>20.00</span> 
+                      </li>
+                      <li> 
+                        <strong>Type</strong> <span>Wallet Top-up</span> 
+                      </li>
+                      <li> 
+                        <strong>Product</strong> <span>Wallet Credit Commision</span> 
+                      </li>
+                      <li>
+                        <strong>canReprocess: </strong> <span>False <span>
+                      </li>
+                      <li>
+                        <strong>Biller ID: </strong> <span> 84948<span>
+                      </li>
+                      <li>
+                        <strong>Reprocess COunt: </strong> <span>0<span>
+                      </li>
+                      <li> <strong>User Group:</strong><span>TESTING</span> </li>
+                       
+                    </ul></td>
                   </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
 
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <th scope="">Amount : NGN 5
-
-                    </th>
-                    <td>Amount Charged: NGN 5
-                    </td>
-
-                  </tr>
 
                 </tbody>
               </table>
               <!-- End Table -->
             </div>
           </div>
+       
           <div class="d-flex justify-content-between">
             <div>
               <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                data-bs-target="#issueModalCenter">Report Transaction</button>
+                data-bs-target="#transferIssueModalCenter">Report Transaction</button>
             </div>
             <div>
               <button type="button" class="btn btn-primary">View Commission
@@ -2445,11 +2377,11 @@
           </div>
         </div>
 
-
       </div>
     </div>
   </div>
 
+  <!-- Transfer Modal -->
   <div id="tranferModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2525,8 +2457,6 @@
                         <li>
                           <strong>Reprocess Count: </strong> <span>78</span>
                         </li>
-
-
                       </ul>
                     </td>
                   </tr>
@@ -2547,7 +2477,7 @@
                   <tr>
                     <td>  <ul class="list-unstyled list-py-2">
                       <li> 
-                        <strong>Origina Amount</strong> <span>13000.00</span> 
+                        <strong>Original Amount</strong> <span>13000.00</span> 
                       </li>
                       <li> 
                         <strong>Service Fee</strong> <span>20.00</span> 
@@ -2600,7 +2530,7 @@
                           <strong>Response Message:</strong> <span>9847474885</span>
                         </li>
                         <li>
-                          <strong>Group Status:  <strong>Status:</strong> <span class="badge bg-warning">Pending</span>
+                          <strong>Group Status:</strong> <span class="badge bg-success">Success</span>
                         </li>
                        
                       </ul>
@@ -2641,7 +2571,7 @@
 
 
   <!-- End Modal -->
-
+<!-- Transfer Issue Modal -->
   <div id="transferIssueModalCenter" class="modal fade" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -2686,8 +2616,7 @@
                 <div class="accordion-header" id="headingOne">
                   <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
-                    I successfully sent money from my account but no credit yet in my wallet
-
+                    Recipient was not credited.
                   </a>
                 </div>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -2724,7 +2653,7 @@
                 <div class="accordion-header" id="headingTwo">
                   <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    My wallet was credited twice for this transaction
+                    Recipient was credited but debited immediately.
                   </a>
                 </div>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
@@ -2758,16 +2687,132 @@
                   </div>
                 </div>
               </div>
+              <div class="accordion-item">
+                <div class="accordion-header" id="headingTwo">
+                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                    Transfer failed but my wallet was debited
+                  </a>
+                </div>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>Description</strong>
+                    <form class="py-2">
+                      <div class="mb-3">
+                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
+                          rows="4"></textarea>
+                      </div>
+
+                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                        <div class="dz-message">
+                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
+                            alt="Image Description" width="50px">
+
+                          <h5>Drag and drop your file here</h5>
+
+                          <p class="mb-2">or</p>
+
+                          <span class="btn btn-white btn-sm">Browse files</span>
+                        </div>
+                      </div>
+
+                      <div class="mt-2">
+                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <div class="accordion-header" id="headingTwo">
+                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                    My wallet was debited twice for this transaction
+                  </a>
+                </div>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>Description</strong>
+                    <form class="py-2">
+                      <div class="mb-3">
+                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
+                          rows="4"></textarea>
+                      </div>
+
+                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                        <div class="dz-message">
+                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
+                            alt="Image Description" width="50px">
+
+                          <h5>Drag and drop your file here</h5>
+
+                          <p class="mb-2">or</p>
+
+                          <span class="btn btn-white btn-sm">Browse files</span>
+                        </div>
+                      </div>
+
+                      <div class="mt-2">
+                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-header" id="headingTwo">
+                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
+                    Recipient was credited twice for this transaction
+                  </a>
+                </div>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>Description</strong>
+                    <form class="py-2">
+                      <div class="mb-3">
+                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
+                          rows="4"></textarea>
+                      </div>
+
+                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
+                        <div class="dz-message">
+                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
+                            alt="Image Description" width="50px">
+
+                          <h5>Drag and drop your file here</h5>
+
+                          <p class="mb-2">or</p>
+
+                          <span class="btn btn-white btn-sm">Browse files</span>
+                        </div>
+                      </div>
+
+                      <div class="mt-2">
+                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
 
             </div>
             <!-- End Accordion -->
           </div>
         </div>
 
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -2897,10 +2942,10 @@
           </div>
         </div>
 
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

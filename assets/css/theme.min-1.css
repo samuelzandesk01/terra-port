@@ -16059,7 +16059,7 @@ input[type="number"] {
   height: inherit;
 }
 .avatar-xl.avatar-4x3 {
-  width: 6.5625rem;
+  width: 2rem;
   height: auto;
   border-radius: 0;
 }
@@ -27677,11 +27677,12 @@ a:hover .text-inherit {
   background-color: #f8fafd;
   border: 0.125rem dashed rgba(231, 234, 243, 0.7);
   border-radius: 0.5rem;
-  padding: 3rem 3rem;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  padding: 1rem;
+  margin: 7px auto;
+  /* display: -ms-flexbox; */
+  /* display: flex; */
+  /* -ms-flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
 }
 .fancybox-custom .fancybox-slide.animated {
   display: block;
