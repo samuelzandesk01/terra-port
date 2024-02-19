@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title> All Transaction - Dashboard</title>
+  <title> Admin Transaction - Dashboard</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -23,8 +23,11 @@
 
   <link rel="preload" href="assets/css/theme.min-1.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
-  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
   <style data-hs-appearance-onload-styles="">
     * {
@@ -33,10 +36,6 @@
 
     body {
       opacity: 0;
-    }
-
-    tr{
-      cursor: pointer !important;
     }
   </style>
 
@@ -329,7 +328,7 @@
           <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
             <!-- Collapse -->
             <div class="nav-item">
-              <a class="nav-link " href="dashboard.html">
+              <a class="nav-link active" href="#">
                 <i class="bi-house-door nav-icon"></i>
                 <span class="nav-link-title">Dashboards</span>
               </a>
@@ -401,6 +400,7 @@
                 </div>
               </div>
 
+
               <div class="nav-item">
                 <a class="nav-link dropdown-toggle   collapsed" href="#" role="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarVerticalMenuCustomer" aria-expanded="false"
@@ -433,10 +433,9 @@
                 </div>
               </div>
 
-
               <!-- Collapse -->
               <div class="nav-item">
-                <a class="nav-link active " href="transactions.html">
+                <a class="nav-link " href="transactions.html">
                   <i class="bi-bar-chart  nav-icon"></i>
                   <span class="nav-link-title">Transactions</span>
                 </a>
@@ -669,59 +668,49 @@
           <div class="col-sm mb-2 mb-sm-0">
             <h1 class="page-header-title">Transactions </h1>
 
-            <div class="mt-2">
-              <a class="text-body me-3" href="javascript:;">
-                Transaction List
+            <!-- <div class="mt-2">
+              <a class="text-body me-3" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
+                <i class="bi-download me-1"></i> Export
               </a>
-              <a class="text-body me-3">
-                /
+              <a class="text-body" href="javascript:;" data-bs-toggle="modal" data-bs-target="#importProductsModal">
+                <i class="bi-upload me-1"></i> Import
               </a>
-              <a class="text-body" href="javascript:;">
-                All Transaction
-              </a>
-            </div>
+            </div> -->
           </div>
           <!-- End Col -->
 
           <div class="col-sm-auto">
-            <form class="d-flex ">
-              <div>
-                <div>
-                  <select class="form-select form-select-lg">
-                    <option selected="">Filter by type</option>
-                    <option value="all">All</option>
-                    <option value="Agent">Agent</option>
-                    <option value="Merchant">Merchant</option>
-                    <option value="Agent and Merchant">Agent and Merchant</option>
-                    <option value="Aggregator">Aggregator</option>
-                    <option value="Banker">Banker</option>
 
-                  </select>
-                </div>
+            <form class="d-flex ">
+              <div class="tom-select-custom">
+                <select class="js-select form-select" autocomplete="off" data-hs-tom-select-options='{
+                            "placeholder": "<div><i class=\"bi-person me-2\"></i> Select member</div>",
+                            "hideSearch": true,
+                            "width": "10rem"
+                          }'>
+                  <option value="all">All</option>
+                  <option value="Agent">Agent</option>
+                  <option value="Merchant">Merchant</option>
+                  <option value="Agent and Merchant">Agent and Merchant</option>
+                  <option value="Aggregator">Aggregator</option>
+                  <option value="Banker">Banker</option>
+                </select>
               </div>
               <div>
                 <div>
                   <!-- <label for="locationLabel" class="col-form-label form-label"></label> -->
-                  <input class="form-control" type="date" placeholder="Default input">
+
+                  <input type="text" class="js-daterangepicker-clear form-control daterangepicker-custom-input"
+                    placeholder="Select dates" data-hs-daterangepicker-options='{ "autoUpdateInput": false,
+                      "locale": {
+                            "cancelLabel": "Clear"
+                          }
+                        }'>
 
                 </div>
               </div>
-              <div>
-                <div>
-                  <input class="form-control" type="date" placeholder="Default input">
-
-                </div>
-              </div>
+              
             </form>
-            <div class="d-flex mt-2 justify-content-between">
-              <div>
-                <button class="btn btn-primary ">Repush Transaction</button>
-              </div>
-              <div>
-                <button class="btn btn-white btn-lg ">
-                  <i class="bi bi-download"></i> Download Report</button>
-              </div>
-            </div>
           </div>
           <!-- End Col -->
         </div>
@@ -828,7 +817,35 @@
               <!-- End Card -->
             </div>
 
-         
+            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+              <!-- Card -->
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="mb-3">
+                    <i class="bi bg-soft-warning rounded-circle bi-check-circle p-2"></i>
+                  </div>
+                  <h6 class="card-subtitle mb-2">Pending Transaction</h6>
+
+                  <div class="row align-items-center gx-2">
+                    <div class="col">
+                      <span class="js-counter display-5 text-dark">
+                        ₦16,950,000</span>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-auto">
+                      <span class="badge bg-warning display-5 text-dark">
+                        39
+                      </span>
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+
             <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
               <!-- Card -->
               <div class="card h-100">
@@ -909,9 +926,8 @@
           </div>
 
           <div class="d-grid d-sm-flex gap-2">
-            <a href="#" class="btn btn-white" type="button">
-              <i class="bi bi-download"></i> Download Report
-
+            <a href="all-transactions.html" class="btn btn-white" type="button">
+              <i class="bi-eye me-1"></i> View All
             </a>
 
             <!-- Dropdown -->
@@ -1022,7 +1038,7 @@
             class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
             data-hs-datatables-options='{
                    "columnDefs": [{
-                      "targets": [0, 4, 8],
+                      "targets": [0, 4, 7],
                       "width": "5%",
                       "orderable": false
                     }],
@@ -1054,6 +1070,7 @@
               <th>Time</th>
               </tr>
             </thead>
+
 
             <tbody>
 
@@ -1150,23 +1167,23 @@
               </tr>
               <tr>
                 <td class="table-column-pe-0">
-                    2
+                  2
                 </td>
                 <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Jane Smith</h5>
-                            <span>555-123-4567</span>
-                        </div>
-                    </a>
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="text-inherit mb-0">Jane Smith</h5>
+                      <span>555-123-4567</span>
+                    </div>
+                  </a>
                 </td>
                 <td>XYZ789</td>
                 <td>Analyst</td>
                 <td>
-                    Data Analysis Fee
+                  Data Analysis Fee
                 </td>
                 <td>₦60000</td>
                 <td>35</td>
@@ -1174,28 +1191,28 @@
                 <td>1</td>
                 <td><span class="legend-indicator bg-success"></span>Active</td>
                 <td>
-                    2:45 PM
+                  2:45 PM
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="table-column-pe-0">
-                    3
+                  3
                 </td>
                 <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Sarah Johnson</h5>
-                            <span>999-888-7777</span>
-                        </div>
-                    </a>
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="text-inherit mb-0">Sarah Johnson</h5>
+                      <span>999-888-7777</span>
+                    </div>
+                  </a>
                 </td>
                 <td>PQR456</td>
                 <td>Developer</td>
                 <td>
-                    Software Development Fee
+                  Software Development Fee
                 </td>
                 <td>₦90000</td>
                 <td>50</td>
@@ -1203,28 +1220,28 @@
                 <td>2</td>
                 <td><span class="legend-indicator bg-danger"></span>Blocked</td>
                 <td>
-                    4:15 PM
+                  4:15 PM
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="table-column-pe-0">
-                    4
+                  4
                 </td>
                 <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Michael Brown</h5>
-                            <span>333-222-1111</span>
-                        </div>
-                    </a>
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="text-inherit mb-0">Michael Brown</h5>
+                      <span>333-222-1111</span>
+                    </div>
+                  </a>
                 </td>
                 <td>MNO012</td>
                 <td>Manager</td>
                 <td>
-                    Project Management Fee
+                  Project Management Fee
                 </td>
                 <td>₦120000</td>
                 <td>60</td>
@@ -1232,28 +1249,28 @@
                 <td>3</td>
                 <td><span class="legend-indicator bg-success"></span>Active</td>
                 <td>
-                    11:00 AM
+                  11:00 AM
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="table-column-pe-0">
-                    5
+                  5
                 </td>
                 <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Emily Davis</h5>
-                            <span>777-666-5555</span>
-                        </div>
-                    </a>
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="text-inherit mb-0">Emily Davis</h5>
+                      <span>777-666-5555</span>
+                    </div>
+                  </a>
                 </td>
                 <td>GHI345</td>
                 <td>Designer</td>
                 <td>
-                    Graphic Design Fee
+                  Graphic Design Fee
                 </td>
                 <td>₦85000</td>
                 <td>55</td>
@@ -1261,28 +1278,28 @@
                 <td>2</td>
                 <td><span class="legend-indicator bg-success"></span>Active</td>
                 <td>
-                    3:30 PM
+                  3:30 PM
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td class="table-column-pe-0">
-                    6
+                  6
                 </td>
                 <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Robert Wilson</h5>
-                            <span>222-333-4444</span>
-                        </div>
-                    </a>
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="text-inherit mb-0">Robert Wilson</h5>
+                      <span>222-333-4444</span>
+                    </div>
+                  </a>
                 </td>
                 <td>JKL678</td>
                 <td>Consultant</td>
                 <td>
-                    Consulting Fee
+                  Consulting Fee
                 </td>
                 <td>₦70000</td>
                 <td>45</td>
@@ -1290,99 +1307,7 @@
                 <td>2</td>
                 <td><span class="legend-indicator bg-success"></span>Active</td>
                 <td>
-                    9:45 AM
-                </td>
-            </tr>
-
-
-              <tr data-bs-toggle="modal" data-bs-target="#tranferModalTopCover">
-                <td class="table-column-pe-0">
-                  1
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Agent Name</h5>
-                      <span>09038847848</span>
-                    </div>
-                  </a>
-                </td>
-                <td>093874</td>
-                <td>Agents</td>
-                <td>
-                  Aggregator Customer Fee
-                </td>
-                <td>₦80000</td>
-                <td>45</td>
-                <td>Transfer</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-danger"></span>Blocked</td>
-                <td>
-                  12:00 AM
-                </td>
-              </tr>
-
-
-              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
-                <td class="table-column-pe-0">
-                  2
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Business Name</h5>
-                      <span>09038847848</span>
-                    </div>
-                  </a>
-                </td>
-                <td>4563</td>
-                <td>Merchant</td>
-                <td>
-                  Banker Service Commision Fee
-                </td>
-                <td>₦2000</td>
-                <td>5</td>
-                <td>Wallet Top-up</td>
-                <td>0</td>
-                <td><span class="legend-indicator bg-success"></span> Active</td>
-                <td>
-                  02:60 PM
-                </td>
-              </tr>
-
-              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
-                <td class="table-column-pe-0">
-                  1
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Agent Name</h5>
-                      <span>09038847848</span>
-                    </div>
-                  </a>
-                </td>
-                <td>093874</td>
-                <td>Agents</td>
-                <td>
-                  Aggregator Customer Fee
-                </td>
-                <td>₦80000</td>
-                <td>45</td>
-                <td>Commision</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-warning"></span>Pending</td>
-                <td>
-                  12:00 AM
+                  9:45 AM
                 </td>
               </tr>
 
@@ -2499,725 +2424,6 @@
   </div>
   <!-- End Activity -->
 
-  <!-- Modal -->
-
-  <!-- End Button trigger modal -->
-
-  <!-- Modal -->
-  <!-- Wallet Transaction Modal -->
-  <div id="exampleModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <!-- Header -->
-        <div class="modal-top-cover  bg-dark text-center">
-          <div class="py-5">
-            <h4 class=" text-white" id="exampleModalScrollableTitle">Aggregator's Service Fee Commision </h4>
-            <span class="pb-1 text-white"> 11, January 2020 | 07:00 PM</span>
-          </div>
-
-          <figure class="position-absolute end-0 mt-3 bottom-0 start-0" style="top: 2;">
-            <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
-              <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z" />
-            </svg>
-          </figure>
-
-          <div class="modal-close">
-            <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-        <!-- End Header -->
-
-        <div class="modal-top-cover-icon">
-          <span class="icon icon-lg icon-light icon-circle icon-centered shadow-sm">
-            <i class="bi-receipt fs-2"></i>
-          </span>
-        </div>
-
-        <div class="modal-body">
-          <div class="text-center">
-            <h2 class="display-5">
-              ₦13,000
-            </h2>
-          </div>
-          <div class="row ">
-            <div class="col-lg-6">
-              <!-- Table -->
-              <table class="table">
-                <thead class="">
-                  <tr>
-                    <th scope="row">Transaction Information</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <ul class="list-unstyled list-py-2">
-                        <li>
-                          <strong>Amount:</strong> <span>NGN 5</span>
-                        </li>
-                        <li>
-                          <strong>Amount Charged:</strong> <span>NGN 5</span>
-                        </li>
-                        <li>
-                          <strong>Status:</strong> <span class="badge bg-danher">Failed</span>
-                        </li>
-                        <li>
-                          <strong>Transaction Date: </strong> <span>14 February, 2024 12:37 PM</span>
-                        </li>
-                        <li>
-                          <strong>Recipient Name                           : </strong> <span>Aggregator's Service Fee Commission</span>
-                        </li>
-                        <li>
-                          <strong>Refrence: </strong> <span>COM-ae1faf84-d7c6-4db3-82d5-
-                            529ad401d2fc
-                            </span>
-                        </li>
-                        <li>
-                          <strong>Retry Count: </strong> <span>0</span>
-                        </li>
-                        <li>
-                          <strong>Agent Fee : </strong> <span>45</span>
-                        </li>
-                        
-                      </ul>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-              <!-- End Table -->
-            </div>
-
-            <div class="col-lg-6">
-              <!-- Table -->
-              <table class="table">
-                <thead class="">
-                  <tr>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>  <ul class="list-unstyled list-py-2">
-                      <li> 
-                        <strong>Original Amount</strong> <span>13000.00</span> 
-                      </li>
-                      <li> 
-                        <strong>Service Fee</strong> <span>20.00</span> 
-                      </li>
-                      <li> 
-                        <strong>Type</strong> <span>Wallet Top-up</span> 
-                      </li>
-                      <li> 
-                        <strong>Product</strong> <span>Wallet Credit Commision</span> 
-                      </li>
-                      <li>
-                        <strong>canReprocess: </strong> <span>False <span>
-                      </li>
-                      <li>
-                        <strong>Biller ID: </strong> <span> 84948<span>
-                      </li>
-                      <li>
-                        <strong>Reprocess COunt: </strong> <span>0<span>
-                      </li>
-                      <li> <strong>User Group:</strong><span>TESTING</span> </li>
-                       
-                    </ul></td>
-                  </tr>
-
-
-                </tbody>
-              </table>
-              <!-- End Table -->
-            </div>
-          </div>
-       
-          <div class="d-flex justify-content-between">
-            <div>
-              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                data-bs-target="#transferIssueModalCenter">Report Transaction</button>
-            </div>
-            <div>
-              <button type="button" class="btn btn-primary">View Commission
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Transfer Modal -->
-  <div id="tranferModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <!-- Header -->
-        <div class="modal-top-cover  bg-dark text-center">
-          <div class="py-5">
-            <h4 class=" text-white" id="exampleModalScrollableTitle">Aggregator's Service Fee Commision </h4>
-            <span class="pb-1 text-white"> 11, January 2020 | 07:00 PM</span>
-          </div>
-
-          <figure class="position-absolute end-0 mt-3 bottom-0 start-0" style="top: 2;">
-            <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
-              <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z" />
-            </svg>
-          </figure>
-
-          <div class="modal-close">
-            <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-        <!-- End Header -->
-
-        <div class="modal-top-cover-icon">
-          <span class="icon icon-lg icon-light icon-circle icon-centered shadow-sm">
-            <i class="bi-receipt fs-2"></i>
-          </span>
-        </div>
-
-        <div class="modal-body">
-          <div class="text-center">
-            <h2 class="display-5">
-              ₦11,000
-            </h2>
-          </div>
-          <div class="row ">
-            <div class="col-lg-6">
-              <!-- Table -->
-              <table class="table">
-                <thead class="">
-                  <tr>
-                    <th scope="row">Transaction Information</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <ul class="list-unstyled list-py-2">
-                        <li>
-                          <strong>Amount:</strong> <span>NGN 5</span>
-                        </li>
-                        <li>
-                          <strong>Amount Charged:</strong> <span>NGN 5</span>
-                        </li>
-                        <li>
-                          <strong>Status:</strong> <span class="badge bg-success">Success</span>
-                        </li>
-                        <li>
-                          <strong>Transaction Date: </strong> <span>14 February, 2024 12:37 PM</span>
-                        </li>
-                        <li>
-                          <strong>Product Category: </strong> <span>OTHERS</span>
-                        </li>
-                        <li>
-                          <strong>Recipient Acct Number: </strong> <span>08960696854</span>
-                        </li>
-                        <li>
-                          <strong>Remarks: </strong> <span>TRA-Terra Switching & Processing COmpany Limited</span>
-                        </li>
-                        <li>
-                          <strong>Biller ID : </strong> <span>04874849937</span>
-                        </li>
-                        <li>
-                          <strong>Reprocess Count: </strong> <span>78</span>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-              <!-- End Table -->
-            </div>
-
-            <div class="col-lg-6">
-              <!-- Table -->
-              <table class="table">
-                <thead class="">
-                  <tr>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>  <ul class="list-unstyled list-py-2">
-                      <li> 
-                        <strong>Original Amount</strong> <span>13000.00</span> 
-                      </li>
-                      <li> 
-                        <strong>Service Fee</strong> <span>20.00</span> 
-                      </li>
-                      <li> 
-                        <strong>Type</strong> <span>Transfer</span> 
-                      </li>
-                      <li> 
-                        <strong>Product</strong> <span>405</span> 
-                      </li>
-                      <li>
-                        <strong>Recipient Name: </strong> <span>Halimah Olalekan <span>
-                      </li>
-                      <li>
-                        <strong>Recipient Bank: </strong> <span>Kuda Microfinance<span>
-                      </li>
-                      <li>
-                        <strong>Session ID: </strong> <span>0494309493049947892637<span>
-                      </li>
-                      <li> <strong>Reference:</strong><span>COM-ae1faf84-d7c6-4db3-82d5-529ad401d2fc</span> </li>
-                      <li>
-                        <strong>Retry Count:</strong> <span> 5</span>
-                      </li>
-                      <li>
-                        <strong>Agent Fee:</strong> <span> 0</span>
-                      </li>
-                    </ul></td>
-                  </tr>
-
-
-                </tbody>
-              </table>
-              <!-- End Table -->
-            </div>
-          </div>
-          <div class="row">
-            <hr>
-            <div class="col-lg-12">
-              <table class="table">
-                <thead class="">
-                  <tr>
-                    <th scope="row">Gateway Response</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <ul class="list-unstyled list-py-2">
-                        <li>
-                          <strong>Response Message:</strong> <span>9847474885</span>
-                        </li>
-                        <li>
-                          <strong>Group Status:</strong> <span class="badge bg-success">Success</span>
-                        </li>
-                       
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ul class="list-unstyled list-py-2">
-                        <li>
-                          <strong>Response Time:</strong> <span>14 February, 2024 12:37 PM</span>
-                        </li>
-                       
-                      </ul>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-          <div class="d-flex justify-content-between">
-            <div>
-              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                data-bs-target="#transferIssueModalCenter">Report Transaction</button>
-            </div>
-            <div>
-              <button type="button" class="btn btn-primary">View Commission
-              </button>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- End Modal -->
-<!-- Transfer Issue Modal -->
-  <div id="transferIssueModalCenter" class="modal fade" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Specify Issue</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>What is the problem?</p>
-          <div class="py-2">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="d-flex justify-content-evenly">
-                  <div>
-                    <span class="icon icon-lg icon-soft-primary icon-circle">
-                      <i class="bi-arrow-left-right"></i>
-                    </span>
-                  </div>
-                  <div>
-                    <h5 class="page-header-title">Agents Name</h5>
-                    <span>19, February 2024</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-auto  ">
-                <div class="d-flex justify-content-end align-item-end align-items-end">
-                  <div>
-                    <h5 class="page-header-title ">Agents Name</h5>
-                    <span class="text-success">
-                      <strong>NGN 20,000</strong>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <!-- Accordion -->
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingOne">
-                  <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    Recipient was not credited.
-                  </a>
-                </div>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingTwo">
-                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Recipient was credited but debited immediately.
-                  </a>
-                </div>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description" width="50px">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingTwo">
-                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                    Transfer failed but my wallet was debited
-                  </a>
-                </div>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description" width="50px">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingTwo">
-                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
-                    My wallet was debited twice for this transaction
-                  </a>
-                </div>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description" width="50px">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingTwo">
-                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
-                    Recipient was credited twice for this transaction
-                  </a>
-                </div>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description" width="50px">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-            <!-- End Accordion -->
-          </div>
-        </div>
-
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- Modal -->
-  <div id="issueModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Specify Issue</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>What is the problem?</p>
-          <div class="py-2">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="d-flex justify-content-evenly">
-                  <div>
-                    <span class="icon icon-lg icon-soft-primary icon-circle">
-                      <i class="bi-arrow-left-right"></i>
-                    </span>
-                  </div>
-                  <div>
-                    <h5 class="page-header-title">Agents Name</h5>
-                    <span>19, February 2024</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-auto  ">
-                <div class="d-flex justify-content-end align-item-end align-items-end">
-                  <div>
-                    <h5 class="page-header-title ">Agents Name</h5>
-                    <span class="text-success">
-                      <strong>NGN 20,000</strong>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <!-- Accordion -->
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingOne">
-                  <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    I successfully sent money from my account but no credit yet in my wallet
-
-                  </a>
-                </div>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <div class="accordion-header" id="headingTwo">
-                  <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    My wallet was credited twice for this transaction
-                  </a>
-                </div>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Description</strong>
-                    <form class="py-2">
-                      <div class="mb-3">
-                        <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
-                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
-                          rows="4"></textarea>
-                      </div>
-
-                      <div id="basicExampleDropzone" class="js-dropzone row dz-dropzone dz-dropzone-card">
-                        <div class="dz-message">
-                          <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                            alt="Image Description" width="50px">
-
-                          <h5>Drag and drop your file here</h5>
-
-                          <p class="mb-2">or</p>
-
-                          <span class="btn btn-white btn-sm">Browse files</span>
-                        </div>
-                      </div>
-
-                      <div class="mt-2">
-                        <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <!-- End Accordion -->
-          </div>
-        </div>
-
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-      </div>
-    </div>
-  </div>
-  <!-- End Modal -->
-
   <!-- Welcome Message Modal -->
   <div class="modal fade" id="welcomeMessageModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -3416,6 +2622,10 @@
     </div>
   </div>
 
+  <!-- Button trigger modal -->
+
+  <!-- End Button trigger modal -->
+
 
 
   <!-- JS Implementing Plugins -->
@@ -3423,6 +2633,20 @@
 
   <!-- JS Front -->
   <script src="assets/js/theme.min.js"></script>
+
+  <script>
+    $(document).on('ready', function () {
+      HSCore.components.HSDaterangepicker.init('.js-daterangepicker-clear')
+
+      $('.js-daterangepicker-clear').on('apply.daterangepicker', function (ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      })
+
+      $('.js-daterangepicker-clear').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('')
+      })
+    });
+  </script>
 
   <!-- JS Plugins Init. -->
   <script>
