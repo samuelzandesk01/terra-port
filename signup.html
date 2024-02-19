@@ -344,12 +344,13 @@
                     <!-- End Radio Check -->
                   </div>
                 </div>
-
-
-              <div class="d-grid gap-2 mt-3">
-                <button type="submit" class="btn btn-primary btn-lg">Create an account</button>
-
+                <div class="d-grid gap-2 mt-3">
+                  <a id="submitButton" href="#" class="btn btn-primary btn-lg">Create an account</a>
               </div>
+
+              <!-- <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-primary btn-lg">Create an account</button>
+              </div> -->
             </form>
             <!-- End Form -->
           </div>
@@ -389,5 +390,33 @@
       }
     })()
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Get radio buttons
+      var radioButtons = document.querySelectorAll('input[name="userAccountTypeRadio"]');
+
+      // Function to update href value based on user selection
+      function updateHrefValue() {
+          var hrefValue;
+          if (document.getElementById('userAccountTypeRadio4').checked) {
+              hrefValue = 'individual.html'; // Unregistered Business
+          } else if (document.getElementById('userAccountTypeRadio5').checked) {
+              hrefValue = 'sole-proprietor.html'; // Sole Proprietorship / Enterprise
+          } else if (document.getElementById('userAccountTypeRadio6').checked) {
+              hrefValue = 'corporate.html'; // Corporate
+          }
+          document.getElementById('submitButton').href = hrefValue;
+      }
+
+      // Add event listener to each radio button
+      radioButtons.forEach(function(button) {
+          button.addEventListener('change', updateHrefValue);
+      });
+
+      // Initial call to set the default href value
+      updateHrefValue();
+  });
+</script>
 </body>
 </html>
