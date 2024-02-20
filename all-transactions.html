@@ -23,8 +23,11 @@
 
   <link rel="preload" href="assets/css/theme.min-1.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
-  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 
   <style data-hs-appearance-onload-styles="">
     * {
@@ -37,6 +40,10 @@
 
     tr{
       cursor: pointer !important;
+    }
+
+    .table-align-middle tbody tr, .table-align-middle td, .table-align-middle th{
+      cursor: pointer;
     }
   </style>
 
@@ -684,44 +691,37 @@
           <!-- End Col -->
 
           <div class="col-sm-auto">
-            <form class="d-flex ">
-              <div>
-                <div>
-                  <select class="form-select form-select-lg">
-                    <option selected="">Filter by type</option>
-                    <option value="all">All</option>
-                    <option value="Agent">Agent</option>
-                    <option value="Merchant">Merchant</option>
-                    <option value="Agent and Merchant">Agent and Merchant</option>
-                    <option value="Aggregator">Aggregator</option>
-                    <option value="Banker">Banker</option>
 
-                  </select>
-                </div>
+            <form class="d-flex ">
+              <div class="tom-select-custom">
+                <select class="js-select form-select" autocomplete="off" data-hs-tom-select-options='{
+                            "placeholder": "<div><i class=\"bi-person me-2\"></i> Select member</div>",
+                            "hideSearch": true,
+                            "width": "10rem"
+                          }'>
+                  <option value="all">All</option>
+                  <option value="Agent">Agent</option>
+                  <option value="Merchant">Merchant</option>
+                  <option value="Agent and Merchant">Agent and Merchant</option>
+                  <option value="Aggregator">Aggregator</option>
+                  <option value="Banker">Banker</option>
+                </select>
               </div>
               <div>
                 <div>
                   <!-- <label for="locationLabel" class="col-form-label form-label"></label> -->
-                  <input class="form-control" type="date" placeholder="Default input">
+
+                  <input type="text" class="js-daterangepicker-clear form-control daterangepicker-custom-input"
+                    placeholder="Select dates" data-hs-daterangepicker-options='{ "autoUpdateInput": false,
+                      "locale": {
+                            "cancelLabel": "Clear"
+                          }
+                        }'>
 
                 </div>
               </div>
-              <div>
-                <div>
-                  <input class="form-control" type="date" placeholder="Default input">
-
-                </div>
-              </div>
+              
             </form>
-            <div class="d-flex mt-2 justify-content-between">
-              <div>
-                <button class="btn btn-primary ">Repush Transaction</button>
-              </div>
-              <div>
-                <button class="btn btn-white btn-lg ">
-                  <i class="bi bi-download"></i> Download Report</button>
-              </div>
-            </div>
           </div>
           <!-- End Col -->
         </div>
@@ -1058,7 +1058,7 @@
             <tbody>
 
 
-              <tr>
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                   1
                 </td>
@@ -1089,7 +1089,7 @@
               </tr>
 
 
-              <tr>
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                   2
                 </td>
@@ -1119,7 +1119,7 @@
                 </td>
               </tr>
 
-              <tr>
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                   1
                 </td>
@@ -1177,7 +1177,7 @@
                     2:45 PM
                 </td>
             </tr>
-            <tr>
+            <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                     3
                 </td>
@@ -1206,7 +1206,7 @@
                     4:15 PM
                 </td>
             </tr>
-            <tr>
+            <tr data-bs-toggle="modal" data-bs-target="#tranferModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                     4
                 </td>
@@ -1228,14 +1228,14 @@
                 </td>
                 <td>₦120000</td>
                 <td>60</td>
-                <td>6</td>
+                <td>Tranfer</td>
                 <td>3</td>
                 <td><span class="legend-indicator bg-success"></span>Active</td>
                 <td>
                     11:00 AM
                 </td>
             </tr>
-            <tr>
+            <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                     5
                 </td>
@@ -1264,7 +1264,7 @@
                     3:30 PM
                 </td>
             </tr>
-            <tr>
+            <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                     6
                 </td>
@@ -1295,7 +1295,7 @@
             </tr>
 
 
-              <tr data-bs-toggle="modal" data-bs-target="#tranferModalTopCover">
+              <tr data-bs-toggle="modal" data-bs-target="#tranferModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                   1
                 </td>
@@ -1326,7 +1326,7 @@
               </tr>
 
 
-              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                   2
                 </td>
@@ -1356,7 +1356,7 @@
                 </td>
               </tr>
 
-              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover">
+              <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
                 <td class="table-column-pe-0">
                   1
                 </td>
@@ -3553,6 +3553,20 @@
   </script>
 
   <!-- Style Switcher JS -->
+
+  <script>
+    $(document).on('ready', function () {
+      HSCore.components.HSDaterangepicker.init('.js-daterangepicker-clear')
+
+      $('.js-daterangepicker-clear').on('apply.daterangepicker', function (ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      })
+
+      $('.js-daterangepicker-clear').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('')
+      })
+    });
+  </script>
 
   <script>
       (function () {
