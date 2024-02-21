@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title> Admin Transaction - Dashboard</title>
+  <title>Customer - Admin Dashboard</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -23,11 +23,6 @@
 
   <link rel="preload" href="assets/css/theme.min-1.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
   <style data-hs-appearance-onload-styles="">
     * {
@@ -141,6 +136,7 @@
   <script src="assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
 
   <!-- ========== HEADER ========== -->
+
   <header id="header"
     class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
     <div class="navbar-nav-wrap">
@@ -179,12 +175,12 @@
 
               <input type="search" class="js-form-search form-control" placeholder="Search in front"
                 aria-label="Search in front" data-hs-form-search-options='{
-                       "clearIcon": "#clearSearchResultsIcon",
-                       "dropMenuElement": "#searchDropdownMenu",
-                       "dropMenuOffset": 20,
-                       "toggleIconOnFocus": true,
-                       "activeClass": "focus"
-                     }'>
+                     "clearIcon": "#clearSearchResultsIcon",
+                     "dropMenuElement": "#searchDropdownMenu",
+                     "dropMenuOffset": 20,
+                     "toggleIconOnFocus": true,
+                     "activeClass": "focus"
+                   }'>
               <a class="input-group-append input-group-text" href="javascript:;">
                 <i id="clearSearchResultsIcon" class="bi-x-lg" style="display: none;"></i>
               </a>
@@ -194,12 +190,12 @@
           <button
             class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none"
             type="button" data-hs-form-search-options='{
-                       "clearIcon": "#clearSearchResultsIcon",
-                       "dropMenuElement": "#searchDropdownMenu",
-                       "dropMenuOffset": 20,
-                       "toggleIconOnFocus": true,
-                       "activeClass": "focus"
-                     }'>
+                     "clearIcon": "#clearSearchResultsIcon",
+                     "dropMenuElement": "#searchDropdownMenu",
+                     "dropMenuOffset": 20,
+                     "toggleIconOnFocus": true,
+                     "activeClass": "focus"
+                   }'>
             <i class="bi-search"></i>
           </button>
           <!-- End Input Group -->
@@ -293,6 +289,10 @@
     </div>
   </header>
 
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <!-- Navbar Vertical -->
 
   <aside
     class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
@@ -328,20 +328,20 @@
           <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
             <!-- Collapse -->
             <div class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link " href="#">
                 <i class="bi-house-door nav-icon"></i>
                 <span class="nav-link-title">Dashboards</span>
               </a>
 
               <!-- <div id="navbarVerticalMenuDashboards" class="nav-collapse collapse show" data-bs-parent="#navbarVerticalMenu">
-                <a class="nav-link active" href="dashboard.html">Default</a>
-                <a class="nav-link " href="dashboard-alternative.html">Alternative</a>
-              </div> -->
+              <a class="nav-link active" href="dashboard.html">Default</a>
+              <a class="nav-link " href="dashboard-alternative.html">Alternative</a>
+            </div> -->
             </div>
             <!-- End Collapse -->
 
             <!-- <span class="dropdown-header mt-4">Pages</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small> -->
+          <small class="bi-three-dots nav-subtitle-replacer"></small> -->
 
             <!-- Collapse -->
             <div class="navbar-nav nav-compact">
@@ -388,8 +388,8 @@
                       <div id="navbarVerticalMenuViewAgent" class="nav-collapse collapse "
                         data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
                         <!-- <a class="nav-link " href="#">Individual Agent</a>
-                        <a class="nav-link " href="#">Sole Proprietorship</a>
-                        <a class="nav-link " href="#">Corporate </a> -->
+                      <a class="nav-link " href="#">Sole Proprietorship</a>
+                      <a class="nav-link " href="#">Corporate </a> -->
                         <a class="nav-link " href="agents.html">View Agents</a>
                         <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
                         <a class="nav-link " href="aggregators.html">View Aggregators </a>
@@ -511,8 +511,8 @@
                         <a class="nav-link " href="#">Terminal Report</a>
                         <a class="nav-link " href="#">Performance Report</a>
                         <!-- <a class="nav-link " href="#">Tickets</a>
-                        <a class="nav-link " href="#">System Monitor</a>
-                        <a class="nav-link " href="#">Transactions Summary</a> -->
+                      <a class="nav-link " href="#">System Monitor</a>
+                      <a class="nav-link " href="#">Transactions Summary</a> -->
 
                       </div>
                     </div>
@@ -658,716 +658,609 @@
     </div>
   </aside>
 
-
   <main id="content" role="main" class="main">
     <!-- Content -->
-    <div class="content container-fluid bg-light">
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="row align-items-center mb-3">
-          <div class="col-sm mb-2 mb-sm-0">
-            <h1 class="page-header-title">Transactions </h1>
-
-            <!-- <div class="mt-2">
-              <a class="text-body me-3" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
-                <i class="bi-download me-1"></i> Export
-              </a>
-              <a class="text-body" href="javascript:;" data-bs-toggle="modal" data-bs-target="#importProductsModal">
-                <i class="bi-upload me-1"></i> Import
-              </a>
-            </div> -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-auto">
-
-            <form class="d-flex ">
-              <div class="tom-select-custom">
-                <select class="js-select form-select" autocomplete="off" data-hs-tom-select-options='{
-                            "placeholder": "<div><i class=\"bi-person me-2\"></i> Select member</div>",
-                            "hideSearch": true,
-                            "width": "10rem"
-                          }'>
-                  <option value="all">All</option>
-                  <option value="Agent">Agent</option>
-                  <option value="Merchant">Merchant</option>
-                  <option value="Agent and Merchant">Agent and Merchant</option>
-                  <option value="Aggregator">Aggregator</option>
-                  <option value="Banker">Banker</option>
-                </select>
-              </div>
-              <div>
-                <div>
-                  <!-- <label for="locationLabel" class="col-form-label form-label"></label> -->
-
-                  <input type="text" class="js-daterangepicker-clear form-control daterangepicker-custom-input"
-                    placeholder="Select dates" data-hs-daterangepicker-options='{ "autoUpdateInput": false,
-                      "locale": {
-                            "cancelLabel": "Clear"
-                          }
-                        }'>
-
-                </div>
-              </div>
-              
-            </form>
-          </div>
-          <!-- End Col -->
-        </div>
-        <!-- End Row -->
-
-
-        <!-- End Nav Scroller -->
-      </div>
-      <!-- End Page Header -->
-
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="col-lg-12">
-            <div class="col-sm my-sm-2">
-              <h4 class=" ">Transaction Overview</h4>
+    <div class="content container-fluid">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-11">
+          <!-- Profile Cover -->
+          <div class="profile-cover">
+            <div class="profile-cover-img-wrapper">
+              <img class="profile-cover-img" src="assets/img/1920x400/img1.jpg" alt="Image Description">
             </div>
           </div>
-          <!-- Stats -->
+          <!-- End Profile Cover -->
+
+          <!-- Profile Header -->
+          <div class="text-center mb-5">
+            <!-- Avatar -->
+            <div class="avatar avatar-xxl avatar-circle profile-cover-avatar">
+              <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+              <span class="avatar-status avatar-status-success"></span>
+            </div>
+            <!-- End Avatar -->
+
+            <h1 class="page-header-title">Onyinye James<i class="bi-patch-check-fill fs-2 text-success"
+                data-bs-toggle="tooltip" data-bs-placement="top" title="Active"></i></h1>
+
+            <!-- List -->
+            <ul class="list-inline list-px-2">
+              <li class="list-inline-item">
+                <i class="bi-building me-1"></i>
+                <span>Aggregator</span>
+              </li>
+
+              <li class="list-inline-item">
+                <i class="bi-geo-alt me-1"></i>
+                <a href="#">Lagos</a>
+                <a href="#">Nigeria</a>
+              </li>
+
+              <li class="list-inline-item">
+                <i class="bi-calendar-week me-1"></i>
+                <span>Created: 10th March, 2024 </span>
+              </li>
+            </ul>
+            <!-- End List -->
+          </div>
+          <!-- End Profile Header -->
+
+
+
           <div class="row">
-            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+            <div class="col-lg-5">
               <!-- Card -->
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="my-3">
-                    <i class="bi bg-soft-info rounded-circle bi-arrows-move p-2"></i>
-                  </div>
-                  <h6 class="card-subtitle mb-2">Total Transactions</h6>
 
-                  <div class="row align-items-center gx-2">
-                    <div class="col">
-                      <span class="js-counter display-5 text-dark">
-                        ₦24,950,000</span>
-                    </div>
-                    <!-- End Col -->
+              <!-- End Card -->
 
-                    <div class="col-auto">
-                      <span class="badge bg-info display-5 text text-white">
-                        4,009
-                      </span>
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
+              <!-- Sticky Block Start Point -->
+              <div id="accountSidebarNav"></div>
+
+              <!-- Card -->
+              <div class="js-sticky-block card mb-3 mb-lg-5" data-hs-sticky-block-options='{
+                     "parentSelector": "#accountSidebarNav",
+                     "breakpoint": "lg",
+                     "startPoint": "#accountSidebarNav",
+                     "endPoint": "#stickyBlockEndPoint",
+                     "stickyOffsetTop": 20
+                   }'>
+                <!-- Header -->
+                <div class="card-header">
+                  <h4 class="card-header-title">Profile</h4>
                 </div>
+                <!-- End Header -->
+
+                <!-- Body -->
+                <div class="card-body">
+                  <ul class="list-unstyled list-py-2 text-dark mb-0">
+                    <li class="pb-0"><span class="card-subtitle">About</span></li>
+                    <li><i class="bi-person dropdown-item-icon"></i> Onyinye James</li>
+                    <li><i class="bi-envelope dropdown-item-icon"></i> onyinyejames@gmail.com</li>
+                    <li><i class="bi-calendar dropdown-item-icon"></i> 01 January, 1991</li>
+                    <li><i class="bi-briefcase dropdown-item-icon"></i> KYC Status: <span
+                        class="badge bg-success">ACTIVE</span> </li>
+                    <li class="my-3">
+                      <button class="btn btn-danger w-100">
+                        <i class="bi-person-x dropdown-item-icon text-white"></i> Decline KYC
+                      </button>
+                    </li>
+
+                    <li class="pt-4 pb-0"><span class="card-subtitle">Account Information</span></li>
+                    <li>
+                      <!-- Accordion -->
+                      <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                          <div class="accordion-header" id="headingOne">
+                            <div class="d-flex">
+                              <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Personal Information
+                              </a>
+                              <a class="btn" data-bs-toggle="offcanvas" href="#personInfo" role="button"
+                                aria-controls="personInfo">
+                                View
+                              </a>
+
+                            </div>
+
+                          </div>
+                          <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <!-- Table -->
+                              <table class="table">
+
+                                <tbody>
+                                  <tr>
+                                    <th>Firstname</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Lastname</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Middlename</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-secondary">
+                                        <i class="bi-x"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Email</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-secondary">
+                                        <i class="bi-x"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>BVN</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>NIN</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- End Table -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <div class="accordion-header" id="headingTwo">
+                            <div class="d-flex">
+                              <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Business Information
+                              </a>
+                              <a class="btn" data-bs-toggle="offcanvas" href="#businessInfo" role="button"
+                                aria-controls="businessInfo">
+                                View
+                              </a>
+                            </div>
+                          </div>
+                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <table class="table">
+
+                                <tbody>
+                                  <tr>
+                                    <th>Business Name</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Business Email</th>
+                                    <td> <span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th>Address</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>State</th>
+                                    <td>Lagos</td>
+                                  </tr>
+                                  <tr>
+                                    <th>LGA</th>
+                                    <td>Eti-Osa</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Business</th>
+                                    <td><span class="badge bg-success">
+                                        Available
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Place of Business</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <div>
+                                <img
+                                  src="https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg"
+                                  class="w-100  img-fluid" alt="...">
+                              </div>
+                              <!-- End Table -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <div class="accordion-header" id="headingTwo">
+                            <div class="d-flex">
+                              <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                CAC Information
+                              </a>
+                              <a class="btn" data-bs-toggle="offcanvas" href="#businessDoc" role="button"
+                                aria-controls="businessDoc">
+                                View
+                              </a>
+                            </div>
+                          </div>
+                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <table class="table">
+
+                                <tbody>
+                                  <tr>
+                                    <th>RC Number</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Tax Identification Number</th>
+                                    <td> <span class="icon rounded-circle icon-xs icon-danger">
+                                        <i class="bi-x"></i>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th>CAC Certificate</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+
+                                </tbody>
+                              </table>
+                              <!-- End Table -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <div class="accordion-header" id="headingTwo">
+                            <div class="d-flex">
+                              <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Other Document                              </a>
+                              <a class="btn" data-bs-toggle="offcanvas" href="#otherDoc" role="button"
+                                aria-controls="otherDoc">
+                                View
+                              </a>
+                            </div>
+                          </div>
+                          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <table class="table">
+
+                                <tbody>
+                                  <tr>
+                                    <th>Utility Bill</th>
+                                    <td><span class="icon rounded-circle icon-xs icon-success">
+                                        <i class="bi-check"></i>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Identification</th>
+                                    <td> <span class="icon rounded-circle icon-xs icon-danger">
+                                        <i class="bi-x"></i>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- End Table -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Accordion -->
+                    </li>
+                    <!-- <li><i class="bi-phone dropdown-item-icon"></i> +1 (609) 972-22-22</li>
+
+                    <li class="pt-4 pb-0"><span class="card-subtitle">Teams</span></li>
+                    <li><i class="bi-people dropdown-item-icon"></i> Member of 7 teams</li>
+                    <li><i class="bi-stickies dropdown-item-icon"></i> Working on 8 projects</li> -->
+                  </ul>
+                </div>
+                <!-- End Body -->
               </div>
               <!-- End Card -->
             </div>
 
-            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-              <!-- Card -->
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="my-3">
-                    <i class="bi bg-soft-success rounded-circle bi-check-circle p-2"></i>
-                  </div>
-                  <h6 class="card-subtitle mb-2">Successful Transaction</h6>
+            <div class="col-lg-7">
+              <div class="d-grid gap-3 gap-lg-5">
+                <!-- Card -->
+                <div class="card">
+                  <!-- Header -->
+                  
 
-                  <div class="row align-items-center gx-2">
-                    <div class="col">
-                      <span class="js-counter display-5 text-dark">
-                        ₦16,950,000</span>
-                    </div>
-                    <!-- End Col -->
+                  <!-- Body -->
+                  <div class="card-body card-body-height" style="height: 30rem;">
+                    <!-- Step -->
+                    <div>
+                      <div>
+                        <div style="width: 15rem;">
+                          <img src="https://previews.123rf.com/images/apoev/apoev2107/apoev210700036/171406059-default-avatar-photo-placeholder-gray-profile-picture-icon-business-woman-illustration.jpg" class="img-thumbnail" alt="...">
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <table class="table">
 
-                    <div class="col-auto">
-                      <span class="badge bg-success display-5 text-white">
-                        3,009
-                      </span>
+                          <tbody>
+                            <tr>
+                              <th>Firstname</th>
+                              <td> Onyinye
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Lastname</th>
+                              <td>James</td>
+                            </tr>
+                            <tr>
+                              <th>Middlename</th>
+                              <td>Kalu</td>
+                            </tr>
+                            <tr>
+                              <th>Email</th>
+                              <td> onyinyejames@gmail.com
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Phone Number</th>
+                              <td> 090383784787
+                              </td>
+                            </tr>
+                            
+                              <th>Gender</th>
+                              <td>Female</td>
+                            </tr>
+                            <tr>
+                              <th>Date of Birth</th>
+                              <td> 01 January, 1991
+                              </td>
+                            </tr>
+                            
+                
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                    <!-- End Col -->
+                    <!-- End Step -->
                   </div>
-                  <!-- End Row -->
+                  <!-- End Body -->
                 </div>
-              </div>
-              <!-- End Card -->
-            </div>
+                <!-- End Card -->
 
-            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-              <!-- Card -->
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="my-3">
-                    <i class="bi bg-soft-danger rounded-circle bi-check-circle p-2"></i>
-                  </div>
-                  <h6 class="card-subtitle mb-2">Failed Transaction</h6>
+                <div class="row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                    <!-- Card -->
+                    <div class="card h-100">
+                      <!-- Header -->
+                      <div class="card-header">
+                        <h4 class="card-header-title">Wallet Information</h4>
+                      </div>
+                      <!-- End Header -->
 
-                  <div class="row align-items-center gx-2">
-                    <div class="col">
-                      <span class="js-counter display-5 text-dark">
-                        ₦16,950,000</span>
+                      <!-- Body -->
+                      <div class="card-body">
+                        <ul class="list-unstyled list-py-3 mb-0">
+                          <!-- Item -->
+                          <li>
+                            <div class="d-flex align-items-center">
+                              <a class="d-flex align-items-center me-2" href="#">
+                                <div class="flex-shrink-0">
+                                  <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
+                                    <span class="avatar-initials">K</span>
+                                    <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                                  </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                  <h5 class="text-hover-primary mb-0">Kuda Micro Finance Bank</h5>
+                                  <span class="fs-1 text-body">2594830389</span> <br>
+                                  <sub>Terra Moni / Business Name</sub>
+                                </div>
+                              </a>
+                              <div class="ms-auto">
+                                <!-- Form Check -->
+                                <div class="form-check form-check-switch">
+                                  <p class="text-hover-primary mb-0">Wallet Balance</p>
+                                  <span class="fs-1 text-body">₦9,000</span>
+                                </div>
+                                <!-- End Form Check -->
+                              </div>
+                            </div>
+                          </li>
+                          <!-- End Item -->
+
+                        </ul>
+                      </div>
+                      <!-- End Body -->
                     </div>
-                    <!-- End Col -->
-
-                    <div class="col-auto">
-                      <span class="badge bg-danger display-5 text-white">
-                        3,009
-                      </span>
-                    </div>
-                    <!-- End Col -->
+                    <!-- End Card -->
                   </div>
-                  <!-- End Row -->
+
                 </div>
-              </div>
-              <!-- End Card -->
-            </div>
+                <!-- End Row -->
 
-            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-              <!-- Card -->
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="mb-3">
-                    <i class="bi bg-soft-warning rounded-circle bi-check-circle p-2"></i>
+                <!-- Card -->
+                <div class="card">
+                  <!-- Header -->
+                  <div class="card-header card-header-content-between">
+                    <h4 class="card-header-title">Transactions</h4>
+
+                   
                   </div>
-                  <h6 class="card-subtitle mb-2">Pending Transaction</h6>
-
-                  <div class="row align-items-center gx-2">
-                    <div class="col">
-                      <span class="js-counter display-5 text-dark">
-                        ₦16,950,000</span>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-auto">
-                      <span class="badge bg-warning display-5 text-dark">
-                        39
-                      </span>
-                    </div>
-                    <!-- End Col -->
+                  <!-- End Header -->
+                  <div class="card-body card-body-height">
+                    <ul class="list-group list-group-flush list-group-no-gutters">
+                      <!-- List Item -->
+                      <li class="list-group-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0">
+                            <!-- Avatar -->
+                            <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                              <span class="avatar-initials">B</span>
+                            </div>
+                            <!-- End Avatar -->
+                          </div>
+      
+                          <div class="flex-grow-1 ms-3">
+                            <div class="row">
+                              <div class="col-7 col-md-5 order-md-1">
+                                <h5 class="mb-0">Willian Adewale</h5>
+                                <span class="fs-6 text-body">First City Munument Bank</span>
+                              </div>
+      
+                              <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                <h5 class="mb-0">-₦290.00 NGN</h5>
+                                <span class="fs-6 text-body">15 May, 2020</span>
+                              </div>
+      
+                              <div class="col-auto col-md-3 order-md-2">
+                                <span class="badge bg-soft-warning text-warning rounded-pill">Pending</span>
+                              </div>
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                      </li>
+                      <!-- End List Item -->
+      
+      
+                      <!-- List Item -->
+                      <li class="list-group-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0">
+                            <!-- Avatar -->
+                            <img class="avatar avatar-sm avatar-circle" src="./assets/svg/brands/spotify-icon.svg" alt="Image Description">
+                            <!-- End Avatar -->
+                          </div>
+      
+                          <div class="flex-grow-1 ms-3">
+                            <div class="row">
+                              <div class="col-7 col-md-5 order-md-1">
+                                <h5 class="mb-0">Spotify</h5>
+                                <span class="fs-6 text-body">Subscription payment</span>
+                              </div>
+      
+                              <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                <h5 class="mb-0">-₦410.00 NGN</h5>
+                                <span class="fs-6 text-body">12 May, 2020</span>
+                              </div>
+      
+                              <div class="col-auto col-md-3 order-md-2">
+                                <span class="badge bg-soft-danger text-danger rounded-pill">Failed</span>
+                              </div>
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                      </li>
+                      <!-- End List Item -->
+      
+                      <!-- List Item -->
+                      <li class="list-group-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0">
+                            <!-- Avatar -->
+                            <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                              <span class="avatar-initials">R</span>
+                            </div>
+                            <!-- End Avatar -->
+                          </div>
+      
+                          <div class="flex-grow-1 ms-3">
+                            <div class="row">
+                              <div class="col-7 col-md-5 order-md-1">
+                                <h5 class="mb-0">Rachel Omodoyin</h5>
+                                <span class="fs-6 text-body">Kuda Microfinance</span>
+                              </div>
+      
+                              <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                <h5 class="text-success mb-0">₦290.00 NGN</h5>
+                                <span class="fs-6 text-body">28 April, 2020</span>
+                              </div>
+      
+                              <div class="col-auto col-md-3 order-md-2">
+                                <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
+                              </div>
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                      </li>
+                      <!-- End List Item -->
+      
+                      <!-- List Item -->
+                      <li class="list-group-item">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0">
+                            <!-- Avatar -->
+                            <img class="avatar avatar-sm avatar-circle" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+                            <!-- End Avatar -->
+                          </div>
+      
+                          <div class="flex-grow-1 ms-3">
+                            <div class="row">
+                              <div class="col-7 col-md-5 order-md-1">
+                                <h5 class="mb-0">Ella Dosumu</h5>
+                                <span class="fs-6 text-body">Transfer to bank account</span>
+                              </div>
+      
+                              <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                <h5 class="mb-0">-₦250.00 USD</h5>
+                                <span class="fs-6 text-body">01 May, 2020</span>
+                              </div>
+      
+                              <div class="col-auto col-md-3 order-md-2">
+                                <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
+                              </div>
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                      </li>
+                      <!-- End List Item -->
+                    </ul>
                   </div>
-                  <!-- End Row -->
+
+                  <!-- Footer -->
+                  <a class="card-footer text-center" href="#">
+                    View all Transactions <i class="bi-chevron-right"></i>
+                  </a>
+                  <!-- End Footer -->
                 </div>
+                <!-- End Card -->
               </div>
-              <!-- End Card -->
+
+              <!-- Sticky Block End Point -->
+              <div id="stickyBlockEndPoint"></div>
             </div>
-
-            <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-              <!-- Card -->
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="mb-3">
-                    <i class="bi bg-soft-warning rounded-circle bi-check-circle p-2"></i>
-                  </div>
-                  <h6 class="card-subtitle mb-2">Pending Transaction</h6>
-
-                  <div class="row align-items-center gx-2">
-                    <div class="col">
-                      <span class="js-counter display-5 text-dark">
-                        ₦16,950,000</span>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-auto">
-                      <span class="badge bg-warning display-5 text-dark">
-                        3,009
-                      </span>
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-              <!-- End Card -->
-            </div>
-          </div>
-          <!-- End Stats -->
-        </div>
-      </div>
-
-      <div class="row justify-content-end mb-3">
-        <div class="col-lg">
-          <!-- Datatable Info -->
-          <div id="datatableCounterInfo" style="display: none;">
-            <div class="d-sm-flex justify-content-lg-end align-items-sm-center">
-              <span class="d-block d-sm-inline-block fs-5 me-3 mb-2 mb-sm-0">
-                <span id="datatableCounter">0</span>
-                Selected
-              </span>
-              <a class="btn btn-outline-danger btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-trash"></i> Delete
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-archive"></i> Archive
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-upload"></i> Publish
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0" href="javascript:;">
-                <i class="bi-x-lg"></i> Unpublish
-              </a>
-            </div>
-          </div>
-          <!-- End Datatable Info -->
-        </div>
-      </div>
-      <!-- End Row -->
-
-      <!-- Card -->
-      <div class="card">
-        <!-- Header -->
-        <div class="card-header card-header-content-md-between">
-          <div class="mb-2 mb-md-0">
-            <form>
-              <!-- Search -->
-              <div class="input-group input-group-merge input-group-flush">
-                <div class="input-group-prepend input-group-text">
-                  <i class="bi-search"></i>
-                </div>
-                <input id="datatableSearch" type="search" class="form-control" placeholder="Search Transaction"
-                  aria-label="Search users">
-              </div>
-              <!-- End Search -->
-            </form>
-          </div>
-
-          <div class="d-grid d-sm-flex gap-2">
-            <a href="all-transactions.html" class="btn btn-white" type="button">
-              <i class="bi-eye me-1"></i> View All
-            </a>
-
-            <!-- Dropdown -->
-            <div class="dropdown">
-              <button type="button" class="btn btn-white w-100" id="showHideDropdown" data-bs-toggle="dropdown"
-                aria-expanded="false" data-bs-auto-close="outside">
-                <i class="bi-table me-1"></i> Columns <span
-                  class="badge bg-soft-dark text-dark rounded-circle ms-1">6</span>
-              </button>
-
-              <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="showHideDropdown"
-                style="width: 15rem;">
-                <div class="card card-sm">
-                  <div class="card-body">
-                    <div class="d-grid gap-3">
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_id">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">User</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_id" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_users">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Refrence</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_users" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_type">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Amount</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_type" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_vendor">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Type</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_vendor">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_stocks">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Description</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_stocks" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_sku">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Amount</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_sku" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_price">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Fee</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_price" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Dropdown -->
-          </div>
-        </div>
-        <!-- End Header -->
-
-        <!-- Table -->
-        <div class="table-responsive datatable-custom">
-          <table id="datatable"
-            class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
-            data-hs-datatables-options='{
-                   "columnDefs": [{
-                      "targets": [0, 4, 7],
-                      "width": "5%",
-                      "orderable": false
-                    }],
-                   "order": [],
-                   "info": {
-                     "totalQty": "#datatableWithPaginationInfoTotalQty"
-                   },
-                   "search": "#datatableSearch",
-                   "entries": "#datatableEntries",
-                   "pageLength": 50,
-                   "isResponsive": false,
-                   "isShowPaging": false,
-                   "pagination": "datatablePagination"
-                 }'>
-            <thead class="thead-light">
-              <th>
-                ID
-              </th>
-              <th>Users</th>
-              <th>Refrence</th>
-              <th>Customer Type</th>
-
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Service Fee</th>
-              <th>Type</th>
-              <th>Biller ID</th>
-              <th>Status</th>
-              <th>Time</th>
-              </tr>
-            </thead>
-
-
-            <tbody>
-
-
-              <tr>
-                <td class="table-column-pe-0">
-                  1
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Agent Name</h5>
-                      <span>09038847848</span>
-                    </div>
-                  </a>
-                </td>
-                <td>093874</td>
-                <td>Aggregator</td>
-                <td>
-                  Aggregator Customer Fee
-                </td>
-                <td>₦80000</td>
-                <td>45</td>
-                <td>2</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-danger"></span>Blocked</td>
-                <td>
-                  12:00 AM
-                </td>
-              </tr>
-
-
-              <tr>
-                <td class="table-column-pe-0">
-                  2
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Business Name</h5>
-                      <span>09038847848</span>
-                    </div>
-                  </a>
-                </td>
-                <td>43874</td>
-                <td>Aggregator</td>
-                <td>
-                  Banker Service Commision Fee
-                </td>
-                <td>₦90000</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-success"></span> Active</td>
-                <td>
-                  09:40 PM
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  1
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">John Doe</h5>
-                      <span>123-456-7890</span>
-                    </div>
-                  </a>
-                </td>
-                <td>ABC123</td>
-                <td>Consultant</td>
-                <td>
-                  Consultant Service Fee
-                </td>
-                <td>₦75000</td>
-                <td>40</td>
-                <td>4</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                  10:30 AM
-                </td>
-              </tr>
-              <tr>
-                <td class="table-column-pe-0">
-                  2
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Jane Smith</h5>
-                      <span>555-123-4567</span>
-                    </div>
-                  </a>
-                </td>
-                <td>XYZ789</td>
-                <td>Analyst</td>
-                <td>
-                  Data Analysis Fee
-                </td>
-                <td>₦60000</td>
-                <td>35</td>
-                <td>3</td>
-                <td>1</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                  2:45 PM
-                </td>
-              </tr>
-              <tr>
-                <td class="table-column-pe-0">
-                  3
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Sarah Johnson</h5>
-                      <span>999-888-7777</span>
-                    </div>
-                  </a>
-                </td>
-                <td>PQR456</td>
-                <td>Developer</td>
-                <td>
-                  Software Development Fee
-                </td>
-                <td>₦90000</td>
-                <td>50</td>
-                <td>5</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-danger"></span>Blocked</td>
-                <td>
-                  4:15 PM
-                </td>
-              </tr>
-              <tr>
-                <td class="table-column-pe-0">
-                  4
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Michael Brown</h5>
-                      <span>333-222-1111</span>
-                    </div>
-                  </a>
-                </td>
-                <td>MNO012</td>
-                <td>Manager</td>
-                <td>
-                  Project Management Fee
-                </td>
-                <td>₦120000</td>
-                <td>60</td>
-                <td>6</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                  11:00 AM
-                </td>
-              </tr>
-              <tr>
-                <td class="table-column-pe-0">
-                  5
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Emily Davis</h5>
-                      <span>777-666-5555</span>
-                    </div>
-                  </a>
-                </td>
-                <td>GHI345</td>
-                <td>Designer</td>
-                <td>
-                  Graphic Design Fee
-                </td>
-                <td>₦85000</td>
-                <td>55</td>
-                <td>4</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                  3:30 PM
-                </td>
-              </tr>
-              <tr>
-                <td class="table-column-pe-0">
-                  6
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Robert Wilson</h5>
-                      <span>222-333-4444</span>
-                    </div>
-                  </a>
-                </td>
-                <td>JKL678</td>
-                <td>Consultant</td>
-                <td>
-                  Consulting Fee
-                </td>
-                <td>₦70000</td>
-                <td>45</td>
-                <td>3</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                  9:45 AM
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-        <!-- End Table -->
-
-        <!-- Footer -->
-        <div class="card-footer">
-          <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
-            <div class="col-sm mb-2 mb-sm-0">
-              <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
-                <span class="me-2">Showing:</span>
-
-                <!-- Select -->
-                <div class="tom-select-custom">
-                  <select id="datatableEntries" class="js-select form-select form-select-borderless w-auto"
-                    autocomplete="off" data-hs-tom-select-options='{
-                            "searchInDropdown": false,
-                            "hideSearch": true
-                          }'>
-                    <option value="12">12</option>
-                    <option value="14" selected="">14</option>
-                    <option value="16">16</option>
-                    <option value="18">18</option>
-                  </select>
-                </div>
-                <!-- End Select -->
-
-                <span class="text-secondary me-2">of</span>
-
-                <!-- Pagination Quantity -->
-                <span id="datatableWithPaginationInfoTotalQty"></span>
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-sm-auto">
-              <div class="d-flex justify-content-center justify-content-sm-end">
-                <!-- Pagination -->
-                <nav id="datatablePagination" aria-label="Activity pagination"></nav>
-              </div>
-            </div>
-            <!-- End Col -->
           </div>
           <!-- End Row -->
         </div>
-        <!-- End Footer -->
+        <!-- End Col -->
       </div>
-      <!-- End Card -->
+      <!-- End Row -->
     </div>
     <!-- End Content -->
 
     <!-- Footer -->
-
+    <!-- Footer -->
     <div class="footer">
       <div class="row justify-content-between align-items-center">
         <div class="col">
-          <p class="fs-6 mb-0">&copy; <span class="d-none d-sm-inline-block">2024 Terra Portals.</span></p>
+          <p class="fs-6 mb-0">&copy;<span class="d-none d-sm-inline-block">2024 Terra Portal.</span></p>
         </div>
         <!-- End Col -->
 
@@ -1382,20 +1275,13 @@
 
   <!-- Builder -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBuilder" aria-labelledby="offcanvasBuilderLabel">
-
-
     <div class="offcanvas-body">
-
-
       <div class="row gx-3">
-
       </div>
       <!-- End Row -->
-
       <hr>
-
       <h4 class="mb-1">Sidebar Nav</h4>
-      <p>Check out all <a href="./documentation/layout.html">Layout Options here</a></p>
+      <p>Check out all <a href="#s">Layout Options here</a></p>
 
       <div class="row gx-3">
 
@@ -1546,12 +1432,12 @@
 
                         <input type="search" class="js-form-search form-control" placeholder="Search in front"
                           aria-label="Search in front" data-hs-form-search-options='{
-                                 "clearIcon": "#clearSearchResultsIcon",
-                                 "dropMenuElement": "#searchDropdownMenu",
-                                 "dropMenuOffset": 20,
-                                 "toggleIconOnFocus": true,
-                                 "activeClass": "focus"
-                               }'>
+                               "clearIcon": "#clearSearchResultsIcon",
+                               "dropMenuElement": "#searchDropdownMenu",
+                               "dropMenuOffset": 20,
+                               "toggleIconOnFocus": true,
+                               "activeClass": "focus"
+                             }'>
                         <a class="input-group-append input-group-text" href="javascript:;">
                           <i id="clearSearchResultsIcon" class="bi-x-lg" style="display: none;"></i>
                         </a>
@@ -1561,12 +1447,12 @@
                     <button
                       class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none"
                       type="button" data-hs-form-search-options='{
-                                 "clearIcon": "#clearSearchResultsIcon",
-                                 "dropMenuElement": "#searchDropdownMenu",
-                                 "dropMenuOffset": 20,
-                                 "toggleIconOnFocus": true,
-                                 "activeClass": "focus"
-                               }'>
+                               "clearIcon": "#clearSearchResultsIcon",
+                               "dropMenuElement": "#searchDropdownMenu",
+                               "dropMenuOffset": 20,
+                               "toggleIconOnFocus": true,
+                               "activeClass": "focus"
+                             }'>
                       <i class="bi-search"></i>
                     </button>
                     <!-- End Input Group -->
@@ -1698,11 +1584,6 @@
               <div class="navbar-nav-wrap-content-end">
                 <!-- Navbar -->
                 <ul class="navbar-nav">
-
-
-
-
-
                   <li class="nav-item">
                     <!-- Toggler -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -1731,6 +1612,7 @@
       <!-- End Double Header -->
     </div>
   </div>
+
 
   <script src="assets/js/demo.js"></script>
 
@@ -2480,263 +2362,252 @@
     </div>
   </div>
 
+  <!-- Modals Starts here -->
+
+  <!-- Personal info -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="personInfo" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Personal Information</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <table class="table">
+
+          <tbody>
+            <tr>
+              <th>Firstname</th>
+              <td> Onyinye
+              </td>
+            </tr>
+            <tr>
+              <th>Lastname</th>
+              <td>James</td>
+            </tr>
+            <tr>
+              <th>Middlename</th>
+              <td>Kalu</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td> onyinyejames@gmail.com
+              </td>
+            </tr>
+            <tr>
+              <th>Phone Number</th>
+              <td> 090383784787
+              </td>
+            </tr>
+            <tr>
+              <th>BVN</th>
+              <td>Verified</td>
+            </tr>
+            <tr>
+              <th>Gender</th>
+              <td>Female</td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td> 01 January, 1991
+              </td>
+            </tr>
+            <tr>
+              <th>NIN</th>
+              <td>093847839989</td>
+            </tr>
+            <tr>
+              <th>Profile Photo </th>
+            </tr>
+
+          </tbody>
+        </table>
+        <div>
+          <img
+            src="https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg"
+            class="w-100  img-fluid" alt="...">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- Business Info -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="businessInfo" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Business Information</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <table class="table">
+
+          <tbody>
+            <tr>
+              <th>Business Name</th>
+              <td>Oganiwe Enter</td>
+            </tr>
+            <tr>
+              <th>Business Email</th>
+              <td> onyinyejames@gmail.com
+              </td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>Olatunde Str, Ikota, Lagos</td>
+            </tr>
+            <tr>
+              <th>State</th>
+              <td>Lagos</td>
+            </tr>
+            <tr>
+              <th>LGA</th>
+              <td>Eti-Osa</td>
+            </tr>
+            <tr>
+              <th>Business</th>
+              <td><span class="badge bg-success">
+                  Available
+                </span></td>
+            </tr>
+            <tr>
+              <th>Place of Business</th>
+            </tr>
+          </tbody>
+
+        </table>
+        <div>
+          <img
+            src="https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg"
+            class="w-100  img-fluid" alt="...">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Business Doc -->
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="businessDoc" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">CAC Information</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Accordion -->
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingOne">
+            <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#businessOne"
+              aria-expanded="true" aria-controls="businessOne">
+              RC Number</th>
+              
+            </a>
+          </div>
+          <div id="businessOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div>
+                <img src="https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg" class="w-100  img-fluid" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingTwo">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#businessTwo"
+              aria-expanded="false" aria-controls="businessTwo">
+              Tax Identification Number	
+            </a>
+          </div>
+          <div id="businessTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+             <h5 class="display-6 text-danger">Not Available</h5>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingThree">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+              data-bs-target="#businessThree" aria-expanded="false" aria-controls="businessThree">
+              CAC Certificate	
+            </a>
+          </div>
+          <div id="businessThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div>
+                <img src="https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg" class="w-100  img-fluid" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Accordion -->
+     
+
+    </div>
+  </div>
+
+  <!-- Other Doc -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="otherDoc" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Other Document</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Accordion -->
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingOne">
+            <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#businessDocOne"
+              aria-expanded="true" aria-controls="businessOne">
+              Utility Bill</th>
+              
+            </a>
+          </div>
+          <div id="businessDocOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div>
+                <img src="https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg" class="w-100  img-fluid" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingTwo">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#businessDocTwo"
+              aria-expanded="false" aria-controls="businessDocTwo">
+               Identification 	
+            </a>
+          </div>
+          <div id="businessDocTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+             <h5 class="display-6 text-danger">Not Available</h5>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- End Accordion -->
+     
+
+    </div>
+  </div>
+  <!-- Modals Ends here -->
+
+
   <!-- End Welcome Message Modal -->
-
-  <!-- Export Products Modal -->
-  <div class="modal fade" id="exportProductsModal" tabindex="-1" aria-labelledby="exportProductsModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <!-- Header -->
-        <div class="modal-header">
-          <h4 class="modal-title" id="exportProductsModalLabel">Export products</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- End Header -->
-
-        <!-- Body -->
-        <div class="modal-body">
-          <p>This CSV file can update all product information. To update just inventory quantites use the <a
-              class="link" href="#">CSV file for inventory.</a></p>
-
-          <div class="mb-4">
-            <label class="form-label">Export</label>
-
-            <div class="d-grid gap-2">
-              <!-- Form Check -->
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio1"
-                  checked="">
-                <label class="form-check-label" for="exportProductsRadio1">
-                  Current page
-                </label>
-              </div>
-              <!-- End Form Check -->
-
-              <!-- Form Check -->
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio2">
-                <label class="form-check-label" for="exportProductsRadio2">
-                  All products
-                </label>
-              </div>
-              <!-- End Form Check -->
-
-              <!-- Form Check -->
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio3">
-                <label class="form-check-label" for="exportProductsRadio3">
-                  Selected: 20 products
-                </label>
-              </div>
-              <!-- End Form Check -->
-            </div>
-          </div>
-
-          <label class="form-label">Export as</label>
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportProductsAsRadio" id="exportProductsAsRadio1"
-              checked="">
-            <label class="form-check-label" for="exportProductsAsRadio1">
-              CSV for Excel, Numbers, or other spreadsheet programs
-            </label>
-          </div>
-          <!-- End Form Check -->
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportProductsAsRadio" id="exportProductsAsRadio2">
-            <label class="form-check-label" for="exportProductsAsRadio2">
-              Plain CSV file
-            </label>
-          </div>
-          <!-- End Form Check -->
-        </div>
-        <!-- End Body -->
-
-        <!-- Footer -->
-        <div class="modal-footer gap-3">
-          <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-          <button type="button" class="btn btn-primary">Export products</button>
-        </div>
-        <!-- End Footer -->
-      </div>
-    </div>
-  </div>
-  <!-- End Export Products Modal -->
-
-  <!-- Import Products Modal -->
-  <div class="modal fade" id="importProductsModal" tabindex="-1" aria-labelledby="importProductsModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <!-- Header -->
-        <div class="modal-header">
-          <h4 class="modal-title" id="importProductsModalLabel">Import products by CSV</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- End Header -->
-
-        <!-- Body -->
-        <div class="modal-body">
-          <p><a class="link" href="#">Download a sample CSV template</a> to see an example of the format required.</p>
-
-          <!-- Dropzone -->
-          <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card mb-4">
-            <div class="dz-message">
-              <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
-                alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations-light/oc-browse.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
-
-              <h5>Drag and drop your file here</h5>
-
-              <p class="mb-2">or</p>
-
-              <span class="btn btn-white btn-sm">Browse files</span>
-            </div>
-          </div>
-          <!-- End Dropzone -->
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="overwriteCurrentProductsCheckbox">
-            <label class="form-check-label" for="overwriteCurrentProductsCheckbox">
-              Overwrite any current products that have the same handle. Existing values will be used for any missing
-              columns. <a href="#">Learn more</a>
-            </label>
-          </div>
-          <!-- End Form Check -->
-        </div>
-        <!-- End Body -->
-
-        <!-- Footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-          <button type="button" class="btn btn-primary">Upload and continue</button>
-        </div>
-        <!-- End Footer -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Button trigger modal -->
-
-  <!-- End Button trigger modal -->
-
-
+  <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Implementing Plugins -->
   <script src="assets/js/vendor.min.js"></script>
 
   <!-- JS Front -->
   <script src="assets/js/theme.min.js"></script>
-
-  <script>
-    $(document).on('ready', function () {
-      HSCore.components.HSDaterangepicker.init('.js-daterangepicker-clear')
-
-      $('.js-daterangepicker-clear').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-      })
-
-      $('.js-daterangepicker-clear').on('cancel.daterangepicker', function (ev, picker) {
-        $(this).val('')
-      })
-    });
-  </script>
-
-  <!-- JS Plugins Init. -->
-  <script>
-    $(document).on('ready', function () {
-      // INITIALIZATION OF DATATABLES
-      // =======================================================
-      HSCore.components.HSDatatables.init($('#datatable'), {
-        select: {
-          style: 'multi',
-          selector: 'td:first-child input[type="checkbox"]',
-          classMap: {
-            checkAll: '#datatableCheckAll',
-            counter: '#datatableCounter',
-            counterInfo: '#datatableCounterInfo'
-          }
-        },
-        language: {
-          zeroRecords: `<div class="text-center p-4">
-              <img class="mb-3" src="./assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
-              <img class="mb-3" src="./assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
-            <p class="mb-0">No data to show</p>
-            </div>`
-        }
-      });
-
-      const datatable = HSCore.components.HSDatatables.getItem('datatable')
-
-      $('.js-datatable-filter').on('change', function () {
-        var $this = $(this),
-          elVal = $this.val(),
-          targetColumnIndex = $this.data('target-column-index');
-
-        datatable.column(targetColumnIndex).search(elVal).draw();
-      });
-
-      $('#datatableSearch').on('mouseup', function (e) {
-        var $input = $(this),
-          oldValue = $input.val();
-
-        if (oldValue == "") return;
-
-        setTimeout(function () {
-          var newValue = $input.val();
-
-          if (newValue == "") {
-            // Gotcha
-            datatable.search('').draw();
-          }
-        }, 1);
-      });
-
-      $('#toggleColumn_id').change(function (e) {
-        datatable.columns(1).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_users').change(function (e) {
-        datatable.columns(2).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_type').change(function (e) {
-        datatable.columns(3).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_vendor').change(function (e) {
-        datatable.columns(3).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_stocks').change(function (e) {
-        datatable.columns(4).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_sku').change(function (e) {
-        datatable.columns(5).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_price').change(function (e) {
-        datatable.columns(6).visible(e.target.checked)
-      })
-
-      // datatable.columns(7).visible(false)
-
-      $('#toggleColumn_quantity').change(function (e) {
-        datatable.columns(7).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_variants').change(function (e) {
-        datatable.columns(8).visible(e.target.checked)
-      })
-    });
-  </script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -2759,19 +2630,16 @@
         HSBsDropdown.init()
 
 
-        // INITIALIZATION OF SELECT
-        // =======================================================
-        HSCore.components.HSTomSelect.init('.js-select')
-
-
         // INITIALIZATION OF NAV SCROLLER
         // =======================================================
         new HsNavScroller('.js-nav-scroller')
 
 
-        // INITIALIZATION OF DROPZONE
+        // INITIALIZATION OF STICKY BLOCKS
         // =======================================================
-        HSCore.components.HSDropzone.init('.js-dropzone')
+        new HSStickyBlock('.js-sticky-block', {
+          targetSelector: document.getElementById('header').classList.contains('navbar-fixed') ? '#header' : null
+        })
       }
     })()
   </script>

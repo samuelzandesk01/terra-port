@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Terra Money | Front - Admin &amp; Dashboard </title>
+  <title>Customer | Admin &amp; Dashboard </title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
@@ -328,22 +328,13 @@
           <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
             <!-- Collapse -->
             <div class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link " href="#">
                 <i class="bi-house-door nav-icon"></i>
                 <span class="nav-link-title">Dashboards</span>
               </a>
 
-              <!-- <div id="navbarVerticalMenuDashboards" class="nav-collapse collapse show" data-bs-parent="#navbarVerticalMenu">
-                <a class="nav-link active" href="dashboard.html">Default</a>
-                <a class="nav-link " href="dashboard-alternative.html">Alternative</a>
-              </div> -->
+            
             </div>
-            <!-- End Collapse -->
-
-            <!-- <span class="dropdown-header mt-4">Pages</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small> -->
-
-            <!-- Collapse -->
             <div class="navbar-nav nav-compact">
 
             </div>
@@ -400,8 +391,6 @@
                 </div>
               </div>
 
-
-
               <div class="nav-item">
                 <a class="nav-link dropdown-toggle   collapsed" href="#" role="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarVerticalMenuCustomer" aria-expanded="false"
@@ -413,8 +402,8 @@
                 <div id="navbarVerticalMenuCustomer" class="nav-collapse collapse "
                   data-bs-parent="#navbarVerticalMenu">
                   <div id="navbarVerticalMenuAuthenticationMenu">
-                    <div class="nav-item">
-                      <a class="nav-link  " href="customers.html">
+                    <div class="nav-item active">
+                      <a class="nav-link " href="#">
                         Customer Overview
                       </a>
                     </div>
@@ -433,6 +422,7 @@
                   </div>
                 </div>
               </div>
+
 
 
               <!-- Collapse -->
@@ -660,29 +650,38 @@
     </div>
   </aside>
 
-  <!-- End Navbar Vertical -->
 
   <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
       <!-- Page Header -->
       <div class="page-header">
-        <div class="row align-items-center">
-          <div class="col">
-            <h1 class="page-header-title">Dashboard</h1>
+        <div class="row align-items-end">
+          <div class="col-sm mb-2 mb-sm-0">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-no-gutter">
+                <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Pages</a></li>
+                <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Customers</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Overview</li>
+              </ol>
+            </nav>
+
+            <h1 class="page-header-title">Customers Overview</h1>
           </div>
           <!-- End Col -->
 
-          <div class="col-auto">
+          <!-- <div class="col-sm-auto">
             <a class="btn btn-primary" href="add-user.html">
-              <i class="bi-person-plus-fill me-1"></i> Invite users
+              <i class="bi-person-plus-fill me-1"></i> Add user
             </a>
-          </div>
+          </div> -->
           <!-- End Col -->
         </div>
         <!-- End Row -->
       </div>
       <!-- End Page Header -->
+
+
 
       <!-- Stats -->
       <div class="row">
@@ -690,19 +689,15 @@
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Total Agents</h6>
+              <div class="my-3">
+                <i class="bi bg-soft-success rounded-circle bi-arrows-move p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Total Customer</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
                   <span class="js-counter display-4 text-dark">24</span>
-                  <span class="text-body fs-5 ms-1">from 22</span>
-                </div>
-                <!-- End Col -->
 
-                <div class="col-auto">
-                  <span class="badge bg-soft-success text-success p-1">
-                    <i class="bi-graph-up"></i> 5.0%
-                  </span>
                 </div>
                 <!-- End Col -->
               </div>
@@ -716,18 +711,15 @@
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Active Agents</h6>
+              <div class="my-3">
+                <i class="bi bg-soft-info rounded-circle bi-person   p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Active Customer</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
                   <span class="js-counter display-4 text-dark">12</span>
-                  <span class="text-body fs-5 ms-1">from 11</span>
-                </div>
 
-                <div class="col-auto">
-                  <span class="badge bg-soft-success text-success p-1">
-                    <i class="bi-graph-up"></i> 1.2%
-                  </span>
                 </div>
               </div>
               <!-- End Row -->
@@ -740,20 +732,17 @@
           <!-- Card -->
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2">Pending Agents</h6>
+              <div class="my-3">
+                <i class="bi bg-soft-warning rounded-circle bi-person p-2"></i>
+              </div>
+              <h6 class="card-subtitle mb-2">Pending Customer</h6>
 
               <div class="row align-items-center gx-2">
                 <div class="col">
                   <span class="js-counter display-4 text-dark">56</span>
-                  <span class="display-4 text-dark">%</span>
-                  <span class="text-body fs-5 ms-1">from 48.7</span>
                 </div>
 
-                <div class="col-auto">
-                  <span class="badge bg-soft-danger text-danger p-1">
-                    <i class="bi-graph-down"></i> 2.8%
-                  </span>
-                </div>
+
               </div>
               <!-- End Row -->
             </div>
@@ -765,36 +754,9 @@
       </div>
       <!-- End Stats -->
 
+      <div class="card">
 
-
-      <!-- Card -->
-      <div class="row justify-content-end mb-3">
-        <div class="col-lg">
-          <!-- Datatable Info -->
-          <div id="datatableCounterInfo" style="display: none;">
-            <div class="d-sm-flex justify-content-lg-end align-items-sm-center">
-              <span class="d-block d-sm-inline-block fs-5 me-3 mb-2 mb-sm-0">
-                <span id="datatableCounter">0</span>
-                Selected
-              </span>
-              <a class="btn btn-outline-danger btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-trash"></i> Delete
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-archive"></i> Archive
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-upload"></i> Publish
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0" href="javascript:;">
-                <i class="bi-x-lg"></i> Unpublish
-              </a>
-            </div>
-          </div>
-          <!-- End Datatable Info -->
-        </div>
       </div>
-      <!-- End Row -->
 
       <!-- Card -->
       <div class="card">
@@ -807,113 +769,186 @@
                 <div class="input-group-prepend input-group-text">
                   <i class="bi-search"></i>
                 </div>
-                <input id="datatableSearch" type="search" class="form-control" placeholder="Search Transaction"
+                <input id="datatableSearch" type="search" class="form-control" placeholder="Search users"
                   aria-label="Search users">
               </div>
               <!-- End Search -->
             </form>
           </div>
 
-          <div class="d-grid d-sm-flex gap-2">
-            <a href="all-transactions.html" class="btn btn-white" type="button">
-              <i class="bi-eye me-1"></i> View All
-            </a>
+          <div class="d-grid d-sm-flex justify-content-md-end align-items-sm-center gap-2">
+            <!-- Datatable Info -->
+            <div id="datatableCounterInfo" style="display: none;">
+              <div class="d-flex align-items-center">
+                <span class="fs-5 me-3">
+                  <span id="datatableCounter">0</span>
+                  Selected
+                </span>
+                <a class="btn btn-outline-danger btn-sm" href="javascript:;">
+                  <i class="bi-trash"></i> Delete
+                </a>
+              </div>
+            </div>
+            <!-- End Datatable Info -->
+            <!-- type="button" class="btn btn-primary"  -->
+            <!-- Dropdown -->
+            <div class="dropdown">
+              <button type="button" class="btn btn-white btn-sm dropdown-toggle w-100" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                <i class="bi-download me-2"></i> Download Report
+              </button>
+
+              <div class="dropdown-menu dropdown-menu-sm-end" aria-labelledby="usersExportDropdown">
+                <span class="dropdown-header">Options</span>
+                <a id="export-copy" class="dropdown-item" href="javascript:;">
+                  <img class="avatar avatar-xss avatar-4x3 me-2" src="assets/svg/illustrations/copy-icon.svg"
+                    alt="Image Description">
+                  Copy
+                </a>
+                <a id="export-print" class="dropdown-item" href="javascript:;">
+                  <img class="avatar avatar-xss avatar-4x3 me-2" src="assets/svg/illustrations/print-icon.svg"
+                    alt="Image Description">
+                  Print
+                </a>
+                <div class="dropdown-divider"></div>
+                <span class="dropdown-header">Download options</span>
+                <a id="export-excel" class="dropdown-item" href="javascript:;">
+                  <img class="avatar avatar-xss avatar-4x3 me-2" src="assets/svg/brands/excel-icon.svg"
+                    alt="Image Description">
+                  Excel
+                </a>
+                <a id="export-csv" class="dropdown-item" href="javascript:;">
+                  <img class="avatar avatar-xss avatar-4x3 me-2" src="assets/svg/components/placeholder-csv-format.svg"
+                    alt="Image Description">
+                  .CSV
+                </a>
+                <a id="export-pdf" class="dropdown-item" href="javascript:;">
+                  <img class="avatar avatar-xss avatar-4x3 me-2" src="assets/svg/brands/pdf-icon.svg"
+                    alt="Image Description">
+                  PDF
+                </a>
+              </div>
+            </div>
+            <!-- End Dropdown -->
 
             <!-- Dropdown -->
             <div class="dropdown">
-              <button type="button" class="btn btn-white w-100" id="showHideDropdown" data-bs-toggle="dropdown"
-                aria-expanded="false" data-bs-auto-close="outside">
-                <i class="bi-table me-1"></i> Columns <span
-                  class="badge bg-soft-dark text-dark rounded-circle ms-1">6</span>
+              <button type="button" class="btn btn-white btn-sm w-100" id="usersFilterDropdown"
+                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <i class="bi-filter me-1"></i> Filter <span
+                  class="badge bg-soft-dark text-dark rounded-circle ms-1">2</span>
               </button>
 
-              <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="showHideDropdown"
-                style="width: 15rem;">
-                <div class="card card-sm">
+              <div class="dropdown-menu dropdown-menu-sm-end dropdown-card card-dropdown-filter-centered"
+                aria-labelledby="usersFilterDropdown" style="min-width: 22rem;">
+                <!-- Card -->
+                <div class="card">
+                  <div class="card-header card-header-content-between">
+                    <h5 class="card-header-title">Filter users</h5>
+
+                    <!-- Toggle Button -->
+                    <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm ms-2">
+                      <i class="bi-x-lg"></i>
+                    </button>
+                    <!-- End Toggle Button -->
+                  </div>
+
                   <div class="card-body">
-                    <div class="d-grid gap-3">
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_id">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">User</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_id" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                    <form>
+                      <div class="mb-4">
+                        <small class="text-cap text-body">Role</small>
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_users">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Refrence</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_users" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                        <div class="row">
+                          <div class="col">
+                            <!-- Check -->
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="usersFilterCheckAll"
+                                checked="">
+                              <label class="form-check-label" for="usersFilterCheckAll">
+                                All
+                              </label>
+                            </div>
+                            <!-- End Check -->
+                          </div>
+                          <!-- End Col -->
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_type">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Amount</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_type" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                          <div class="col">
+                            <!-- Check -->
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="usersFilterCheckEmployee">
+                              <label class="form-check-label" for="usersFilterCheckEmployee">
+                                Terminal Status
+                              </label>
+                            </div>
+                            <!-- End Check -->
+                          </div>
+                          <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                      </div>
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_vendor">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Type</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_vendor">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                      <div class="row">
+                        <div class="col-sm mb-4">
+                          <small class="text-cap text-body">Business Type</small>
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_stocks">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Description</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_stocks" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                          <!-- Select -->
+                          <div class="tom-select-custom">
+                            <select class="js-select js-datatable-filter form-select form-select-sm"
+                              data-target-column-index="2" data-hs-tom-select-options='{
+                                      "placeholder": "Any",
+                                      "searchInDropdown": false,
+                                      "hideSearch": true,
+                                      "dropdownWidth": "10rem"
+                                    }'>
+                              <option value="">Any</option>
+                              <option value="Accountant">Agent</option>
+                              <option value="Co-founder">Aggregator</option>
+                              <!-- <option value="Designer">Designer</option>
+                              <option value="Developer">Developer</option>
+                              <option value="Director">Director</option> -->
+                            </select>
+                            <!-- End Select -->
+                          </div>
+                        </div>
+                        <!-- End Col -->
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_sku">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Amount</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_sku" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                        <div class="col-sm mb-4">
+                          <small class="text-cap text-body">Status</small>
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_price">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Fee</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_price" checked="">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
+                          <!-- Select -->
+                          <div class="tom-select-custom">
+                            <select class="js-select js-datatable-filter form-select form-select-sm"
+                              data-target-column-index="4" data-hs-tom-select-options='{
+                                      "placeholder": "Any status",
+                                      "searchInDropdown": false,
+                                      "hideSearch": true,
+                                      "dropdownWidth": "10rem"
+                                    }'>
+                              <option value="">Any status</option>
+                              <option value="Completed"
+                                data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-success"></span>Active</span>'>
+                                Active</option>
+                              <option value="In progress"
+                                data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-warning"></span>Pending</span>'>
+                                Pending</option>
+                              <option value="To do"
+                                data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-danger"></span>Blocked</span>'>
+                                Blocked</option>
+                            </select>
+                          </div>
+                          <!-- End Select -->
+                        </div>
+                        <!-- End Col -->
 
-                      <!-- Form Switch -->
+                      </div>
+                      <!-- End Row -->
 
-                    </div>
+                      <div class="d-grid">
+                        <a class="btn btn-primary" href="javascript:;">Apply</a>
+                      </div>
+                    </form>
                   </div>
                 </div>
+                <!-- End Card -->
               </div>
             </div>
             <!-- End Dropdown -->
@@ -922,283 +957,203 @@
         <!-- End Header -->
 
         <!-- Table -->
-        <div class="table-responsive datatable-custom">
+        <div class="table-responsive datatable-custom position-relative">
           <table id="datatable"
-            class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
+            class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
             data-hs-datatables-options='{
-                 "columnDefs": [{
-                    "targets": [0, 4, 7],
-                    "width": "5%",
-                    "orderable": false
-                  }],
-                 "order": [],
-                 "info": {
-                   "totalQty": "#datatableWithPaginationInfoTotalQty"
-                 },
-                 "search": "#datatableSearch",
-                 "entries": "#datatableEntries",
-                 "pageLength": 50,
-                 "isResponsive": false,
-                 "isShowPaging": false,
-                 "pagination": "datatablePagination"
-               }'>
+                   "columnDefs": [{
+                      "targets": [0, 7],
+                      "orderable": false
+                    }],
+                   "order": [],
+                   "info": {
+                     "totalQty": "#datatableWithPaginationInfoTotalQty"
+                   },
+                   "search": "#datatableSearch",
+                   "entries": "#datatableEntries",
+                   "pageLength": 15,
+                   "isResponsive": false,
+                   "isShowPaging": false,
+                   "pagination": "datatablePagination"
+                 }'>
             <thead class="thead-light">
-              <th>
-                ID
-              </th>
-              <th>Users</th>
-              <th>Refrence</th>
-              <th>Customer Type</th>
-
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Service Fee</th>
-              <th>Type</th>
-              <th>Biller ID</th>
-              <th>Status</th>
-              <th>Time</th>
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th class="table-column-ps-0">Buiness</th>
+                <th>Business Types</th>
+                <th>Terminal Status</th>
+                <th>Total Terminal</th>
+                <th>Last Active</th>
+                <th>User Status</th>
+                <th>Account Type</th>
+                <th>Upgrade Status</th>
+                <th>Date Onboarded</th>
+                <th>Views</th>
               </tr>
             </thead>
 
             <tbody>
-
-
               <tr>
                 <td class="table-column-pe-0">
-                  1
+                  96
                 </td>
                 <td class="table-column-ps-0">
                   <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                    <div class="avatar avatar-circle">
+                      <img class="avatar-img" src="assets/img/160x160/img10.jpg" alt="Image Description">
                     </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Agent Name</h5>
-                      <span>09038847848</span>
-                    </div>
-                  </a>
-                </td>
-                <td>093874</td>
-                <td>Aggregator</td>
-                <td>
-                  Aggregator Customer Fee
-                </td>
-                <td>₦80000</td>
-                <td>45</td>
-                <td>2</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-danger"></span>Blocked</td>
-                <td>
-                  12:00 AM
-                </td>
-              </tr>
-
-
-              <tr>
-                <td class="table-column-pe-0">
-                  2
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Business Name</h5>
-                      <span>09038847848</span>
+                    <div class="ms-3">
+                      <span class="d-block h5 text-inherit mb-0">Amanda Harvey <i
+                          class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                          title="Top endorsed"></i></span>
+                      <span class="d-block fs-5 text-body">0799658438</span>
                     </div>
                   </a>
                 </td>
-                <td>43874</td>
-                <td>Aggregator</td>
                 <td>
-                  Banker Service Commision Fee
+                  <span class="d-block h5 mb-0">Agent</span>
+                  <!-- <span class="d-block fs-5">Human resources</span> -->
                 </td>
-                <td>₦90000</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-success"></span> Active</td>
+                <td><span class="legend-indicator bg-success"></span> MAPPED</td>
                 <td>
-                  09:40 PM
+                  Active
                 </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  1
+                <td>
+                  19 March, 2023
                 </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="#">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">John Doe</h5>
-                      <span>123-456-7890</span>
-                    </div>
+                <td><span class="badge bg-info">Active</span>
+                </td>
+                <td>Individual Account</td>
+                <td>Not_applicable</td>
+                <td> 24 June, 2024
+                </td>
+                </td>
+                <td>
+                  <a href="customer.html" class="btn btn-white btn-sm" >
+                    <i class="bi-eye me-1"></i> View Customer
                   </a>
-                </td>
-                <td>ABC123</td>
-                <td>Consultant</td>
-                <td>
-                  Consultant Service Fee
-                </td>
-                <td>₦75000</td>
-                <td>40</td>
-                <td>4</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                  10:30 AM
                 </td>
               </tr>
               <tr>
                 <td class="table-column-pe-0">
-                    2
+                  101
                 </td>
                 <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Jane Smith</h5>
-                            <span>555-123-4567</span>
-                        </div>
-                    </a>
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="avatar avatar-circle">
+                      <img class="avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                    </div>
+                    <div class="ms-3">
+                      <span class="d-block h5 text-inherit mb-0">John Doe <i class="bi-patch-check-fill text-primary"
+                          data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
+                      <span class="d-block fs-5 text-body">0789654321</span>
+                    </div>
+                  </a>
                 </td>
-                <td>XYZ789</td>
-                <td>Analyst</td>
                 <td>
-                    Data Analysis Fee
+                  <span class="d-block h5 mb-0">Manager</span>
                 </td>
-                <td>₦60000</td>
-                <td>35</td>
-                <td>3</td>
-                <td>1</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
+                <td><span class="legend-indicator bg-danger"></span> PENDING</td>
                 <td>
-                    2:45 PM
+                  Inactive
                 </td>
-            </tr>
-            <tr>
-                <td class="table-column-pe-0">
-                    3
-                </td>
-                <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Sarah Johnson</h5>
-                            <span>999-888-7777</span>
-                        </div>
-                    </a>
-                </td>
-                <td>PQR456</td>
-                <td>Developer</td>
                 <td>
-                    Software Development Fee
+                  25 December, 2023
                 </td>
-                <td>₦90000</td>
-                <td>50</td>
-                <td>5</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-danger"></span>Blocked</td>
+                <td><span class="badge bg-warning">Pending</span>
+                </td>
+                <td>Business Account</td>
+                <td>Not_applicable</td>
+                <td>10 August, 2024
+                </td>
                 <td>
-                    4:15 PM
+                <a href="customer.html" class="btn btn-white btn-sm" >
+                    <i class="bi-eye me-1"></i> View Customer
+                  </a>
                 </td>
-            </tr>
-            <tr>
-                <td class="table-column-pe-0">
-                    4
-                </td>
-                <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Michael Brown</h5>
-                            <span>333-222-1111</span>
-                        </div>
-                    </a>
-                </td>
-                <td>MNO012</td>
-                <td>Manager</td>
-                <td>
-                    Project Management Fee
-                </td>
-                <td>₦120000</td>
-                <td>60</td>
-                <td>6</td>
-                <td>3</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                    11:00 AM
-                </td>
-            </tr>
-            <tr>
-                <td class="table-column-pe-0">
-                    5
-                </td>
-                <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Emily Davis</h5>
-                            <span>777-666-5555</span>
-                        </div>
-                    </a>
-                </td>
-                <td>GHI345</td>
-                <td>Designer</td>
-                <td>
-                    Graphic Design Fee
-                </td>
-                <td>₦85000</td>
-                <td>55</td>
-                <td>4</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                    3:30 PM
-                </td>
-            </tr>
-            <tr>
-                <td class="table-column-pe-0">
-                    6
-                </td>
-                <td class="table-column-ps-0">
-                    <a class="d-flex align-items-center" href="#">
-                        <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h5 class="text-inherit mb-0">Robert Wilson</h5>
-                            <span>222-333-4444</span>
-                        </div>
-                    </a>
-                </td>
-                <td>JKL678</td>
-                <td>Consultant</td>
-                <td>
-                    Consulting Fee
-                </td>
-                <td>₦70000</td>
-                <td>45</td>
-                <td>3</td>
-                <td>2</td>
-                <td><span class="legend-indicator bg-success"></span>Active</td>
-                <td>
-                    9:45 AM
-                </td>
-            </tr>
+              </tr>
 
+              <!-- Add 9 more similar <tr> elements with different values -->
+              <tr>
+                <td class="table-column-pe-0">
+                  97
+                </td>
+                <td class="table-column-ps-0">
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="avatar avatar-circle">
+                      <img class="avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                    </div>
+                    <div class="ms-3">
+                      <span class="d-block h5 text-inherit mb-0">Emily Johnson <i
+                          class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                          title="Top endorsed"></i></span>
+                      <span class="d-block fs-5 text-body">0765432198</span>
+                    </div>
+                  </a>
+                </td>
+                <td>
+                  <span class="d-block h5 mb-0">Supervisor</span>
+                </td>
+                <td><span class="legend-indicator bg-success"></span> MAPPED</td>
+                <td>
+                  Active
+                </td>
+                <td>
+                  05 July, 2023
+                </td>
+                <td><span class="badge bg-info">Active</span>
+                </td>
+                <td>Individual Account</td>
+                <td>Not_applicable</td>
+                <td>15 September, 2024
+                </td>
+                <td>
+                <a href="customer.html" class="btn btn-white btn-sm" >
+                    <i class="bi-eye me-1"></i> View Customer
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="table-column-pe-0">
+                  102
+                </td>
+                <td class="table-column-ps-0">
+                  <a class="d-flex align-items-center" href="#">
+                    <div class="avatar avatar-circle">
+                      <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                    </div>
+                    <div class="ms-3">
+                      <span class="d-block h5 text-inherit mb-0">Michael Smith <i
+                          class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                          title="Top endorsed"></i></span>
+                      <span class="d-block fs-5 text-body">0712345678</span>
+                    </div>
+                  </a>
+                </td>
+                <td>
+                  <span class="d-block h5 mb-0">Analyst</span>
+                </td>
+                <td><span class="legend-indicator bg-warning"></span> PENDING</td>
+                <td>
+                  Active
+                </td>
+                <td>
+                  12 November, 2023
+                </td>
+                <td><span class="badge bg-danger">Faileds</span>
+                </td>
+                <td>Business Account</td>
+                <td>Not_applicable</td>
+                <td>30 April, 2024
+                </td>
+                <td>
+                <a href="customer.html" class="btn btn-white btn-sm" >
+                    <i class="bi-eye me-1"></i> View Customer
+                  </a>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1215,13 +1170,12 @@
                 <div class="tom-select-custom">
                   <select id="datatableEntries" class="js-select form-select form-select-borderless w-auto"
                     autocomplete="off" data-hs-tom-select-options='{
-                          "searchInDropdown": false,
-                          "hideSearch": true
-                        }'>
-                    <option value="12">12</option>
-                    <option value="14" selected="">14</option>
-                    <option value="16">16</option>
-                    <option value="18">18</option>
+                            "searchInDropdown": false,
+                            "hideSearch": true
+                          }'>
+                    <option value="10">10</option>
+                    <option value="15" selected="">15</option>
+                    <option value="20">20</option>
                   </select>
                 </div>
                 <!-- End Select -->
@@ -1246,22 +1200,21 @@
         </div>
         <!-- End Footer -->
       </div>
+      <!-- End Card -->
     </div>
     <!-- End Content -->
 
     <!-- Footer -->
-
     <div class="footer">
       <div class="row justify-content-between align-items-center">
         <div class="col">
-          <p class="fs-6 mb-0">&copy; <span class="d-none d-sm-inline-block">2024 Terra Portals.</span></p>
+          <p class="fs-6 mb-0">&copy;<span class="d-none d-sm-inline-block">2024 Terra Portal.</span></p>
         </div>
         <!-- End Col -->
 
       </div>
       <!-- End Row -->
     </div>
-
     <!-- End Footer -->
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
@@ -1270,20 +1223,13 @@
 
   <!-- Builder -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBuilder" aria-labelledby="offcanvasBuilderLabel">
-
-
     <div class="offcanvas-body">
-
-
       <div class="row gx-3">
-
       </div>
       <!-- End Row -->
-
       <hr>
-
       <h4 class="mb-1">Sidebar Nav</h4>
-      <p>Check out all <a href="./documentation/layout.html">Layout Options here</a></p>
+      <p>Check out all <a href="#s">Layout Options here</a></p>
 
       <div class="row gx-3">
 
@@ -1586,11 +1532,6 @@
               <div class="navbar-nav-wrap-content-end">
                 <!-- Navbar -->
                 <ul class="navbar-nav">
-
-
-
-
-
                   <li class="nav-item">
                     <!-- Toggler -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -1620,6 +1561,41 @@
     </div>
   </div>
 
+  <!-- Modals Starts -->
+<div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title display-5" id="exampleModalCenterTitle">Download Business List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Enter an email to receive the list</p>
+        <div class="pt-2">
+          <form action="">
+            <div class="mb- ">
+              <!-- <label for="formControlHoverLightEmail" class="form-label">Email</label> -->
+
+              <input type="text" class="form-control form-control-hover-light" id="formControlHoverLightEmail" placeholder="mark@example.com" aria-label="mark@example.com">
+
+              <div class="mt-2">
+                <button type="submit" class="btn w-100 btn-primary"><i class="bi-envelope-arrow-down me-2"></i> Download List</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button> -->
+        <a href="#" class="btn btn-dark"><i class="bi-download me-2"></i>Download Directly</a>
+      </div>
+    </div>
+  </div>
+</div>    
+
+  <!-- Modal ends -->
+
   <script src="assets/js/demo.js"></script>
 
 
@@ -1627,237 +1603,141 @@
   <!-- JS Implementing Plugins -->
   <script src="assets/js/vendor.min.js"></script>
 
-  <script src="assets/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js"></script>
-
   <!-- JS Front -->
   <script src="assets/js/theme.min.js"></script>
-  <script src="assets/js/hs.theme-appearance-charts.js"></script>
 
   <!-- JS Plugins Init. -->
   <script>
     $(document).on('ready', function () {
-      // INITIALIZATION OF DATERANGEPICKER
+      // INITIALIZATION OF DATATABLES
       // =======================================================
-      $('.js-daterangepicker').daterangepicker();
-
-      $('.js-daterangepicker-times').daterangepicker({
-        timePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-          format: 'M/DD hh:mm A'
-        }
-      });
-
-      var start = moment();
-      var end = moment();
-
-      function cb(start, end) {
-        $('#js-daterangepicker-predefined .js-daterangepicker-predefined-preview').html(start.format('MMM D') + ' - ' + end.format('MMM D, YYYY'));
-      }
-
-      $('#js-daterangepicker-predefined').daterangepicker({
-        startDate: start,
-        endDate: end,
-        ranges: {
-          'Today': [moment(), moment()],
-          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        }
-      }, cb);
-
-      cb(start, end);
-    });
-
-
-    // INITIALIZATION OF DATATABLES
-    // =======================================================
-    HSCore.components.HSDatatables.init($('#datatable'), {
-      select: {
-        style: 'multi',
-        selector: 'td:first-child input[type="checkbox"]',
-        classMap: {
-          checkAll: '#datatableCheckAll',
-          counter: '#datatableCounter',
-          counterInfo: '#datatableCounterInfo'
-        }
-      },
-      language: {
-        zeroRecords: `<div class="text-center p-4">
+      HSCore.components.HSDatatables.init($('#datatable'), {
+        dom: 'Bfrtip',
+        buttons: [
+          {
+            extend: 'copy',
+            className: 'd-none'
+          },
+          {
+            extend: 'excel',
+            className: 'd-none'
+          },
+          {
+            extend: 'csv',
+            className: 'd-none'
+          },
+          {
+            extend: 'pdf',
+            className: 'd-none'
+          },
+          {
+            extend: 'print',
+            className: 'd-none'
+          },
+        ],
+        select: {
+          style: 'multi',
+          selector: 'td:first-child input[type="checkbox"]',
+          classMap: {
+            checkAll: '#datatableCheckAll',
+            counter: '#datatableCounter',
+            counterInfo: '#datatableCounterInfo'
+          }
+        },
+        language: {
+          zeroRecords: `<div class="text-center p-4">
               <img class="mb-3" src="./assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
               <img class="mb-3" src="./assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
             <p class="mb-0">No data to show</p>
             </div>`
-      }
-    });
-
-    const datatable = HSCore.components.HSDatatables.getItem(0)
-
-    document.querySelectorAll('.js-datatable-filter').forEach(function (item) {
-      item.addEventListener('change', function (e) {
-        const elVal = e.target.value,
-          targetColumnIndex = e.target.getAttribute('data-target-column-index'),
-          targetTable = e.target.getAttribute('data-target-table');
-
-        HSCore.components.HSDatatables.getItem(targetTable).column(targetColumnIndex).search(elVal !== 'null' ? elVal : '').draw()
+        }
       })
-    })
+
+      const datatable = HSCore.components.HSDatatables.getItem(0)
+
+      $('#export-copy').click(function () {
+        datatable.button('.buttons-copy').trigger()
+      });
+
+      $('#export-excel').click(function () {
+        datatable.button('.buttons-excel').trigger()
+      });
+
+      $('#export-csv').click(function () {
+        datatable.button('.buttons-csv').trigger()
+      });
+
+      $('#export-pdf').click(function () {
+        datatable.button('.buttons-pdf').trigger()
+      });
+
+      $('#export-print').click(function () {
+        datatable.button('.buttons-print').trigger()
+      });
+
+      $('.js-datatable-filter').on('change', function () {
+        var $this = $(this),
+          elVal = $this.val(),
+          targetColumnIndex = $this.data('target-column-index');
+
+        if (elVal === 'null') elVal = ''
+
+        datatable.column(targetColumnIndex).search(elVal).draw();
+      });
+    });
   </script>
 
   <!-- JS Plugins Init. -->
   <script>
-      (function () {
-        localStorage.removeItem('hs_theme')
-
-        window.onload = function () {
+    (function () {
+      window.onload = function () {
 
 
-          // INITIALIZATION OF NAVBAR VERTICAL ASIDE
-          // =======================================================
-          new HSSideNav('.js-navbar-vertical-aside').init()
+        // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+        // =======================================================
+        new HSSideNav('.js-navbar-vertical-aside').init()
 
 
-          // INITIALIZATION OF FORM SEARCH
-          // =======================================================
-          const HSFormSearchInstance = new HSFormSearch('.js-form-search')
-
-          if (HSFormSearchInstance.collection.length) {
-            HSFormSearchInstance.getItem(1).on('close', function (el) {
-              el.classList.remove('top-0')
-            })
-
-            document.querySelector('.js-form-search-mobile-toggle').addEventListener('click', e => {
-              let dataOptions = JSON.parse(e.currentTarget.getAttribute('data-hs-form-search-options')),
-                $menu = document.querySelector(dataOptions.dropMenuElement)
-
-              $menu.classList.add('top-0')
-              $menu.style.left = 0
-            })
-          }
+        // INITIALIZATION OF FORM SEARCH
+        // =======================================================
+        new HSFormSearch('.js-form-search')
 
 
-          // INITIALIZATION OF BOOTSTRAP DROPDOWN
-          // =======================================================
-          HSBsDropdown.init()
+        // INITIALIZATION OF BOOTSTRAP DROPDOWN
+        // =======================================================
+        HSBsDropdown.init()
 
 
-          // INITIALIZATION OF CHARTJS
-          // =======================================================
-          HSCore.components.HSChartJS.init('.js-chart')
+        // INITIALIZATION OF SELECT
+        // =======================================================
+        HSCore.components.HSTomSelect.init('.js-select')
 
 
-          // INITIALIZATION OF CHARTJS
-          // =======================================================
-          HSCore.components.HSChartJS.init('#updatingBarChart')
-          const updatingBarChart = HSCore.components.HSChartJS.getItem('updatingBarChart')
-
-          // Call when tab is clicked
-          document.querySelectorAll('[data-bs-toggle="chart-bar"]').forEach(item => {
-            item.addEventListener('click', e => {
-              let keyDataset = e.currentTarget.getAttribute('data-datasets')
-
-              const styles = HSCore.components.HSChartJS.getTheme('updatingBarChart', HSThemeAppearance.getAppearance())
-
-              if (keyDataset === 'lastWeek') {
-                updatingBarChart.data.labels = ["Apr 22", "Apr 23", "Apr 24", "Apr 25", "Apr 26", "Apr 27", "Apr 28", "Apr 29", "Apr 30", "Apr 31"];
-                updatingBarChart.data.datasets = [
-                  {
-                    "data": [120, 250, 300, 200, 300, 290, 350, 100, 125, 320],
-                    "backgroundColor": styles.data.datasets[0].backgroundColor,
-                    "hoverBackgroundColor": styles.data.datasets[0].hoverBackgroundColor,
-                    "borderColor": styles.data.datasets[0].borderColor,
-                    "maxBarThickness": 10
-                  },
-                  {
-                    "data": [250, 130, 322, 144, 129, 300, 260, 120, 260, 245, 110],
-                    "backgroundColor": styles.data.datasets[1].backgroundColor,
-                    "borderColor": styles.data.datasets[1].borderColor,
-                    "maxBarThickness": 10
-                  }
-                ];
-                updatingBarChart.update();
-              } else {
-                updatingBarChart.data.labels = ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"];
-                updatingBarChart.data.datasets = [
-                  {
-                    "data": [200, 300, 290, 350, 150, 350, 300, 100, 125, 220],
-                    "backgroundColor": styles.data.datasets[0].backgroundColor,
-                    "hoverBackgroundColor": styles.data.datasets[0].hoverBackgroundColor,
-                    "borderColor": styles.data.datasets[0].borderColor,
-                    "maxBarThickness": 10
-                  },
-                  {
-                    "data": [150, 230, 382, 204, 169, 290, 300, 100, 300, 225, 120],
-                    "backgroundColor": styles.data.datasets[1].backgroundColor,
-                    "borderColor": styles.data.datasets[1].borderColor,
-                    "maxBarThickness": 10
-                  }
-                ]
-                updatingBarChart.update();
-              }
-            })
-          })
+        // INITIALIZATION OF INPUT MASK
+        // =======================================================
+        HSCore.components.HSMask.init('.js-input-mask')
 
 
-          // INITIALIZATION OF CHARTJS
-          // =======================================================
-          HSCore.components.HSChartJS.init('.js-chart-datalabels', {
-            plugins: [ChartDataLabels],
-            options: {
-              plugins: {
-                datalabels: {
-                  anchor: function (context) {
-                    var value = context.dataset.data[context.dataIndex];
-                    return value.r < 20 ? 'end' : 'center';
-                  },
-                  align: function (context) {
-                    var value = context.dataset.data[context.dataIndex];
-                    return value.r < 20 ? 'end' : 'center';
-                  },
-                  color: function (context) {
-                    var value = context.dataset.data[context.dataIndex];
-                    return value.r < 20 ? context.dataset.backgroundColor : context.dataset.color;
-                  },
-                  font: function (context) {
-                    var value = context.dataset.data[context.dataIndex],
-                      fontSize = 25;
-
-                    if (value.r > 50) {
-                      fontSize = 35;
-                    }
-
-                    if (value.r > 70) {
-                      fontSize = 55;
-                    }
-
-                    return {
-                      weight: 'lighter',
-                      size: fontSize
-                    };
-                  },
-                  formatter: function (value) {
-                    return value.r
-                  },
-                  offset: 2,
-                  padding: 0
-                }
-              },
-            }
-          })
-
-          // INITIALIZATION OF SELECT
-          // =======================================================
-          HSCore.components.HSTomSelect.init('.js-select')
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller')
 
 
-          // INITIALIZATION OF CLIPBOARD
-          // =======================================================
-          HSCore.components.HSClipboard.init('.js-clipboard')
-        }
-      })()
+        // INITIALIZATION OF COUNTER
+        // =======================================================
+        new HSCounter('.js-counter')
+
+
+        // INITIALIZATION OF TOGGLE PASSWORD
+        // =======================================================
+        new HSTogglePassword('.js-toggle-password')
+
+
+        // INITIALIZATION OF FILE ATTACHMENT
+        // =======================================================
+        new HSFileAttach('.js-file-attach')
+      }
+    })()
   </script>
 
   <!-- Style Switcher JS -->

@@ -305,14 +305,12 @@
           <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
             <!-- Collapse -->
             <div class="nav-item">
-              <a class="nav-link " href="dashboard.html" >
+              <a class="nav-link" href="#" >
                 <i class="bi-house-door nav-icon"></i>
                 <span class="nav-link-title">Dashboards</span>
               </a>
-
-          
             </div>
-           
+            <!-- End Collapse -->
 
             <!-- Collapse -->
             <div class="navbar-nav nav-compact">
@@ -321,20 +319,78 @@
             <div id="navbarVerticalMenuPagesMenu">
               <!-- Collapse -->
               <div class="nav-item">
-                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu">
+                <a class="nav-link dropdown-toggle  collapsed" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAgents" aria-expanded="false" aria-controls="navbarVerticalMenuAgents">
                   <i class="bi-people nav-icon"></i>
                   <span class="nav-link-title">Agents</span>
                 </a>
 
-                <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
-                  <a class="nav-link " href="add-agent.html">Create Agent</a>
-                  <a class="nav-link " href="agents.html">View Agents</a>
-                  <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
-                  <a class="nav-link active" href="aggregators.html">View Aggregators </a>
+                <div id="navbarVerticalMenuAgents" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenu">
+                  <div id="navbarVerticalMenuAuthenticationMenu">
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                      <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuAuthenticationLoginMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAuthenticationLoginMenu" aria-expanded="false" aria-controls="navbarVerticalMenuAuthenticationLoginMenu">
+                      Create Agent
+                      </a>
+
+                      <div id="navbarVerticalMenuAuthenticationLoginMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                        <a class="nav-link " href="add-agent.html">Individual Agent</a>
+                        <a class="nav-link " href="add-sole.html">Sole Proprietorship</a>
+                        <a class="nav-link " href="add-corp.html">Corporate </a>
+                      </div>
+                    </div>
+                    <!-- End Collapse -->
+
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                      <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuViewAgent" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuViewAgent" aria-expanded="false" aria-controls="navbarVerticalMenuViewAgent">
+                        View Agents
+                      </a>
+
+                      <div id="navbarVerticalMenuViewAgent" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                        <!-- <a class="nav-link " href="#">Individual Agent</a>
+                        <a class="nav-link " href="#">Sole Proprietorship</a>
+                        <a class="nav-link " href="#">Corporate </a> -->
+                        <a class="nav-link " href="agents.html">View Agents</a>
+                        <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
+                        <a class="nav-link active" href="aggregators.html">View Aggregators </a>
+                      </div>
+                    </div>
+                    <!-- End Collapse -->
+                  </div>
                 </div>
               </div>
-              <!-- End Collapse -->
+         
+              <div class="nav-item">
+                <a class="nav-link dropdown-toggle   collapsed" href="#" role="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarVerticalMenuCustomer" aria-expanded="false"
+                  aria-controls="navbarVerticalMenuCustomer">
+                  <i class="bi-person-check nav-icon"></i>
+                  <span class="nav-link-title">Customers</span>
+                </a>
 
+                <div id="navbarVerticalMenuCustomer" class="nav-collapse collapse "
+                  data-bs-parent="#navbarVerticalMenu">
+                  <div id="navbarVerticalMenuAuthenticationMenu">
+                    <div class="nav-item">
+                      <a class="nav-link " href="customers.html">
+                        Customer Overview
+                      </a>
+                    </div>
+                    <div class="nav-item">
+                      <a class="nav-link  " href="service-overview.html">
+                        Service Overview
+                      </a>
+                    </div>
+                    <!-- <div class="nav-item">
+                      <a class="nav-link  " href="ticket.html">
+                        Tickets
+                      </a>
+
+                    
+                    </div> -->
+                  </div>
+                </div>
+              </div>
           
 
               <!-- Collapse -->
@@ -475,7 +531,7 @@
                   </div>
 
                   <a class="nav-link " href="#">Audit Trail</a>
-                  <a class="nav-link " href="#">Transaction Settings</a>
+                  <a class="nav-link " href="transaction-settings.html">Transaction Settings</a>
                   <a class="nav-link " href="#">Account Settings</a>
                   <a class="nav-link " href="#">Key Management</a>
 
@@ -490,7 +546,7 @@
 
 
             <div class="nav-item">
-              <a class="nav-link text-danger" href="documentation/typography.html" data-placement="left">
+              <a class="nav-link text-danger" href="#" data-placement="left">
                 <i class="bi-arrow-left-circle nav-icon"></i>
                 <span class="nav-link-title">Logout</span>
               </a>
@@ -533,6 +589,7 @@
       </div>
     </div>
   </aside>
+
   <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
@@ -1153,52 +1210,7 @@
                     9778G38H78
                   </td>
                   <td>$54,478</td>
-                  <!-- <td>
-                    <div class="dropdown nav-scroller-dropdown">
-                      <button type="button" class="btn btn-white btn-icon btn-sm" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi-list-ul"></i>
-                      </button>
-  
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="profileDropdown">
-  
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-slash-circle dropdown-item-icon"></i> DeActivate Managers
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-list-ul dropdown-item-icon"></i> Wallet History
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-check-circle dropdown-item-icon"></i> Assign Acct. Mgrss
-                        </a>
-  
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-list dropdown-item-icon"></i>Transaction History
-                        </a>
-  
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-wallet dropdown-item-icon"></i>Credit Managers Wallet
-                        </a>
-  
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
-                        </a>
-  
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-pencil-square dropdown-item-icon"></i>Edit Managers Details
-                        </a>
-  
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-arrow-counterclockwise dropdown-item-icon"></i>Reset Password
-                        </a>
-  
-                        <a class="text-danger dropdown-item" href="#">
-                          <i class=" bi-slash-circle dropdown-item-icon"></i>Block Managers
-                        </a>
-                        
-                      </div>
-                    </div>
-                  
-                  </td> -->
+
                 </tr>
   
             
@@ -1209,6 +1221,306 @@
           </table>
         </div>
         <!-- End Table -->
+
+        <div class="row justify-content-end mb-3">
+          <div class="col-lg">
+            <!-- Datatable Info -->
+            <div id="datatableCounterInfo" style="display: none;">
+              <div class="d-sm-flex justify-content-lg-end align-items-sm-center">
+                <span class="d-block d-sm-inline-block fs-5 me-3 mb-2 mb-sm-0">
+                  <span id="datatableCounter">0</span>
+                  Selected
+                </span>
+                <a class="btn btn-outline-danger btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
+                  <i class="bi-trash"></i> Delete
+                </a>
+                <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
+                  <i class="bi-archive"></i> Archive
+                </a>
+                <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
+                  <i class="bi-upload"></i> Publish
+                </a>
+                <a class="btn btn-white btn-sm mb-2 mb-sm-0" href="javascript:;">
+                  <i class="bi-x-lg"></i> Unpublish
+                </a>
+              </div>
+            </div>
+            <!-- End Datatable Info -->
+          </div>
+        </div>
+        <!-- End Row -->
+  
+        <!-- Card -->
+        <div class="card">
+          <!-- Header -->
+          <div class="card-header card-header-content-md-between">
+            <div class="mb-2 mb-md-0">
+              <form>
+                <!-- Search -->
+                <div class="input-group input-group-merge input-group-flush">
+                  <div class="input-group-prepend input-group-text">
+                    <i class="bi-search"></i>
+                  </div>
+                  <input id="datatableSearch" type="search" class="form-control" placeholder="Search Transaction" aria-label="Search users">
+                </div>
+                <!-- End Search -->
+              </form>
+            </div>
+  
+            <div class="d-grid d-sm-flex gap-2">
+              <a href="all-transactions.html" class="btn btn-white" type="button">
+                <i class="bi-eye me-1"></i> View All
+              </a>
+  
+              <!-- Dropdown -->
+              <div class="dropdown">
+                <button type="button" class="btn btn-white w-100" id="showHideDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                  <i class="bi-table me-1"></i> Columns <span class="badge bg-soft-dark text-dark rounded-circle ms-1">6</span>
+                </button>
+  
+                <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="showHideDropdown" style="width: 15rem;">
+                  <div class="card card-sm">
+                    <div class="card-body">
+                      <div class="d-grid gap-3">
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_id">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">User</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_id" checked="">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_users">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">Refrence</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_users" checked="">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_type">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">Amount</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_type" checked="">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_vendor">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">Type</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_vendor">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_stocks">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">Description</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_stocks" checked="">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_sku">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">Amount</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_sku" checked="">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                        <label class="row form-check form-switch" for="toggleColumn_price">
+                          <span class="col-8 col-sm-9 ms-0">
+                            <span class="me-2">Fee</span>
+                          </span>
+                          <span class="col-4 col-sm-3 text-end">
+                            <input type="checkbox" class="form-check-input" id="toggleColumn_price" checked="">
+                          </span>
+                        </label>
+                        <!-- End Form Switch -->
+  
+                        <!-- Form Switch -->
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Dropdown -->
+            </div>
+          </div>
+          <!-- End Header -->
+  
+          <!-- Table -->
+          <div class="table-responsive datatable-custom">
+            <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
+                     "columnDefs": [{
+                        "targets": [0, 4, 7],
+                        "width": "5%",
+                        "orderable": false
+                      }],
+                     "order": [],
+                     "info": {
+                       "totalQty": "#datatableWithPaginationInfoTotalQty"
+                     },
+                     "search": "#datatableSearch",
+                     "entries": "#datatableEntries",
+                     "pageLength": 50,
+                     "isResponsive": false,
+                     "isShowPaging": false,
+                     "pagination": "datatablePagination"
+                   }'>
+              <thead class="thead-light">
+                <th >
+                  ID
+                </th>
+                <th >Users</th>
+                <th>Refrence</th>
+                <th>Customer Type</th>
+  
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Service Fee</th>
+                <th>Type</th>
+                <th>Biller ID</th>
+                <th>Status</th>
+                <th>Time</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+             
+  
+                <tr>
+                  <td class="table-column-pe-0">
+                    1
+                  </td>
+                  <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="#">
+                      <div class="flex-shrink-0">
+                        <img class="avatar avatar-lg" src="assets/img/400x400/img26.jpg" alt="Image Description">
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <h5 class="text-inherit mb-0">Agent Name</h5>
+                        <span>09038847848</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>093874</td>
+                  <td>Aggregator</td>
+                  <td>
+                    Aggregator Customer Fee
+                  </td>
+                  <td>₦80000</td>
+                  <td>45</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td><span class="legend-indicator bg-danger"></span>Blocked</td>
+                  <td>
+                   12:00 AM
+                  </td>
+                </tr>
+  
+                
+                <tr>
+                  <td class="table-column-pe-0">
+                    2
+                  </td>
+                  <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="#">
+                      <div class="flex-shrink-0">
+                        <img class="avatar avatar-lg" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <h5 class="text-inherit mb-0">Business Name</h5>
+                        <span>09038847848</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>43874</td>
+                  <td>Aggregator</td>
+                  <td>
+                    Banker Service Commision Fee
+                  </td>
+                  <td>₦90000</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td><span class="legend-indicator bg-success"></span> Active</td>
+                  <td>
+                   09:40 PM
+                  </td>
+                </tr>
+  
+             
+  
+              </tbody>
+            </table>
+          </div>
+          <!-- End Table -->
+  
+          <!-- Footer -->
+          <div class="card-footer">
+            <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+              <div class="col-sm mb-2 mb-sm-0">
+                <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+                  <span class="me-2">Showing:</span>
+  
+                  <!-- Select -->
+                  <div class="tom-select-custom">
+                    <select id="datatableEntries" class="js-select form-select form-select-borderless w-auto" autocomplete="off" data-hs-tom-select-options='{
+                              "searchInDropdown": false,
+                              "hideSearch": true
+                            }'>
+                      <option value="12">12</option>
+                      <option value="14" selected="">14</option>
+                      <option value="16">16</option>
+                      <option value="18">18</option>
+                    </select>
+                  </div>
+                  <!-- End Select -->
+  
+                  <span class="text-secondary me-2">of</span>
+  
+                  <!-- Pagination Quantity -->
+                  <span id="datatableWithPaginationInfoTotalQty"></span>
+                </div>
+              </div>
+              <!-- End Col -->
+  
+              <div class="col-sm-auto">
+                <div class="d-flex justify-content-center justify-content-sm-end">
+                  <!-- Pagination -->
+                  <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+                </div>
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+          <!-- End Footer -->
+        </div>
+        <!-- End Card -->
 
         <!-- Footer -->
         <div class="card-footer">
@@ -1611,6 +1923,9 @@
 
   <!-- JS Implementing Plugins -->
   <script src="assets/js/vendor.min.js"></script>
+
+  <script src="assets/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js"></script>
+
 
   <!-- JS Front -->
   <script src="assets/js/theme.min.js"></script>
