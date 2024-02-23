@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #dddddd;
+}
+
+.agentContainer {
+  padding: 3em;
+}
+
+.agentIntro h5 {
+  color: #9a9a9a;
+  font-size: 15px;
+}
+
+.agentIntro span {
+  color: #000000;
+  font-size: 20px;
+  height: 100%;
+}
+
+.agentOptions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 1em;
+}
+
+.accountInfo {
+  background-color: rgb(11, 10, 76);
+  padding: 15px;
+  color: #ffffff;
+  border-radius: 15px;
+  position: relative;
+}
+
+.accountBalance {
+  display: grid;
+  justify-content: center;
+}
+
+.otherInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20px;
+  padding: 30px;
+}
+
+.otherOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 2em;
+  gap: 2em;
+}
+
+.otherOptions button {
+  border: none;
+  padding: 4em;
+  border-radius: 10px;
+  color: #231f4e;
+  display: grid;
+  justify-items: left;
+  cursor: pointer;
+}
+
+.transactionHistory {
+  margin: 2em 0em;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
