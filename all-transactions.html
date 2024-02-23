@@ -909,7 +909,7 @@
           </div>
 
           <div class="d-grid d-sm-flex gap-2">
-            <a href="#" class="btn btn-white" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+            <a href="#" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
               <i class="bi bi-download"></i> Download Report
 
             </a>
@@ -3221,39 +3221,52 @@
     </div>
   </div>
 
-  <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title display-5" id="exampleModalCenterTitle">Download Transaction List</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Enter an email to receive the list</p>
-          <div class="pt-2">
-            <form action="">
-              <div class="mb- ">
-                <!-- <label for="formControlHoverLightEmail" class="form-label">Email</label> -->
-  
-                <input type="text" class="form-control form-control-hover-light" id="formControlHoverLightEmail" placeholder="mark@example.com" aria-label="mark@example.com">
-  
-                <div class="mt-2">
-                  <button type="submit" class="btn w-100 btn-primary"><i class="bi-envelope-arrow-down me-2"></i> Download List</button>
-  
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="modal-footer justify-content-between">
-          <!-- <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button> -->
-          <a href="#" class="btn btn-light border"><i class="bi-download me-2"></i>Download CSV</a>
-          <a href="#" class="btn btn-dark"><i class="bi-download me-2"></i>Download Excel</a>
 
-        </div>
-      </div>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Download Transaction List</h5>
+
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-  </div>   
+    <div class="offcanvas-body">
+        <p>Enter an email to receive the list</p>
+        <div class="pt-2">
+          <form action="">
+            <div class="">
+              <!-- <label for="formControlHoverLightEmail" class="form-label">Email</label> -->
+
+             <div>
+              <span class="label" id="basic-addon3">Email address for receiving report (editable)</span>
+
+              <input type="text" class="form-control form-control-hover-light" id="formControlHoverLightEmail" placeholder="mark@example.com" aria-label="mark@example.com">
+             </div>
+
+             <div class="mt-2">
+              <span class="label" id="basic-addon3">Select transaction type</span>
+
+              <select class="form-select">
+                <option selected="">All</option>
+                <option value="Transfer">Transfer</option>
+                <option value="Wallet Top-up">Wallet Top-up</option>
+                <option value="Commision">Commision</option>
+                <!-- <option value="3">Three</option> -->
+              </select>
+             </div>
+
+              <div class="mt-2">
+                <button type="submit" class="btn w-100 btn-primary"><i class="bi-envelope-arrow-down me-2"></i> Download List</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+
+
+
+ 
+
   <!-- End Modal -->
 
   <!-- Welcome Message Modal -->

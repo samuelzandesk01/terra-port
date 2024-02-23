@@ -27391,7 +27391,7 @@ a:hover .text-inherit {
 .daterangepicker {
   border: none;
   font-family: Inter, sans-serif;
-  z-index: 98;
+  z-index: 1198;
   background-color: #fff;
   box-shadow: 0 0.6125rem 2.5rem 0.6125rem rgba(140, 152, 164, 0.175);
   margin-top: 0;
