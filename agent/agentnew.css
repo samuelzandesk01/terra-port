@@ -1,0 +1,18 @@
+.btn-custom {
+  background-color: red;
+  border-radius: 5px;
+}
+
+.agent-btn {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.action-info {
+  display: grid;
+  justify-content: center;
+}
