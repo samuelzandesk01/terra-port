@@ -110,4 +110,151 @@ tr:hover {
 
 .success {
   background-color: lightgreen;
-  color: darkgreen;}
+  color: darkgreen;
+}
+
+/* Popup container */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Popup content */
+.popup-content {
+  background-color: white;
+  padding: 40px;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.receipt {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 1em;
+  color: #0b0a59;
+}
+
+.receipt p {
+  color: grey;
+}
+
+.trans-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ref-info {
+  display: grid;
+  gap: 0.5em;
+}
+
+.info-right {
+  display: grid;
+  justify-items: end;
+}
+
+.reference {
+  display: grid;
+  gap: 1em;
+}
+
+.response p {
+  color: #0b0a59;
+}
+
+.receipt button {
+  padding: 1em;
+  border-radius: 25px;
+  border: none;
+  color: #0b0a59;
+  background-color: #dbe0ff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.receipt-info {
+  display: grid;
+  justify-items: center;
+  gap: 2em;
+}
+
+.r-info-intro {
+  display: grid;
+  justify-items: center;
+}
+
+.r-info-intro p {
+  color: #9a9a9a;
+}
+
+.receipient-form {
+  width: 80%;
+  /* align-items: start; */
+}
+
+form {
+  width: 10em;
+  display: grid;
+  gap: 1em;
+}
+
+#phoneNumber {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 20em;
+}
+
+.iti__arrow {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.iti__selected-flag {
+  width: 60px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+form button {
+  border: none;
+  padding: 10px;
+  background-color: #e7dcff;
+  border-radius: 10px;
+}

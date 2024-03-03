@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="/agent/agent2.css" /> -->
+    <link rel="stylesheet" href="/agent/agent2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"
+    />
   </head>
   <body>
     <div class="agentContainer">
@@ -92,8 +96,8 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Sample row, you'll dynamically populate these rows using JavaScript -->
-              <tr>
+              
+              <tr id="openPopup">
                 <td>1</td>
                 <td>REF123</td>
                 <td>Payment</td>
@@ -103,17 +107,7 @@
                 <td>Success</td>
                 <td>2024-02-21 10:30:00</td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>REF123</td>
-                <td>Payment</td>
-                <td>Debit</td>
-                <td>$100.00</td>
-                <td>BILL123</td>
-                <td class="success" >Success</td>
-                <td>2024-02-21 10:30:00</td>
-              </tr>
-              <tr>
+              <tr id="openPopup">
                 <td>1</td>
                 <td>REF123</td>
                 <td>Payment</td>
@@ -123,7 +117,7 @@
                 <td>Success</td>
                 <td>2024-02-21 10:30:00</td>
               </tr>
-              <tr>
+              <tr id="openPopup">
                 <td>1</td>
                 <td>REF123</td>
                 <td>Payment</td>
@@ -133,7 +127,7 @@
                 <td>Success</td>
                 <td>2024-02-21 10:30:00</td>
               </tr>
-              <tr>
+              <tr id="openPopup">
                 <td>1</td>
                 <td>REF123</td>
                 <td>Payment</td>
@@ -143,7 +137,7 @@
                 <td>Success</td>
                 <td>2024-02-21 10:30:00</td>
               </tr>
-              <tr>
+              <tr id="openPopup">
                 <td>1</td>
                 <td>REF123</td>
                 <td>Payment</td>
@@ -153,11 +147,137 @@
                 <td>Success</td>
                 <td>2024-02-21 10:30:00</td>
               </tr>
-              <!-- Add more rows dynamically here -->
+              <tr id="openPopup">
+                <td>1</td>
+                <td>REF123</td>
+                <td>Payment</td>
+                <td>Debit</td>
+                <td>$100.00</td>
+                <td>BILL123</td>
+                <td>Success</td>
+                <td>2024-02-21 10:30:00</td>
+              </tr>
+              <tr id="openPopup">
+                <td>1</td>
+                <td>REF123</td>
+                <td>Payment</td>
+                <td>Debit</td>
+                <td>$100.00</td>
+                <td>BILL123</td>
+                <td>Success</td>
+                <td>2024-02-21 10:30:00</td>
+              </tr>
+              
+              
             </tbody>
           </table>
         </div>
       </div>
     </div>
+
+    <!-- <button id="openPopup">Open Popup</button> -->
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close" id="closePopup">&times;</span>
+        <div class="receipt">
+          <h2>NGN 100</h2>
+          <p>08 February,2024 12:57 PM</p>
+
+          <img
+            src=".././assets/svg/swap_vert_FILL0_wght700_GRAD200_opsz20.svg"
+            alt=""
+          />
+
+          <h5>Micheal Oyedepo A</h5>
+          <div class="actions d-flex">
+            <button id="openSecondPopup">
+              <img
+                src=".././assets/svg/receipt_long_FILL0_wght700_GRAD200_opsz20.svg"
+                alt=""
+              />Get Receipt
+            </button>
+            <button>
+              <img
+                src=".././assets/svg/report_FILL0_wght700_GRAD200_opsz20.svg"
+                alt=""
+              />Report Issue
+            </button>
+          </div>
+          <div class="reference">
+            <p>Transaction Reference</p>
+            <p>TRF-84605e60-e5da-4642-bc7a-19bd6b6f2f5f</p>
+          </div>
+          <div class="trans-info">
+            <div class="info-left ref-info">
+              <p>Amount Charged</p>
+              <p style="color: #0b0a59; font-weight: 600">NGN 125</p>
+              <p>Status</p>
+              <p style="color: rgb(76, 232, 147); font-weight: 600">
+                Successful
+              </p>
+              <p>Transaction Date</p>
+              <p style="color: #0b0a59; font-weight: 600">
+                08 February,2024 12:57 PM
+              </p>
+              <p>Receipient Acct Number</p>
+              <p style="color: #0b0a59; font-weight: 600">0032420181</p>
+            </div>
+            <div class="info-right ref-info">
+              <p>Service Fee</p>
+              <p style="color: #0b0a59; font-weight: 600">25.00</p>
+              <p>Type</p>
+              <p style="color: #0b0a59; font-weight: 600">TRANSFER</p>
+              <p>Recipient Name</p>
+              <p style="color: #0b0a59; font-weight: 600">Micheal Oyedepo A</p>
+              <p>Recipient Bank</p>
+              <p style="color: #0b0a59; font-weight: 600">GTBank</p>
+            </div>
+          </div>
+          <div class="reference">
+            <div class="ref">
+              <h4>Remarks</h4>
+              <p>Grp-TERRA SWITCHING & PROCESSING COMPANY LIMITED-TERRA</p>
+            </div>
+            <div class="ref">
+              <h4>Session ID</h4>
+              <p>0901102402040208125725983652818592</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="secondPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" id="closeSecondPopup">&times;</span>
+        <div class="receipt-info">
+          <div class="r-info-intro">
+            <h2>Send receipt</h2>
+            <p>Enter receipient phone number below!</p>
+          </div>
+          <div class="receipient-form">
+            <form id="phoneNumberForm">
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</label> <br /><br>
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  class="form-control"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./agent.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
   </body>
 </html>
