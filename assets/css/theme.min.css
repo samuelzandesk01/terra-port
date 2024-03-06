@@ -3551,6 +3551,7 @@ fieldset:disabled .btn {
   left: 0;
 }
 .dropdown-menu-end {
+  /* position: fixed !important; */
   --bs-position: end;
 }
 .dropdown-menu-end[data-bs-popper] {

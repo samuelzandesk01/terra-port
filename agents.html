@@ -1825,7 +1825,7 @@
                       <i class="bi-list-ul"></i>
                     </button>
 
-                    <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="profileDropdown">
+                    <div class="dropdown-menu dropdown-menu-end mt-1" style="position: fixed;" aria-labelledby="profileDropdown">
                       <a class="dropdown-item" href="customer.html">
                         <i class="bi-eye dropdown-item-icon"></i> View Agent
                       </a>
@@ -1851,7 +1851,7 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="customer.html">
+                      <a class="dropdown-item" href="edit-agent.html">
                         <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
                       </a>
 
@@ -1941,8 +1941,8 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="customer.html">
-                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
+                      <a class="dropdown-item" href="edit-agent.html">
+                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent
                       </a>
 
                       <a class="dropdown-item" href="reset-agent-password.html">
@@ -2031,8 +2031,8 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="customer.html">
-                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
+                      <a class="dropdown-item" href="edit-agent.html">
+                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent 
                       </a>
 
                       <a class="dropdown-item" href="reset-agent-password.html">
@@ -2121,8 +2121,8 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="#">
-                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
+                      <a class="dropdown-item" href="edit-agent.html">
+                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent 
                       </a>
 
                       <a class="dropdown-item" href="#">
@@ -2211,7 +2211,7 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="edit-agent.html">
                         <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
                       </a>
 
@@ -2300,8 +2300,8 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="#">
-                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
+                      <a class="dropdown-item" href="edit-agent.html">
+                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent 
                       </a>
 
                       <a class="dropdown-item" href="#">
@@ -2390,8 +2390,8 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="#">
-                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
+                      <a class="dropdown-item" href="edit-agent.html">
+                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent
                       </a>
 
                       <a class="dropdown-item" href="#">
@@ -2481,8 +2481,8 @@
                         <i class="bi-bar-chart dropdown-item-icon"></i>Transaction Rate
                       </a>
 
-                      <a class="dropdown-item" href="#">
-                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent Details
+                      <a class="dropdown-item" href="edit-agent.html">
+                        <i class="bi-pencil-square dropdown-item-icon"></i>Edit Agent  
                       </a>
 
                       <a class="dropdown-item" href="#">
@@ -2602,6 +2602,11 @@
             </div>
 
             <div class="mb-3">
+              <label class="form-label" for="exampleFormControlInput1">Others</label>
+              <input type="text" id="exampleFormControlInput1" class="form-control" placeholder="Other reason">
+            </div>
+
+            <div class="mb-3">
               <label class="form-label" for="exampleFormControlInput1">Email</label>
               <input type="email" name="email" id="exampleFormControlInput1" class="form-control"
                 placeholder="agentemail@mail.com">
@@ -2612,6 +2617,8 @@
               <input type="text" id="exampleFormControlInput1" class="form-control" placeholder="John Doe">
             </div>
 
+           
+
 
             <div class="mb-3">
               <label class="form-label" for="exampleFormControlTextarea1">Additional Message</label>
@@ -2619,7 +2626,7 @@
                 rows="4"></textarea>
             </div>
             <div>
-              <button type="submit" class="btn btn-primary">Submit Request </button>
+              <button type="submit" class="btn btn-primary">Deactivate</button>
 
             </div>
           </form>
@@ -2640,8 +2647,8 @@
           <div class="m-2">
             <i class="bi bi-exclamation-triangle display-2 text-warning"></i>
           </div>
-          <h2>Are you want to deactivate this user?</h2>
-          <p>Once you deactive this account, this user won't be able to make transaction but canonly access is account.
+          <h2>Are you sure you want to deactivate this user?</h2>
+          <p> <strong>Please note that:</strong> Once you deactive this account, this user won't be able to carry out transactions anymore.  But can only access the account.
           </p>
           <hr>
           <div class="d-flex justify-content-around">

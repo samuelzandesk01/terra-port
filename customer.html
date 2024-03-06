@@ -744,8 +744,9 @@
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                           <i class="bi-person-x dropdown-item-icon text-white"></i> Decline KYC
                         </button>
-                        <button class="btn btn-success ">
-                          <i class="bi-check dropdown-item-icon text-white"></i> Approve
+
+                        <button class="btn btn-success " data-bs-toggle="modal" data-bs-target="#approveKYCModal">
+                          <i class="bi-check dropdown-item-icon text-white"></i> Approve KYC
                         </button>
                       </div>
                     </li>
@@ -981,6 +982,28 @@
               </div>
               <!-- End Card -->
             </div>
+
+            <!-- Toast -->
+<div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
+  <div class="toast-header">
+    <div class="d-flex align-items-center flex-grow-1">
+      <div class="flex-shrink-0">
+        <img class="avatar avatar-sm avatar-circle" src="../assets/img/160x160/img4.jpg" alt="Image description">
+      </div>
+      <div class="flex-grow-1 ms-3">
+        <h5 class="mb-0">Bob Dean</h5>
+        <small class="ms-auto">11 mins ago</small>
+      </div>
+      <div class="text-end">
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div>
+<!-- End Toast -->
 
             <div class="col-lg-7">
               <div class="d-grid gap-3 gap-lg-5">
@@ -2105,6 +2128,30 @@
   </div>
   <!-- End Keyboard Shortcuts -->
 
+    <!-- Modal -->
+    <div id="approveKYCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+         
+          <h2 class="text-success">Admin {User} KYC Approved</h2>
+          <p>NOw that this user KYC has been approved, he/she will be able to make end to end transactions.</p>
+        <div>
+
+        </div>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
   <!-- Modal -->
   <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -2113,19 +2160,57 @@
         <div class="modal-header">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body text-center">
-          <div class="m-2">
-            <i class="bi bi-exclamation-triangle display-2 text-warning"></i>
-          </div>
-          <h2>KYC Details Charges
+        <div class="modal-body">
+         
+          <h2>State reason why declining
           </h2>
-          <p>You will be charged N150 to view the KYC (NIN and BVN) details of this customer. Kindly ensure your
-            disbursement wallet is well funded. Do you agree to this charge?</p>
-          <hr>
-          <div class="d-flex justify-content-around">
-            <button type="button" class="btn btn-danger" id="liveToastBtn">No, I Disagree</button>
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Yes, I Agree</button>
-          </div>
+          
+          <form>
+            <div class="mb-3">
+              <label class="form-label" for="exampleFormControlSelect1">Select cause of decline</label>
+              <select id="exampleFormControlSelect1" class="form-control">
+                <option>Choose an option</option>
+                <option>Security Concerns</option>
+                <option>Violation of Policies</option>
+                <option>Inactivity</option>
+                <option>Fraudulent Activities</option>
+                <option value="">Termination of Employment or Contract</option>
+                <option value="">Technical Issues </option>
+                <option value="">Compliance Requirements</option>
+                <option value="">Account Closure Request</option>
+                <option value="">Changes in Business Structure</option>
+                <option value="">System Upgrades or Changes</option>
+                <option value="">Breach of Trust</option>
+                <option value="">Legal Reasons</option>
+                <option value="">Risk Mitigation</option>
+                <option value="">Non-Compliance with Training Requirements</option>
+                <option value="">Customer Complaints</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="exampleFormControlInput1">Email</label>
+              <input type="email" name="email" id="exampleFormControlInput1" class="form-control"
+                placeholder="agentemail@mail.com">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="exampleFormControlInput1">Agent Name</label>
+              <input type="text" id="exampleFormControlInput1" class="form-control" placeholder="John Doe">
+            </div>
+
+
+            <div class="mb-3">
+              <label class="form-label" for="exampleFormControlTextarea1">Additional Message</label>
+              <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
+                rows="4"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Submit Request </button>
+
+            </div>
+          </form>
+          
         </div>
 
 
