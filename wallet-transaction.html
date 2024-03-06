@@ -1,0 +1,3309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title> Wallet Transaction List - Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Font -->
+    <link href="../../css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/css/vendor.min.css">
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="assets/css/theme.min.css?v=1.0">
+
+    <link rel="preload" href="assets/css/theme.min-1.css" data-hs-appearance="default" as="style">
+    <link rel="preload" href="assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+    <style data-hs-appearance-onload-styles="">
+        * {
+            transition: unset !important;
+        }
+
+        body {
+            opacity: 0;
+        }
+
+        tr {
+            cursor: pointer !important;
+        }
+
+        .table-align-middle tbody tr,
+        .table-align-middle td,
+        .table-align-middle th {
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- ONLY DEV -->
+
+    <style>
+        body {
+            opacity: 0;
+        }
+    </style>
+
+    <!-- END ONLY DEV -->
+
+    <script>
+        window.hs_config = { "autopath": "@@autopath", "deleteLine": "hs-builder:delete", "deleteLine:build": "hs-builder:build-delete", "deleteLine:dist": "hs-builder:dist-delete", "previewMode": false, "startPath": "/index.html", "vars": { "themeFont": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap", "version": "?v=1.0" }, "layoutBuilder": { "extend": { "switcherSupport": true }, "header": { "layoutMode": "default", "containerMode": "container-fluid" }, "sidebarLayout": "default" }, "themeAppearance": { "layoutSkin": "default", "sidebarSkin": "default", "styles": { "colors": { "primary": "#377dff", "transparent": "transparent", "white": "#fff", "dark": "132144", "gray": { "100": "#f9fafc", "900": "#1e2022" } }, "font": "Inter" } }, "languageDirection": { "lang": "en" }, "skipFilesFromBundle": { "dist": ["assets/js/hs.theme-appearance.js", "assets/js/hs.theme-appearance-charts.js", "assets/js/demo.js"], "build": ["assets/css/theme.css", "assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js", "assets/js/demo.js", "assets/css/theme-dark.css", "assets/css/docs.css", "assets/vendor/icon-set/style.css", "assets/js/hs.theme-appearance.js", "assets/js/hs.theme-appearance-charts.js", "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js", "assets/js/demo.js"] }, "minifyCSSFiles": ["assets/css/theme.css", "assets/css/theme-dark.css"], "copyDependencies": { "dist": { "*assets/js/theme-custom.js": "" }, "build": { "*assets/js/theme-custom.js": "", "node_modules/bootstrap-icons/font/*fonts/**": "assets/css" } }, "buildFolder": "", "replacePathsToCDN": {}, "directoryNames": { "src": "./src", "dist": "./dist", "build": "./build" }, "fileNames": { "dist": { "js": "theme.min.js", "css": "theme.min.css" }, "build": { "css": "theme.min.css", "js": "theme.min.js", "vendorCSS": "vendor.min.css", "vendorJS": "vendor.min.js" } }, "fileTypes": "jpg|png|svg|mp4|webm|ogv|json" }
+        window.hs_config.gulpRGBA = (p1) => {
+            const options = p1.split(',')
+            const hex = options[0].toString()
+            const transparent = options[1].toString()
+
+            var c;
+            if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+                c = hex.substring(1).split('');
+                if (c.length == 3) {
+                    c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+                }
+                c = '0x' + c.join('');
+                return 'rgba(' + [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(',') + ',' + transparent + ')';
+            }
+            throw new Error('Bad Hex');
+        }
+        window.hs_config.gulpDarken = (p1) => {
+            const options = p1.split(',')
+
+            let col = options[0].toString()
+            let amt = -parseInt(options[1])
+            var usePound = false
+
+            if (col[0] == "#") {
+                col = col.slice(1)
+                usePound = true
+            }
+            var num = parseInt(col, 16)
+            var r = (num >> 16) + amt
+            if (r > 255) {
+                r = 255
+            } else if (r < 0) {
+                r = 0
+            }
+            var b = ((num >> 8) & 0x00FF) + amt
+            if (b > 255) {
+                b = 255
+            } else if (b < 0) {
+                b = 0
+            }
+            var g = (num & 0x0000FF) + amt
+            if (g > 255) {
+                g = 255
+            } else if (g < 0) {
+                g = 0
+            }
+            return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+        }
+        window.hs_config.gulpLighten = (p1) => {
+            const options = p1.split(',')
+
+            let col = options[0].toString()
+            let amt = parseInt(options[1])
+            var usePound = false
+
+            if (col[0] == "#") {
+                col = col.slice(1)
+                usePound = true
+            }
+            var num = parseInt(col, 16)
+            var r = (num >> 16) + amt
+            if (r > 255) {
+                r = 255
+            } else if (r < 0) {
+                r = 0
+            }
+            var b = ((num >> 8) & 0x00FF) + amt
+            if (b > 255) {
+                b = 255
+            } else if (b < 0) {
+                b = 0
+            }
+            var g = (num & 0x0000FF) + amt
+            if (g > 255) {
+                g = 255
+            } else if (g < 0) {
+                g = 0
+            }
+            return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+        }
+    </script>
+</head>
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
+
+    <script src="assets/js/hs.theme-appearance.js"></script>
+
+    <script src="assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header"
+        class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
+        <div class="navbar-nav-wrap">
+            <!-- Logo -->
+            <a class="navbar-brand" href="dashboard.html" aria-label="Front">
+                <img class="navbar-brand-logo" src="assets/svg/logos/logo.png" alt="Logo"
+                    data-hs-theme-appearance="default">
+                <img class="navbar-brand-logo" src="assets/svg/logos/logo.png" alt="Logo"
+                    data-hs-theme-appearance="dark">
+                <img class="navbar-brand-logo-mini" src="assets/svg/logos/icon.png" alt="Logo"
+                    data-hs-theme-appearance="default">
+                <img class="navbar-brand-logo-mini" src="assets/svg/logos/icon.png" alt="Logo"
+                    data-hs-theme-appearance="dark">
+            </a>
+            <!-- End Logo -->
+
+            <div class="navbar-nav-wrap-content-start">
+                <!-- Navbar Vertical Toggle -->
+                <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                    <i class="bi-arrow-bar-left navbar-toggler-short-align"
+                        data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                        data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+                    <i class="bi-arrow-bar-right navbar-toggler-full-align"
+                        data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                        data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+                </button>
+
+                <!-- End Navbar Vertical Toggle -->
+
+                <!-- Search Form -->
+                <div class="dropdown ms-2">
+                    <!-- Input Group -->
+                    <div class="d-none d-lg-block">
+                        <div
+                            class="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
+                            <div class="input-group-prepend input-group-text">
+                                <i class="bi-search"></i>
+                            </div>
+
+                            <input type="search" class="js-form-search form-control" placeholder="Search in front"
+                                aria-label="Search in front" data-hs-form-search-options='{
+                       "clearIcon": "#clearSearchResultsIcon",
+                       "dropMenuElement": "#searchDropdownMenu",
+                       "dropMenuOffset": 20,
+                       "toggleIconOnFocus": true,
+                       "activeClass": "focus"
+                     }'>
+                            <a class="input-group-append input-group-text" href="javascript:;">
+                                <i id="clearSearchResultsIcon" class="bi-x-lg" style="display: none;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <button
+                        class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none"
+                        type="button" data-hs-form-search-options='{
+                       "clearIcon": "#clearSearchResultsIcon",
+                       "dropMenuElement": "#searchDropdownMenu",
+                       "dropMenuOffset": 20,
+                       "toggleIconOnFocus": true,
+                       "activeClass": "focus"
+                     }'>
+                        <i class="bi-search"></i>
+                    </button>
+                    <!-- End Input Group -->
+
+
+
+                </div>
+
+                <!-- End Search Form -->
+            </div>
+
+            <div class="navbar-nav-wrap-content-end">
+                <!-- Navbar -->
+                <ul class="navbar-nav">
+
+
+
+
+                    <li class="nav-item">
+                        <!-- Account -->
+                        <div class="dropdown">
+                            <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"
+                                data-bs-dropdown-animation="">
+                                <div class="avatar avatar-sm avatar-circle">
+                                    <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                                    <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                                </div>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account"
+                                aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
+                                <div class="dropdown-item-text">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar avatar-sm avatar-circle">
+                                            <img class="avatar-img" src="assets/img/160x160/img6.jpg"
+                                                alt="Image Description">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="mb-0">Mark Williams</h5>
+                                            <p class="card-text text-body">mark@site.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-divider"></div>
+
+                                <!-- Dropdown -->
+                                <div class="dropdown">
+                                    <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle"
+                                        href="javascript:;" id="navSubmenuPagesAccountDropdown1"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Set status</a>
+
+                                    <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu"
+                                        aria-labelledby="navSubmenuPagesAccountDropdown1">
+                                        <a class="dropdown-item" href="#">
+                                            <span class="legend-indicator bg-success me-1"></span> Available
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="legend-indicator bg-danger me-1"></span> Busy
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="legend-indicator bg-warning me-1"></span> Away
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#"> Reset status
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- End Dropdown -->
+
+                                <a class="dropdown-item" href="#">Profile &amp; account</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+
+                                <div class="dropdown-divider"></div>
+
+
+
+                                <a class="dropdown-item" href="#">Manage team</a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="#">Sign out</a>
+                            </div>
+                        </div>
+                        <!-- End Account -->
+                    </li>
+                </ul>
+                <!-- End Navbar -->
+            </div>
+        </div>
+    </header>
+
+
+    <aside
+        class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
+        <div class="navbar-vertical-container">
+            <div class="navbar-vertical-footer-offset">
+                <!-- Logo -->
+
+                <a class="navbar-brand" href="dashboard.html" aria-label="Front">
+                    <img class="navbar-brand-logo" src="assets/svg/logos/logo.png" alt="Logo"
+                        data-hs-theme-appearance="default">
+                    <img class="navbar-brand-logo" src="assets/svg/logos/logo.png" alt="Logo"
+                        data-hs-theme-appearance="dark">
+                    <img class="navbar-brand-logo-mini" src="assets/svg/logos/icon.png" alt="Logo"
+                        data-hs-theme-appearance="default">
+                    <img class="navbar-brand-logo-mini" src="assets/svg/logos/icon.png" alt="Logo"
+                        data-hs-theme-appearance="dark">
+                </a>
+
+                <!-- End Logo -->
+
+                <!-- Navbar Vertical Toggle -->
+                <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                    <i class="bi-arrow-bar-left navbar-toggler-short-align"
+                        data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                        data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+                    <i class="bi-arrow-bar-right navbar-toggler-full-align"
+                        data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                        data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+                </button>
+
+                <!-- End Navbar Vertical Toggle -->
+
+                <!-- Content -->
+                <div class="navbar-vertical-content">
+                    <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+                        <!-- Collapse -->
+                        <div class="nav-item">
+                            <a class="nav-link " href="dashboard.html">
+                                <i class="bi-house-door nav-icon"></i>
+                                <span class="nav-link-title">Dashboards</span>
+                            </a>
+
+                            <!-- <div id="navbarVerticalMenuDashboards" class="nav-collapse collapse show" data-bs-parent="#navbarVerticalMenu">
+                <a class="nav-link active" href="dashboard.html">Default</a>
+                <a class="nav-link " href="dashboard-alternative.html">Alternative</a>
+              </div> -->
+                        </div>
+                        <!-- End Collapse -->
+
+                        <!-- <span class="dropdown-header mt-4">Pages</span>
+            <small class="bi-three-dots nav-subtitle-replacer"></small> -->
+
+                        <!-- Collapse -->
+                        <div class="navbar-nav nav-compact">
+
+                        </div>
+                        <div id="navbarVerticalMenuPagesMenu">
+                            <!-- Collapse -->
+                            <div class="nav-item">
+                                <a class="nav-link dropdown-toggle  collapsed" href="#" role="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAgents"
+                                    aria-expanded="false" aria-controls="navbarVerticalMenuAgents">
+                                    <i class="bi-people nav-icon"></i>
+                                    <span class="nav-link-title">Agents</span>
+                                </a>
+
+                                <div id="navbarVerticalMenuAgents" class="nav-collapse collapse "
+                                    data-bs-parent="#navbarVerticalMenu">
+                                    <div id="navbarVerticalMenuAuthenticationMenu">
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle "
+                                                href="#navbarVerticalMenuAuthenticationLoginMenu" role="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuAuthenticationLoginMenu"
+                                                aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuAuthenticationLoginMenu">
+                                                Create Agent
+                                            </a>
+
+                                            <div id="navbarVerticalMenuAuthenticationLoginMenu"
+                                                class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                                                <a class="nav-link " href="add-agent.html">Individual Agent</a>
+                                                <a class="nav-link " href="add-sole.html">Sole Proprietorship</a>
+                                                <a class="nav-link " href="add-corp.html">Corporate </a>
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuViewAgent"
+                                                role="button" data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuViewAgent" aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuViewAgent">
+                                                View Agents
+                                            </a>
+
+                                            <div id="navbarVerticalMenuViewAgent" class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                                                <!-- <a class="nav-link " href="#">Individual Agent</a>
+                        <a class="nav-link " href="#">Sole Proprietorship</a>
+                        <a class="nav-link " href="#">Corporate </a> -->
+                                                <a class="nav-link " href="agents.html">View Agents</a>
+                                                <a class="nav-link " href="account-managers.html">View Acct. Mgrs </a>
+                                                <a class="nav-link " href="aggregators.html">View Aggregators </a>
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="nav-item">
+                                <a class="nav-link dropdown-toggle   collapsed" href="#" role="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuCustomer"
+                                    aria-expanded="false" aria-controls="navbarVerticalMenuCustomer">
+                                    <i class="bi-person-check nav-icon"></i>
+                                    <span class="nav-link-title">Customers</span>
+                                </a>
+
+                                <div id="navbarVerticalMenuCustomer" class="nav-collapse collapse "
+                                    data-bs-parent="#navbarVerticalMenu">
+                                    <div id="navbarVerticalMenuAuthenticationMenu">
+                                        <div class="nav-item">
+                                            <a class="nav-link " href="customers.html">
+                                                Customer Overview
+                                            </a>
+                                        </div>
+                                        <div class="nav-item">
+                                            <a class="nav-link  " href="service-overview.html">
+                                                Service Overview
+                                            </a>
+                                        </div>
+                                        <!-- <div class="nav-item">
+                      <a class="nav-link  " href="ticket.html">
+                        Tickets
+                      </a>
+
+                    
+                    </div> -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Collapse -->
+                            <div class="nav-item">
+                                <a class="nav-link  " href="transactions.html">
+                                    <i class="bi-bar-chart  nav-icon"></i>
+                                    <span class="nav-link-title">Transactions</span>
+                                </a>
+                            </div>
+                            <!-- End Collapse -->
+
+
+
+
+                            <!-- End Collapse -->
+
+                            <!-- Collapse -->
+                            <div class="nav-item">
+                                <a class="nav-link dropdown-toggle  collapsed" href="#" role="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuAuthentication"
+                                    aria-expanded="false" aria-controls="navbarVerticalMenuAuthentication">
+                                    <i class="bi-shield-lock nav-icon"></i>
+                                    <span class="nav-link-title">Report & Analytics</span>
+                                </a>
+
+                                <div id="navbarVerticalMenuAuthentication" class="nav-collapse collapse "
+                                    data-bs-parent="#navbarVerticalMenu">
+                                    <div id="navbarVerticalMenuAuthenticationMenu">
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle "
+                                                href="#navbarVerticalMenuAuthenticationLoginMenu" role="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuAuthenticationLoginMenu"
+                                                aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuAuthenticationLoginMenu">
+                                                Wallet Logs
+                                            </a>
+
+                                            <div id="navbarVerticalMenuAuthenticationLoginMenu"
+                                                class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                                                <a class="nav-link " href="#">Main Wallet</a>
+                                                <a class="nav-link " href="#">Revenue Wallet</a>
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle "
+                                                href="#navbarVerticalMenuAuthenticationSignupMenu" role="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuAuthenticationSignupMenu"
+                                                aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuAuthenticationSignupMenu">
+                                                Maps
+                                            </a>
+
+                                            <div id="navbarVerticalMenuAuthenticationSignupMenu"
+                                                class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                                                <a class="nav-link " href="transaction-map.html">Transactions Map</a>
+                                                <a class="nav-link " href="agents-map.html">Agent Map</a>
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle "
+                                                href="#navbarVerticalMenuAuthenticationResetPasswordMenu" role="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuAuthenticationResetPasswordMenu"
+                                                aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuAuthenticationResetPasswordMenu">
+                                                Reports
+                                            </a>
+
+                                            <div id="navbarVerticalMenuAuthenticationResetPasswordMenu"
+                                                class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuAuthenticationMenu">
+                                                <a class="nav-link " href="#">Overview Report </a>
+                                                <a class="nav-link " href="#">State Count Report</a>
+                                                <a class="nav-link " href="#">Charge Back Report</a>
+                                                <a class="nav-link " href="#">Dispute Report</a>
+                                                <a class="nav-link " href="#">Terminal Report</a>
+                                                <a class="nav-link " href="#">Performance Report</a>
+                                                <!-- <a class="nav-link " href="#">Tickets</a>
+                        <a class="nav-link " href="#">System Monitor</a>
+                        <a class="nav-link " href="#">Transactions Summary</a> -->
+
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link  " href="ticket.html">
+                                                Tickets
+                                            </a>
+
+
+                                        </div>
+                                        <div class="nav-item">
+                                            <a class="nav-link " href="#">
+                                                System Monitor
+                                            </a>
+                                        </div>
+                                        <div class="nav-item">
+                                            <a class="nav-link " href="#">
+                                                Transaction Summary
+                                            </a>
+                                        </div>
+                                        <!-- End Collapse -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Collapse -->
+
+                            <div class="nav-item">
+                                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceMenu"
+                                    role="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarVerticalMenuPagesEcommerceMenu" aria-expanded="false"
+                                    aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                                    <i class="bi-lock nav-icon"></i>
+                                    <span class="nav-link-title">Portal Settings
+                                    </span>
+                                </a>
+
+                                <div id="navbarVerticalMenuPagesEcommerceMenu" class="nav-collapse collapse "
+                                    data-bs-parent="#navbarVerticalMenuPagesMenu">
+
+                                    <div id="navbarVerticalMenuPagesMenuEcommerce">
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle"
+                                                href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu"
+                                                aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuPagesEcommerceProductsMenu">
+                                                User
+                                            </a>
+
+                                            <div id="navbarVerticalMenuPagesEcommerceProductsMenu"
+                                                class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                                                <a class="nav-link " href="users.html">List Users</a>
+
+                                                <a class="nav-link " href="add-user.html">Add User</a>
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+
+                                        <!-- Collapse -->
+                                        <div class="nav-item">
+                                            <a class="nav-link dropdown-toggle"
+                                                href="#navbarVerticalMenuPagesEcommerceOrdersMenu" role="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#navbarVerticalMenuPagesEcommerceOrdersMenu"
+                                                aria-expanded="false"
+                                                aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
+                                                Role & Permission
+                                            </a>
+
+                                            <div id="navbarVerticalMenuPagesEcommerceOrdersMenu"
+                                                class="nav-collapse collapse "
+                                                data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                                                <a class="nav-link " href="roles.html">Role</a>
+                                                <a class="nav-link " href="permission.html">Permission</a>
+                                            </div>
+                                        </div>
+                                        <!-- End Collapse -->
+
+
+                                        <!-- End Collapse -->
+                                    </div>
+
+                                    <a class="nav-link " href="#">Audit Trail</a>
+                                    <a class="nav-link " href="transaction-settings.html">Transaction Settings</a>
+                                    <a class="nav-link " href="#">Account Settings</a>
+                                    <a class="nav-link " href="#">Key Management</a>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- End Collapse -->
+
+
+
+
+                        <div class="nav-item">
+                            <a class="nav-link text-danger" href="#" data-placement="left">
+                                <i class="bi-arrow-left-circle nav-icon"></i>
+                                <span class="nav-link-title">Logout</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Content -->
+
+                <!-- Footer -->
+                <div class="navbar-vertical-footer">
+                    <ul class="navbar-vertical-footer-list">
+                        <li class="navbar-vertical-footer-list-item">
+                            <!-- Style Switcher -->
+                            <div class="dropdown dropup">
+                                <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle"
+                                    id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    data-bs-dropdown-animation="">
+
+                                </button>
+
+                                <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless"
+                                    aria-labelledby="selectThemeDropdown">
+
+                                    <a class="dropdown-item" href="#" data-icon="bi-brightness-high"
+                                        data-value="default">
+                                        <i class="bi-brightness-high me-2"></i>
+                                        <span class="text-truncate" title="Default (light mode)">Default (light
+                                            mode)</span>
+                                    </a>
+                                    <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                                        <i class="bi-moon me-2"></i>
+                                        <span class="text-truncate" title="Dark">Dark</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- End Style Switcher -->
+                        </li>
+
+
+                    </ul>
+                </div>
+                <!-- End Footer -->
+            </div>
+        </div>
+    </aside>
+
+
+    <main id="content" role="main" class="main">
+        <!-- Content -->
+        <div class="content container-fluid bg-light">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row align-items-center mb-1">
+                    <div class="col-sm mb-2 mb-sm-0">
+                        <h1 class="page-header-title">Transactions </h1>
+
+                        <div class="mt-2">
+                            <a class="text-body me-3" href="javascript:;">
+                                Customer List
+                            </a>
+                            <a class="text-body me-3">
+                                /
+                            </a>
+                            <a class="text-body" href="javascript:;">
+                                Wallet Transaction List
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-auto">
+
+                        <form class="d-flex ">
+
+                            <div>
+                                <div>
+                                    <!-- <label for="locationLabel" class="col-form-label form-label"></label> -->
+
+                                    <input type="text"
+                                        class="js-daterangepicker-clear form-control daterangepicker-custom-input"
+                                        placeholder="Select dates" data-hs-daterangepicker-options='{ "autoUpdateInput": false,
+                      "locale": {
+                            "cancelLabel": "Clear"
+                          }
+                        }'>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+
+
+                <!-- End Nav Scroller -->
+            </div>
+            <!-- End Page Header -->
+
+
+
+
+            <!-- Card -->
+            <div class="card">
+                <!-- Header -->
+                <div class="card-header card-header-content-md-between">
+                    <div class="mb-2 mb-md-0">
+                        <form>
+                            <!-- Search -->
+                            <div class="input-group input-group-merge input-group-flush">
+                                <div class="input-group-prepend input-group-text">
+                                    <i class="bi-search"></i>
+                                </div>
+                                <input id="datatableSearch" type="search" class="form-control"
+                                    placeholder="Search Transaction" aria-label="Search users">
+                            </div>
+                            <!-- End Search -->
+                        </form>
+                    </div>
+
+                    <div class="d-grid d-sm-flex gap-2">
+                        <a href="#" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <i class="bi bi-download"></i> Download Report
+
+                        </a>
+
+                        <!-- <button type="button" class="btn btn-white btn-sm w-100" >
+              <i class="bi-download me-2"></i> Download Report
+            </button> -->
+
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+
+
+                            <div class="dropdown-menu dropdown-menu-end dropdown-card"
+                                aria-labelledby="showHideDropdown" style="width: 15rem;">
+                                <div class="card card-sm">
+                                    <div class="card-body">
+                                        <div class="d-grid gap-3">
+
+
+                                            <!-- Form Switch -->
+                                            <label class="row form-check form-switch" for="toggleColumn_id">
+                                                <span class="col-8 col-sm-9 ms-0">
+                                                    <span class="me-2">ID</span>
+                                                </span>
+                                                <span class="col-4 col-sm-3 text-end">
+                                                    <input type="checkbox" class="form-check-input" id="toggleColumn_id"
+                                                        checked="">
+                                                </span>
+                                            </label>
+                                            <!-- End Form Switch -->
+
+                                            <!-- Form Switch -->
+                                            <label class="row form-check form-switch" for="toggleColumn_users">
+                                                <span class="col-8 col-sm-9 ms-0">
+                                                    <span class="me-2">Refrence</span>
+                                                </span>
+                                                <span class="col-4 col-sm-3 text-end">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="toggleColumn_users" checked="">
+                                                </span>
+                                            </label>
+                                            <!-- End Form Switch -->
+
+                                            <!-- Form Switch -->
+                                            <label class="row form-check form-switch" for="toggleColumn_type">
+                                                <span class="col-8 col-sm-9 ms-0">
+                                                    <span class="me-2">Amount</span>
+                                                </span>
+                                                <span class="col-4 col-sm-3 text-end">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="toggleColumn_type" checked="">
+                                                </span>
+                                            </label>
+                                            <!-- End Form Switch -->
+
+                                            <!-- Form Switch -->
+                                            <label class="row form-check form-switch" for="toggleColumn_vendor">
+                                                <span class="col-8 col-sm-9 ms-0">
+                                                    <span class="me-2">Transaction Type</span>
+                                                </span>
+                                                <span class="col-4 col-sm-3 text-end">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="toggleColumn_vendor">
+                                                </span>
+                                            </label>
+                                            <!-- End Form Switch -->
+
+                                            <!-- Form Switch -->
+                                            <label class="row form-check form-switch" for="toggleColumn_stocks">
+                                                <span class="col-8 col-sm-9 ms-0">
+                                                    <span class="me-2">Balance</span>
+                                                </span>
+                                                <span class="col-4 col-sm-3 text-end">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="toggleColumn_stocks" checked="">
+                                                </span>
+                                            </label>
+                                            <!-- End Form Switch -->
+
+                                            <!-- Form Switch -->
+                                            <label class="row form-check form-switch" for="toggleColumn_sku">
+                                                <span class="col-8 col-sm-9 ms-0">
+                                                    <span class="me-2">Time</span>
+                                                </span>
+                                                <span class="col-4 col-sm-3 text-end">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="toggleColumn_sku" checked="">
+                                                </span>
+                                            </label>
+                                            <!-- End Form Switch -->
+
+
+
+                                            <!-- Form Switch -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Dropdown -->
+                    </div>
+                </div>
+                <!-- End Header -->
+
+                <!-- Table -->
+                <div class="table-responsive datatable-custom">
+                    <table id="datatable"
+                        class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
+                        data-hs-datatables-options='{
+                   "columnDefs": [{
+                    "targets": [0, 4, 8],
+                    "width": "5%",
+                      "orderable": false
+                    }],
+                   "order": [],
+                   "info": {
+                     "totalQty": "#datatableWithPaginationInfoTotalQty"
+                   },
+                   "search": "#datatableSearch",
+                   "entries": "#datatableEntries",
+                   "pageLength": 50,
+                   "isResponsive": false,
+                   "isShowPaging": false,
+                   "pagination": "datatablePagination"
+                 }'>
+                        <thead class="thead-light">
+                            <th>
+                                ID
+                            </th>
+                            <th>Refrence</th>
+                            <th>Amount</th>
+                            <th>Transaction Type</th>
+                            <th>Balance</th>
+                            <th>Time</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+
+                            <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
+                                <td class="table-column-pe-0">
+                                    1
+                                </td>
+                                <td class="table-column-ps-0">
+                                    <a class="d-flex align-items-center" href="#">
+
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="text-inherit mb-0">TERRYA49848</h5>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>₦93,874</td>
+                                <td>Commision</td>
+                                <td>₦3,800</td>
+                                <td>08:00 AM</td>
+
+                            </tr>
+
+                            <tr data-bs-toggle="modal" data-bs-target="#exampleModalTopCover" style="cursor: pointer;">
+                                <td class="table-column-pe-0">
+                                    3
+                                </td>
+                                <td class="table-column-ps-0">
+                                    <a class="d-flex align-items-center" href="#">
+
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="text-inherit mb-0">TERRY784648</h5>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>₦10,874</td>
+                                <td>Tranfer</td>
+                                <td>₦13,800</td>
+                                <td>08:00 AM</td>
+
+                            </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End Table -->
+
+                <!-- Footer -->
+                <div class="card-footer">
+                    <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+                        <div class="col-sm mb-2 mb-sm-0">
+                            <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+                                <span class="me-2">Showing:</span>
+
+                                <!-- Select -->
+                                <div class="tom-select-custom">
+                                    <select id="datatableEntries"
+                                        class="js-select form-select form-select-borderless w-auto" autocomplete="off"
+                                        data-hs-tom-select-options='{
+                            "searchInDropdown": false,
+                            "hideSearch": true
+                          }'>
+                                        <option value="12">12</option>
+                                        <option value="14" selected="">14</option>
+                                        <option value="16">16</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                                <!-- End Select -->
+
+                                <span class="text-secondary me-2">of</span>
+
+                                <!-- Pagination Quantity -->
+                                <span id="datatableWithPaginationInfoTotalQty"></span>
+                            </div>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-sm-auto">
+                            <div class="d-flex justify-content-center justify-content-sm-end">
+                                <!-- Pagination -->
+                                <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+                            </div>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+                <!-- End Footer -->
+            </div>
+            <!-- End Card -->
+        </div>
+        <!-- End Content -->
+
+        <!-- Footer -->
+
+        <div class="footer">
+            <div class="row justify-content-between align-items-center">
+                <div class="col">
+                    <p class="fs-6 mb-0">&copy; <span class="d-none d-sm-inline-block">2024 Terra Portals.</span></p>
+                </div>
+                <!-- End Col -->
+
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Footer -->
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <!-- ONLY DEV -->
+
+    <!-- Builder -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBuilder" aria-labelledby="offcanvasBuilderLabel">
+
+
+        <div class="offcanvas-body">
+
+
+            <div class="row gx-3">
+
+            </div>
+            <!-- End Row -->
+
+            <hr>
+
+            <h4 class="mb-1">Sidebar Nav</h4>
+            <p>Check out all <a href="./documentation/layout.html">Layout Options here</a></p>
+
+            <div class="row gx-3">
+
+            </div>
+            <!-- End Row -->
+
+            <hr>
+
+            <!-- Form Switch -->
+            <label class="row form-check form-switch mb-3" for="builderFluidSwitch">
+                <span class="col-10 ms-0">
+                    <span class="d-block h4 mb-1">Header Layout Options</span>
+                    <span class="d-block fs-5">Toggle to container-fluid layout</span>
+                </span>
+                <span class="col-2 text-end">
+                    <input type="checkbox" class="form-check-input" id="builderFluidSwitch">
+                </span>
+            </label>
+            <!-- End Form Switch -->
+
+            <div class="row gx-3">
+                <!-- Check -->
+
+                <!-- End Check -->
+
+
+            </div>
+            <!-- End Row -->
+        </div>
+
+        <!-- Footer -->
+        <div class="offcanvas-footer">
+            <div class="row gx-3">
+                <div class="col">
+                    <div class="d-grid">
+                        <button type="button" id="js-builder-reset" class="btn btn-white btn-lg">
+                            <i class="bi-arrow-counterclockwise"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col">
+                    <div class="d-grid">
+                        <button type="button" id="js-builder-preview" class="btn btn-primary btn-lg">
+                            <i class="eye-visible"></i> Preview
+                        </button>
+                    </div>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Footer -->
+    </div>
+
+    <!-- End Builder -->
+
+    <!-- Builder Toggle -->
+
+    <!-- End Builder Toggle -->
+
+    <div class="d-none js-build-layouts">
+        <div class="js-build-layout-header-default">
+            <!-- Single Header -->
+            <header id="header" class="navbar navbar-expand-lg navbar-bordered bg-white  ">
+                <div class="container">
+                    <nav class="js-mega-menu navbar-nav-wrap">
+                        <!-- Logo -->
+
+                        <a class="navbar-brand" href="dashboard.html" aria-label="Front">
+                            <img class="navbar-brand-logo" src="assets/svg/logos/logo.svg" alt="Logo"
+                                data-hs-theme-appearance="default">
+                            <img class="navbar-brand-logo" src="assets/svg/logos/logo.png" alt="Logo"
+                                data-hs-theme-appearance="dark">
+                        </a>
+
+                        <!-- End Logo -->
+
+                        <!-- Secondary Content -->
+                        <div class="navbar-nav-wrap-secondary-content">
+                            <!-- Navbar -->
+                            <ul class="navbar-nav">
+                                <li class="nav-item d-none d-md-inline-block">
+                                    <!-- Notification -->
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle"
+                                            id="navbarNotificationsDropdown" data-bs-toggle="dropdown"
+                                            aria-expanded="false" data-bs-auto-close="outside"
+                                            data-bs-dropdown-animation="">
+                                            <i class="bi-bell"></i>
+                                            <span class="btn-status btn-sm-status btn-status-danger"></span>
+                                        </button>
+
+
+                                    </div>
+                                    <!-- End Notification -->
+                                </li>
+
+
+                            </ul>
+                            <!-- End Navbar -->
+                        </div>
+                        <!-- End Secondary Content -->
+
+                        <!-- Toggler -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarContainerNavDropdown" aria-controls="navbarContainerNavDropdown"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-default">
+                                <i class="bi-list"></i>
+                            </span>
+                            <span class="navbar-toggler-toggled">
+                                <i class="bi-x"></i>
+                            </span>
+                        </button>
+                        <!-- End Toggler -->
+
+
+                    </nav>
+                </div>
+            </header>
+
+            <!-- End Single Header -->
+        </div>
+        <div class="js-build-layout-header-double">
+            <!-- Double Header -->
+            <header id="header" class="navbar navbar-expand-lg navbar-bordered navbar-spacer-y-0 flex-lg-column">
+                <div class="navbar-dark w-100 bg-dark py-2">
+                    <div class="container">
+                        <div class="navbar-nav-wrap">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="dashboard.html" aria-label="Front">
+                                <img class="navbar-brand-logo" src="assets/svg/logos/logo-white.svg" alt="Logo">
+                            </a>
+                            <!-- End Logo -->
+
+                            <!-- Content Start -->
+                            <div class="navbar-nav-wrap-content-start">
+                                <!-- Search Form -->
+                                <div class="d-none d-lg-block">
+                                    <div class="dropdown ms-2">
+                                        <!-- Input Group -->
+                                        <div class="d-none d-lg-block">
+                                            <div
+                                                class="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
+                                                <div class="input-group-prepend input-group-text">
+                                                    <i class="bi-search"></i>
+                                                </div>
+
+                                                <input type="search" class="js-form-search form-control"
+                                                    placeholder="Search in front" aria-label="Search in front"
+                                                    data-hs-form-search-options='{
+                                 "clearIcon": "#clearSearchResultsIcon",
+                                 "dropMenuElement": "#searchDropdownMenu",
+                                 "dropMenuOffset": 20,
+                                 "toggleIconOnFocus": true,
+                                 "activeClass": "focus"
+                               }'>
+                                                <a class="input-group-append input-group-text" href="javascript:;">
+                                                    <i id="clearSearchResultsIcon" class="bi-x-lg"
+                                                        style="display: none;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <button
+                                            class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none"
+                                            type="button" data-hs-form-search-options='{
+                                 "clearIcon": "#clearSearchResultsIcon",
+                                 "dropMenuElement": "#searchDropdownMenu",
+                                 "dropMenuOffset": 20,
+                                 "toggleIconOnFocus": true,
+                                 "activeClass": "focus"
+                               }'>
+                                            <i class="bi-search"></i>
+                                        </button>
+                                        <!-- End Input Group -->
+
+                                        <!-- Card Search Content -->
+                                        <div id="searchDropdownMenu"
+                                            class="hs-form-search-menu-content dropdown-menu dropdown-menu-form-search navbar-dropdown-menu-borderless">
+                                            <div class="card">
+                                                <!-- Body -->
+                                                <div class="card-body-height">
+                                                    <div class="d-lg-none">
+                                                        <div
+                                                            class="input-group input-group-merge navbar-input-group mb-5">
+                                                            <div class="input-group-prepend input-group-text">
+                                                                <i class="bi-search"></i>
+                                                            </div>
+
+                                                            <input type="search" class="form-control"
+                                                                placeholder="Search in front"
+                                                                aria-label="Search in front">
+                                                            <a class="input-group-append input-group-text"
+                                                                href="javascript:;">
+                                                                <i class="bi-x-lg"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                    <span class="dropdown-header">Recent searches</span>
+
+                                                    <div class="dropdown-item bg-transparent text-wrap">
+                                                        <a class="btn btn-soft-dark btn-xs rounded-pill"
+                                                            href="dashboard.html">
+                                                            Gulp <i class="bi-search ms-1"></i>
+                                                        </a>
+                                                        <a class="btn btn-soft-dark btn-xs rounded-pill"
+                                                            href="dashboard.html">
+                                                            Notification panel <i class="bi-search ms-1"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="dropdown-divider"></div>
+
+                                                    <span class="dropdown-header">Tutorials</span>
+
+                                                    <a class="dropdown-item" href="dashboard.html">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <span class="icon icon-soft-dark icon-xs icon-circle">
+                                                                    <i class="bi-sliders"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1 text-truncate ms-2">
+                                                                <span>How to set up Gulp?</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a class="dropdown-item" href="dashboard.html">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <span class="icon icon-soft-dark icon-xs icon-circle">
+                                                                    <i class="bi-paint-bucket"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1 text-truncate ms-2">
+                                                                <span>How to change theme color?</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <div class="dropdown-divider"></div>
+
+                                                    <span class="dropdown-header">Members</span>
+
+                                                    <a class="dropdown-item" href="dashboard.html">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="avatar avatar-xs avatar-circle"
+                                                                    src="assets/img/160x160/img10.jpg"
+                                                                    alt="Image Description">
+                                                            </div>
+                                                            <div class="flex-grow-1 text-truncate ms-2">
+                                                                <span>Amanda Harvey <i class="tio-verified text-primary"
+                                                                        data-toggle="tooltip" data-placement="top"
+                                                                        title="Top endorsed"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a class="dropdown-item" href="dashboard.html">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <img class="avatar avatar-xs avatar-circle"
+                                                                    src="assets/img/160x160/img3.jpg"
+                                                                    alt="Image Description">
+                                                            </div>
+                                                            <div class="flex-grow-1 text-truncate ms-2">
+                                                                <span>David Harrison</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a class="dropdown-item" href="dashboard.html">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <div
+                                                                    class="avatar avatar-xs avatar-soft-info avatar-circle">
+                                                                    <span class="avatar-initials">A</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-grow-1 text-truncate ms-2">
+                                                                <span>Anne Richard</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <!-- End Body -->
+
+                                                <!-- Footer -->
+                                                <a class="card-footer text-center" href="dashboard.html">
+                                                    See all results <i class="bi-chevron-right small"></i>
+                                                </a>
+                                                <!-- End Footer -->
+                                            </div>
+                                        </div>
+                                        <!-- End Card Search Content -->
+
+                                    </div>
+
+                                </div>
+                                <!-- End Search Form -->
+                            </div>
+                            <!-- End Content Start -->
+
+                            <!-- Content End -->
+                            <div class="navbar-nav-wrap-content-end">
+                                <!-- Navbar -->
+                                <ul class="navbar-nav">
+
+
+
+
+
+                                    <li class="nav-item">
+                                        <!-- Toggler -->
+                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#navbarDoubleLineContainerNavDropdown"
+                                            aria-controls="navbarDoubleLineContainerNavDropdown" aria-expanded="false"
+                                            aria-label="Toggle navigation">
+                                            <span class="navbar-toggler-default">
+                                                <i class="bi-list"></i>
+                                            </span>
+                                            <span class="navbar-toggler-toggled">
+                                                <i class="bi-x"></i>
+                                            </span>
+                                        </button>
+                                        <!-- End Toggler  -->
+                                    </li>
+                                </ul>
+                                <!-- End Navbar -->
+                            </div>
+                            <!-- End Content End -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </header>
+            <!-- End Double Header -->
+        </div>
+    </div>
+
+    <script src="assets/js/demo.js"></script>
+
+    <!-- END ONLY DEV -->
+
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    <!-- Keyboard Shortcuts -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasKeyboardShortcuts"
+        aria-labelledby="offcanvasKeyboardShortcutsLabel">
+        <div class="offcanvas-header">
+            <h4 id="offcanvasKeyboardShortcutsLabel" class="mb-0">Keyboard shortcuts</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group list-group-sm list-group-flush list-group-no-gutters mb-5">
+                <div class="list-group-item">
+                    <h5 class="mb-1">Formatting</h5>
+                </div>
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span class="fw-semibold">Bold</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">b</kbd>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <em>italic</em>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">i</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <u>Underline</u>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">u</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <s>Strikethrough</s>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">s</kbd>
+                            <!-- End Col -->
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span class="small">Small text</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">s</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <mark>Highlight</mark>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">e</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+            </div>
+
+            <div class="list-group list-group-sm list-group-flush list-group-no-gutters mb-5">
+                <div class="list-group-item">
+                    <h5 class="mb-1">Insert</h5>
+                </div>
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Mention person <a href="#">(@Brian)</a></span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">@</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Link to doc <a href="#">(+Meeting notes)</a></span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">+</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <a href="#">#hashtag</a>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">#hashtag</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Date</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">/date</kbd>
+                            <kbd class="d-inline-block mb-1">Space</kbd>
+                            <kbd class="d-inline-block mb-1">/datetime</kbd>
+                            <kbd class="d-inline-block mb-1">/datetime</kbd>
+                            <kbd class="d-inline-block mb-1">Space</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Time</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">/time</kbd>
+                            <kbd class="d-inline-block mb-1">Space</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Note box</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">/note</kbd>
+                            <kbd class="d-inline-block mb-1">Enter</kbd>
+                            <kbd class="d-inline-block mb-1">/note red</kbd>
+                            <kbd class="d-inline-block mb-1">/note red</kbd>
+                            <kbd class="d-inline-block mb-1">Enter</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+            </div>
+
+            <div class="list-group list-group-sm list-group-flush list-group-no-gutters mb-5">
+                <div class="list-group-item">
+                    <h5 class="mb-1">Editing</h5>
+                </div>
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Find and replace</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">r</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Find next</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">n</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Find previous</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">p</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Indent</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Tab</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Un-indent</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Tab</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Move line up</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1"><i class="bi-arrow-up-short"></i></kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Move line down</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1"><i class="bi-arrow-down-short fs-5"></i></kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Add a comment</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">m</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Undo</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">z</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Redo</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">y</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+            </div>
+
+            <div class="list-group list-group-sm list-group-flush list-group-no-gutters">
+                <div class="list-group-item">
+                    <h5 class="mb-1">Application</h5>
+                </div>
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Create new doc</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">n</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Present</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">p</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Share</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">s</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Search docs</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">o</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <div class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <span>Keyboard shortcuts</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-7 text-end">
+                            <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                                class="d-inline-block mb-1">/</kbd>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Keyboard Shortcuts -->
+
+    <!-- Activity -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivityStream"
+        aria-labelledby="offcanvasActivityStreamLabel">
+        <div class="offcanvas-header">
+            <h4 id="offcanvasActivityStreamLabel" class="mb-0">Activity stream</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Step -->
+            <ul class="step step-icon-sm step-avatar-sm">
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <div class="step-avatar">
+                            <img class="step-avatar" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                        </div>
+
+                        <div class="step-content">
+                            <h5 class="mb-1">Iana Robinson</h5>
+
+                            <p class="fs-5 mb-1">Added 2 files to task <a class="text-uppercase" href="#"><i
+                                        class="bi-journal-bookmark-fill"></i> Fd-7</a></p>
+
+                            <ul class="list-group list-group-sm">
+                                <!-- List Item -->
+                                <li class="list-group-item list-group-item-light">
+                                    <div class="row gx-1">
+                                        <div class="col-6">
+                                            <!-- Media -->
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0">
+                                                    <img class="avatar avatar-xs" src="assets/svg/brands/excel-icon.svg"
+                                                        alt="Image Description">
+                                                </div>
+                                                <div class="flex-grow-1 text-truncate ms-2">
+                                                    <span class="d-block fs-6 text-dark text-truncate"
+                                                        title="weekly-reports.xls">weekly-reports.xls</span>
+                                                    <span class="d-block small text-muted">12kb</span>
+                                                </div>
+                                            </div>
+                                            <!-- End Media -->
+                                        </div>
+                                        <!-- End Col -->
+
+                                        <div class="col-6">
+                                            <!-- Media -->
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0">
+                                                    <img class="avatar avatar-xs" src="assets/svg/brands/word-icon.svg"
+                                                        alt="Image Description">
+                                                </div>
+                                                <div class="flex-grow-1 text-truncate ms-2">
+                                                    <span class="d-block fs-6 text-dark text-truncate"
+                                                        title="weekly-reports.xls">weekly-reports.xls</span>
+                                                    <span class="d-block small text-muted">4kb</span>
+                                                </div>
+                                            </div>
+                                            <!-- End Media -->
+                                        </div>
+                                        <!-- End Col -->
+                                    </div>
+                                    <!-- End Row -->
+                                </li>
+                                <!-- End List Item -->
+                            </ul>
+
+                            <span class="small text-muted text-uppercase">Now</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <span class="step-icon step-icon-soft-dark">B</span>
+
+                        <div class="step-content">
+                            <h5 class="mb-1">Bob Dean</h5>
+
+                            <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i
+                                        class="bi-journal-bookmark-fill"></i>
+                                    Fr-6</a> as <span class="badge bg-soft-success text-success rounded-pill"><span
+                                        class="legend-indicator bg-success"></span>"Completed"</span></p>
+
+                            <span class="small text-muted text-uppercase">Today</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <div class="step-avatar">
+                            <img class="step-avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                        </div>
+
+                        <div class="step-content">
+                            <h5 class="h5 mb-1">Crane</h5>
+
+                            <p class="fs-5 mb-1">Added 5 card to <a href="#">Payments</a></p>
+
+                            <ul class="list-group list-group-sm">
+                                <li class="list-group-item list-group-item-light">
+                                    <div class="row gx-1">
+                                        <div class="col">
+                                            <img class="img-fluid rounded" src="assets/svg/components/card-1.svg"
+                                                alt="Image Description">
+                                        </div>
+                                        <div class="col">
+                                            <img class="img-fluid rounded" src="assets/svg/components/card-2.svg"
+                                                alt="Image Description">
+                                        </div>
+                                        <div class="col">
+                                            <img class="img-fluid rounded" src="assets/svg/components/card-3.svg"
+                                                alt="Image Description">
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="text-center">
+                                                <a href="#">+2</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <span class="small text-muted text-uppercase">May 12</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <span class="step-icon step-icon-soft-info">D</span>
+
+                        <div class="step-content">
+                            <h5 class="mb-1">David Lidell</h5>
+
+                            <p class="fs-5 mb-1">Added a new member to Front Dashboard</p>
+
+                            <span class="small text-muted text-uppercase">May 15</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <div class="step-avatar">
+                            <img class="step-avatar-img" src="assets/img/160x160/img7.jpg" alt="Image Description">
+                        </div>
+
+                        <div class="step-content">
+                            <h5 class="mb-1">Rachel King</h5>
+
+                            <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i
+                                        class="bi-journal-bookmark-fill"></i>
+                                    Fr-3</a> as <span class="badge bg-soft-success text-success rounded-pill"><span
+                                        class="legend-indicator bg-success"></span>"Completed"</span></p>
+
+                            <span class="small text-muted text-uppercase">Apr 29</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <div class="step-avatar">
+                            <img class="step-avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                        </div>
+
+                        <div class="step-content">
+                            <h5 class="mb-1">Finch Hoot</h5>
+
+                            <p class="fs-5 mb-1">Earned a "Top endorsed" <i
+                                    class="bi-patch-check-fill text-primary"></i> badge</p>
+
+                            <span class="small text-muted text-uppercase">Apr 06</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+
+                <!-- Step Item -->
+                <li class="step-item">
+                    <div class="step-content-wrapper">
+                        <span class="step-icon step-icon-soft-primary">
+                            <i class="bi-person-fill"></i>
+                        </span>
+
+                        <div class="step-content">
+                            <h5 class="mb-1">Project status updated</h5>
+
+                            <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i
+                                        class="bi-journal-bookmark-fill"></i>
+                                    Fr-3</a> as <span class="badge bg-soft-primary text-primary rounded-pill"><span
+                                        class="legend-indicator bg-primary"></span>"In progress"</span></p>
+
+                            <span class="small text-muted text-uppercase">Feb 10</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Step Item -->
+            </ul>
+            <!-- End Step -->
+
+            <div class="d-grid">
+                <a class="btn btn-white" href="javascript:;">View all <i class="bi-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- End Activity -->
+
+    <!-- Modal -->
+
+    <!-- End Button trigger modal -->
+
+    <!-- Modal -->
+    <!-- Wallet Transaction Modal -->
+    <div id="exampleModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-top-cover  bg-dark text-center">
+                    <div class="py-5">
+                        <h4 class=" text-white" id="exampleModalScrollableTitle">Aggregator's Service Fee Commision
+                        </h4>
+                        <span class="pb-1 text-white"> 11, January 2020 | 07:00 PM</span>
+                    </div>
+
+                    <figure class="position-absolute end-0 mt-3 bottom-0 start-0" style="top: 2;">
+                        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            viewBox="0 0 1920 100.1">
+                            <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z" />
+                        </svg>
+                    </figure>
+
+                    <div class="modal-close">
+                        <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- End Header -->
+
+                <div class="modal-top-cover-icon">
+                    <span class="icon icon-lg icon-light icon-circle icon-centered shadow-sm">
+                        <i class="bi-receipt fs-2"></i>
+                    </span>
+                </div>
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h2 class="display-5">
+                            ₦13,000
+                        </h2>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-6">
+                            <!-- Table -->
+                            <table class="table">
+                                <thead class="">
+                                    <tr>
+                                        <th scope="row">Transaction Information</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled list-py-2">
+                                                <li>
+                                                    <strong>Amount:</strong> <span>NGN 5</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Amount Charged:</strong> <span>NGN 5</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Status:</strong> <span class="badge bg-danher">Failed</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Transaction Date: </strong> <span>14 February, 2024 12:37
+                                                        PM</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Recipient Name : </strong> <span>Aggregator's Service Fee
+                                                        Commission</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Refrence: </strong> <span>COM-ae1faf84-d7c6-4db3-82d5-
+                                                        529ad401d2fc
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <strong>Retry Count: </strong> <span>0</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Agent Fee : </strong> <span>45</span>
+                                                </li>
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <!-- End Table -->
+                        </div>
+
+                        <div class="col-lg-6">
+                            <!-- Table -->
+                            <table class="table">
+                                <thead class="">
+                                    <tr>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled list-py-2">
+                                                <li>
+                                                    <strong>Original Amount</strong> <span>13000.00</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Service Fee</strong> <span>20.00</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Type</strong> <span>Wallet Top-up</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Product</strong> <span>Wallet Credit Commision</span>
+                                                </li>
+                                                <li>
+                                                    <strong>canReprocess: </strong> <span>False <span>
+                                                </li>
+                                                <li>
+                                                    <strong>Biller ID: </strong> <span> 84948<span>
+                                                </li>
+                                                <li>
+                                                    <strong>Reprocess COunt: </strong> <span>0<span>
+                                                </li>
+                                                <li> <strong>User Group:</strong><span>TESTING</span> </li>
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                            <!-- End Table -->
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#transferIssueModalCenter">Report Transaction</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary">View Commission
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Transfer Modal -->
+    <div id="tranferModalTopCover" class="modal fade modal-lg" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-top-cover  bg-dark text-center">
+                    <div class="py-5">
+                        <h4 class=" text-white" id="exampleModalScrollableTitle">Aggregator's Service Fee Commision
+                        </h4>
+                        <span class="pb-1 text-white"> 11, January 2020 | 07:00 PM</span>
+                    </div>
+
+                    <figure class="position-absolute end-0 mt-3 bottom-0 start-0" style="top: 2;">
+                        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            viewBox="0 0 1920 100.1">
+                            <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z" />
+                        </svg>
+                    </figure>
+
+                    <div class="modal-close">
+                        <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- End Header -->
+
+                <div class="modal-top-cover-icon">
+                    <span class="icon icon-lg icon-light icon-circle icon-centered shadow-sm">
+                        <i class="bi-receipt fs-2"></i>
+                    </span>
+                </div>
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h2 class="display-5">
+                            ₦11,000
+                        </h2>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-6">
+                            <!-- Table -->
+                            <table class="table">
+                                <thead class="">
+                                    <tr>
+                                        <th scope="row">Transaction Information</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled list-py-2">
+                                                <li>
+                                                    <strong>Amount:</strong> <span>NGN 5</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Amount Charged:</strong> <span>NGN 5</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Status:</strong> <span
+                                                        class="badge bg-success">Success</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Transaction Date: </strong> <span>14 February, 2024 12:37
+                                                        PM</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Product Category: </strong> <span>OTHERS</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Recipient Acct Number: </strong> <span>08960696854</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Remarks: </strong> <span>TRA-Terra Switching & Processing
+                                                        COmpany Limited</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Biller ID : </strong> <span>04874849937</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Reprocess Count: </strong> <span>78</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <!-- End Table -->
+                        </div>
+
+                        <div class="col-lg-6">
+                            <!-- Table -->
+                            <table class="table">
+                                <thead class="">
+                                    <tr>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled list-py-2">
+                                                <li>
+                                                    <strong>Original Amount</strong> <span>13000.00</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Service Fee</strong> <span>20.00</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Type</strong> <span>Transfer</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Product</strong> <span>405</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Recipient Name: </strong> <span>Halimah Olalekan <span>
+                                                </li>
+                                                <li>
+                                                    <strong>Recipient Bank: </strong> <span>Kuda Microfinance<span>
+                                                </li>
+                                                <li>
+                                                    <strong>Session ID: </strong> <span>0494309493049947892637<span>
+                                                </li>
+                                                <li> <strong>Reference:</strong><span>COM-ae1faf84-d7c6-4db3-82d5-529ad401d2fc</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Retry Count:</strong> <span> 5</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Agent Fee:</strong> <span> 0</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                            <!-- End Table -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr>
+                        <div class="col-lg-12">
+                            <table class="table">
+                                <thead class="">
+                                    <tr>
+                                        <th scope="row">Gateway Response</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled list-py-2">
+                                                <li>
+                                                    <strong>Response Message:</strong> <span>9847474885</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Group Status:</strong> <span
+                                                        class="badge bg-success">Success</span>
+                                                </li>
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled list-py-2">
+                                                <li>
+                                                    <strong>Response Time:</strong> <span>14 February, 2024 12:37
+                                                        PM</span>
+                                                </li>
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#transferIssueModalCenter">Report Transaction</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary">View Commission
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End Modal -->
+    <!-- Transfer Issue Modal -->
+    <div id="transferIssueModalCenter" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Specify Issue</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>What is the problem?</p>
+                    <div class="py-2">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex justify-content-evenly">
+                                    <div>
+                                        <span class="icon icon-lg icon-soft-primary icon-circle">
+                                            <i class="bi-arrow-left-right"></i>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h5 class="page-header-title">Agents Name</h5>
+                                        <span>19, February 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-auto  ">
+                                <div class="d-flex justify-content-end align-item-end align-items-end">
+                                    <div>
+                                        <h5 class="page-header-title ">Agents Name</h5>
+                                        <span class="text-success">
+                                            <strong>NGN 20,000</strong>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Accordion -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingOne">
+                                    <a class="accordion-button" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Recipient was not credited.
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingTwo">
+                                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Recipient was credited but debited immediately.
+                                    </a>
+                                </div>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description" width="50px">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingTwo">
+                                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        Transfer failed but my wallet was debited
+                                    </a>
+                                </div>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description" width="50px">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingTwo">
+                                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        My wallet was debited twice for this transaction
+                                    </a>
+                                </div>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description" width="50px">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingTwo">
+                                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        Recipient was credited twice for this transaction
+                                    </a>
+                                </div>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description" width="50px">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- End Accordion -->
+                    </div>
+                </div>
+
+                <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div id="issueModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Specify Issue</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>What is the problem?</p>
+                    <div class="py-2">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex justify-content-evenly">
+                                    <div>
+                                        <span class="icon icon-lg icon-soft-primary icon-circle">
+                                            <i class="bi-arrow-left-right"></i>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h5 class="page-header-title">Agents Name</h5>
+                                        <span>19, February 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-auto  ">
+                                <div class="d-flex justify-content-end align-item-end align-items-end">
+                                    <div>
+                                        <h5 class="page-header-title ">Agents Name</h5>
+                                        <span class="text-success">
+                                            <strong>NGN 20,000</strong>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Accordion -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingOne">
+                                    <a class="accordion-button" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        I successfully sent money from my account but no credit yet in my wallet
+
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingTwo">
+                                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        My wallet was credited twice for this transaction
+                                    </a>
+                                </div>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Description</strong>
+                                        <form class="py-2">
+                                            <div class="mb-3">
+                                                <!-- <label class="form-label" for="exampleFormControlTextarea1">Textarea</label> -->
+                                                <textarea id="exampleFormControlTextarea1" class="form-control"
+                                                    placeholder="Textarea field" rows="4"></textarea>
+                                            </div>
+
+                                            <div id="basicExampleDropzone"
+                                                class="js-dropzone row dz-dropzone dz-dropzone-card">
+                                                <div class="dz-message">
+                                                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                                        src="assets/svg/illustrations/oc-browse.svg"
+                                                        alt="Image Description" width="50px">
+
+                                                    <h5>Drag and drop your file here</h5>
+
+                                                    <p class="mb-2">or</p>
+
+                                                    <span class="btn btn-white btn-sm">Browse files</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-2">
+                                                <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End Accordion -->
+                    </div>
+                </div>
+
+                <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Download Transaction List</h5>
+
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Enter an email to receive the list</p>
+            <div class="pt-2">
+                <form action="">
+                    <div class="">
+                        <!-- <label for="formControlHoverLightEmail" class="form-label">Email</label> -->
+
+                        <div>
+                            <span class="label" id="basic-addon3">Email address for receiving report (editable)</span>
+
+                            <input type="text" class="form-control form-control-hover-light"
+                                id="formControlHoverLightEmail" placeholder="mark@example.com"
+                                aria-label="mark@example.com">
+                        </div>
+
+                        <div class="mt-2">
+                            <span class="label" id="basic-addon3">Select transaction type</span>
+
+                            <select class="form-select">
+                                <option selected="">All</option>
+                                <option value="Airtime">Airtime</option>
+                                <option value="Payment Via Transfer">Payment Via Transfer</option>
+                                <option value="Withdrawal">Withdrawal</option>
+                                <option value="Cable TV">Cable TV</option>
+                                <option value="P2P Electricity">P2P Electricity</option>
+                                <option value="USSD Withdrawal">USSD Withdrawal</option>
+                                <option value="Internet Data">Internet Data</option>
+                                <option value="Transfer">Transfer</option>
+                                <option value="Disbursement">Disbursement</option>
+                                <option value="Commission">Commission</option>
+                                <option value="Settlement">Settlement</option>
+                                <option value="Payout">Payout</option>
+                                <option value="Purchase">Purchase</option>
+                                <option value="Loan Credit">Loan Credit</option>
+                                <option value="Loan Repayment">Loan Repayment</option>
+                                <option value="Betting">Betting</option>
+                                <option value="Betting">Cashback</option>
+                                <option value="Stamp Duty">Stamp Duty</option>
+
+                                <!-- <option value="3">Three</option> -->
+                            </select>
+                        </div>
+
+                        <div class="mt-2">
+                            <button type="submit" class="btn w-100 btn-primary"><i
+                                    class="bi-envelope-arrow-down me-2"></i> Download
+                                List</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer mt-3">
+                <!-- <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button> -->
+                <a href="#" class="btn btn-dark"><i class="bi-download me-2"></i>Download Directly </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- End Modal -->
+
+    <!-- Welcome Message Modal -->
+    <div class="modal fade" id="welcomeMessageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-close">
+                    <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="bi-x-lg"></i>
+                    </button>
+                </div>
+                <!-- End Header -->
+
+                <!-- Body -->
+                <div class="modal-body p-sm-5">
+                    <div class="text-center">
+                        <div class="w-75 w-sm-50 mx-auto mb-4">
+                            <img class="img-fluid" src="assets/svg/illustrations/oc-collaboration.svg"
+                                alt="Image Description" data-hs-theme-appearance="default">
+                            <img class="img-fluid" src="assets/svg/illustrations-light/oc-collaboration.svg"
+                                alt="Image Description" data-hs-theme-appearance="dark">
+                        </div>
+
+                        <h4 class="h1">Welcome to Front</h4>
+
+                        <p>We're happy to see you in our community.</p>
+                    </div>
+                </div>
+                <!-- End Body -->
+
+                <!-- Footer -->
+                <div class="modal-footer d-block text-center py-sm-5">
+                    <small class="text-cap text-muted">Trusted by the world's best teams</small>
+
+                    <div class="w-85 mx-auto">
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <img class="img-fluid" src="assets/svg/brands/gitlab-gray.svg" alt="Image Description">
+                            </div>
+                            <div class="col">
+                                <img class="img-fluid" src="assets/svg/brands/fitbit-gray.svg" alt="Image Description">
+                            </div>
+                            <div class="col">
+                                <img class="img-fluid" src="assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
+                            </div>
+                            <div class="col">
+                                <img class="img-fluid" src="assets/svg/brands/layar-gray.svg" alt="Image Description">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Footer -->
+            </div>
+        </div>
+    </div>
+
+    <!-- End Welcome Message Modal -->
+
+    <!-- Export Products Modal -->
+    <div class="modal fade" id="exportProductsModal" tabindex="-1" aria-labelledby="exportProductsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exportProductsModalLabel">Export products</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- End Header -->
+
+                <!-- Body -->
+                <div class="modal-body">
+                    <p>This CSV file can update all product information. To update just inventory quantites use the <a
+                            class="link" href="#">CSV file for inventory.</a></p>
+
+                    <div class="mb-4">
+                        <label class="form-label">Export</label>
+
+                        <div class="d-grid gap-2">
+                            <!-- Form Check -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exportProductsRadio"
+                                    id="exportProductsRadio1" checked="">
+                                <label class="form-check-label" for="exportProductsRadio1">
+                                    Current page
+                                </label>
+                            </div>
+                            <!-- End Form Check -->
+
+                            <!-- Form Check -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exportProductsRadio"
+                                    id="exportProductsRadio2">
+                                <label class="form-check-label" for="exportProductsRadio2">
+                                    All products
+                                </label>
+                            </div>
+                            <!-- End Form Check -->
+
+                            <!-- Form Check -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exportProductsRadio"
+                                    id="exportProductsRadio3">
+                                <label class="form-check-label" for="exportProductsRadio3">
+                                    Selected: 20 products
+                                </label>
+                            </div>
+                            <!-- End Form Check -->
+                        </div>
+                    </div>
+
+                    <label class="form-label">Export as</label>
+
+                    <!-- Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exportProductsAsRadio"
+                            id="exportProductsAsRadio1" checked="">
+                        <label class="form-check-label" for="exportProductsAsRadio1">
+                            CSV for Excel, Numbers, or other spreadsheet programs
+                        </label>
+                    </div>
+                    <!-- End Form Check -->
+
+                    <!-- Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exportProductsAsRadio"
+                            id="exportProductsAsRadio2">
+                        <label class="form-check-label" for="exportProductsAsRadio2">
+                            Plain CSV file
+                        </label>
+                    </div>
+                    <!-- End Form Check -->
+                </div>
+                <!-- End Body -->
+
+                <!-- Footer -->
+                <div class="modal-footer gap-3">
+                    <button type="button" class="btn btn-white" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-primary">Export products</button>
+                </div>
+                <!-- End Footer -->
+            </div>
+        </div>
+    </div>
+    <!-- End Export Products Modal -->
+
+    <!-- Import Products Modal -->
+    <div class="modal fade" id="importProductsModal" tabindex="-1" aria-labelledby="importProductsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="importProductsModalLabel">Import products by CSV</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- End Header -->
+
+                <!-- Body -->
+                <div class="modal-body">
+                    <p><a class="link" href="#">Download a sample CSV template</a> to see an example of the format
+                        required.</p>
+
+                    <!-- Dropzone -->
+                    <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card mb-4">
+                        <div class="dz-message">
+                            <img class="avatar avatar-xl avatar-4x3 mb-3" src="assets/svg/illustrations/oc-browse.svg"
+                                alt="Image Description" data-hs-theme-appearance="default">
+                            <img class="avatar avatar-xl avatar-4x3 mb-3"
+                                src="assets/svg/illustrations-light/oc-browse.svg" alt="Image Description"
+                                data-hs-theme-appearance="dark">
+
+                            <h5>Drag and drop your file here</h5>
+
+                            <p class="mb-2">or</p>
+
+                            <span class="btn btn-white btn-sm">Browse files</span>
+                        </div>
+                    </div>
+                    <!-- End Dropzone -->
+
+                    <!-- Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="overwriteCurrentProductsCheckbox">
+                        <label class="form-check-label" for="overwriteCurrentProductsCheckbox">
+                            Overwrite any current products that have the same handle. Existing values will be used for
+                            any missing
+                            columns. <a href="#">Learn more</a>
+                        </label>
+                    </div>
+                    <!-- End Form Check -->
+                </div>
+                <!-- End Body -->
+
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-primary">Upload and continue</button>
+                </div>
+                <!-- End Footer -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- JS Implementing Plugins -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- JS Front -->
+    <script src="assets/js/theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).on('ready', function () {
+            // INITIALIZATION OF DATATABLES
+            // =======================================================
+            HSCore.components.HSDatatables.init($('#datatable'), {
+                select: {
+                    style: 'multi',
+                    selector: 'td:first-child input[type="checkbox"]',
+                    classMap: {
+                        checkAll: '#datatableCheckAll',
+                        counter: '#datatableCounter',
+                        counterInfo: '#datatableCounterInfo'
+                    }
+                },
+                language: {
+                    zeroRecords: `<div class="text-center p-4">
+              <img class="mb-3" src="./assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
+              <img class="mb-3" src="./assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
+            <p class="mb-0">No data to show</p>
+            </div>`
+                }
+            });
+
+            const datatable = HSCore.components.HSDatatables.getItem('datatable')
+
+            $('.js-datatable-filter').on('change', function () {
+                var $this = $(this),
+                    elVal = $this.val(),
+                    targetColumnIndex = $this.data('target-column-index');
+
+                datatable.column(targetColumnIndex).search(elVal).draw();
+            });
+
+            $('#datatableSearch').on('mouseup', function (e) {
+                var $input = $(this),
+                    oldValue = $input.val();
+
+                if (oldValue == "") return;
+
+                setTimeout(function () {
+                    var newValue = $input.val();
+
+                    if (newValue == "") {
+                        // Gotcha
+                        datatable.search('').draw();
+                    }
+                }, 1);
+            });
+
+            $('#toggleColumn_id').change(function (e) {
+                datatable.columns(1).visible(e.target.checked)
+            })
+
+            $('#toggleColumn_users').change(function (e) {
+                datatable.columns(2).visible(e.target.checked)
+            })
+
+            $('#toggleColumn_type').change(function (e) {
+                datatable.columns(3).visible(e.target.checked)
+            })
+
+            $('#toggleColumn_stocks').change(function (e) {
+                datatable.columns(4).visible(e.target.checked)
+            })
+
+            $('#toggleColumn_sku').change(function (e) {
+                datatable.columns(5).visible(e.target.checked)
+            })
+
+            $('#toggleColumn_price').change(function (e) {
+                datatable.columns(6).visible(e.target.checked)
+            })
+
+            // datatable.columns(7).visible(false)
+
+
+        });
+    </script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        (function () {
+            window.onload = function () {
+
+
+                // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+                // =======================================================
+                new HSSideNav('.js-navbar-vertical-aside').init()
+
+
+                // INITIALIZATION OF FORM SEARCH
+                // =======================================================
+                new HSFormSearch('.js-form-search')
+
+
+                // INITIALIZATION OF BOOTSTRAP DROPDOWN
+                // =======================================================
+                HSBsDropdown.init()
+
+
+                // INITIALIZATION OF SELECT
+                // =======================================================
+                HSCore.components.HSTomSelect.init('.js-select')
+
+
+                // INITIALIZATION OF NAV SCROLLER
+                // =======================================================
+                new HsNavScroller('.js-nav-scroller')
+
+
+                // INITIALIZATION OF DROPZONE
+                // =======================================================
+                HSCore.components.HSDropzone.init('.js-dropzone')
+            }
+        })()
+    </script>
+
+    <!-- Style Switcher JS -->
+
+    <script>
+        $(document).on('ready', function () {
+            HSCore.components.HSDaterangepicker.init('.js-daterangepicker-clear')
+
+            $('.js-daterangepicker-clear').on('apply.daterangepicker', function (ev, picker) {
+                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+            })
+
+            $('.js-daterangepicker-clear').on('cancel.daterangepicker', function (ev, picker) {
+                $(this).val('')
+            })
+        });
+    </script>
+
+    <script>
+        (function () {
+            // STYLE SWITCHER
+            // =======================================================
+            const $dropdownBtn = document.getElementById('selectThemeDropdown') // Dropdowon trigger
+            const $variants = document.querySelectorAll(`[aria-labelledby="selectThemeDropdown"] [data-icon]`) // All items of the dropdown
+
+            // Function to set active style in the dorpdown menu and set icon for dropdown trigger
+            const setActiveStyle = function () {
+                $variants.forEach($item => {
+                    if ($item.getAttribute('data-value') === HSThemeAppearance.getOriginalAppearance()) {
+                        $dropdownBtn.innerHTML = `<i class="${$item.getAttribute('data-icon')}" />`
+                        return $item.classList.add('active')
+                    }
+
+                    $item.classList.remove('active')
+                })
+            }
+
+            // Add a click event to all items of the dropdown to set the style
+            $variants.forEach(function ($item) {
+                $item.addEventListener('click', function () {
+                    HSThemeAppearance.setAppearance($item.getAttribute('data-value'))
+                })
+            })
+
+            // Call the setActiveStyle on load page
+            setActiveStyle()
+
+            // Add event listener on change style to call the setActiveStyle function
+            window.addEventListener('on-hs-appearance-change', function () {
+                setActiveStyle()
+            })
+        })()
+    </script>
+
+    <!-- End Style Switcher JS -->
+</body>
+
+</html>

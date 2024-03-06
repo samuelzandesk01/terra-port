@@ -1248,7 +1248,7 @@
                       <a class="dropdown-item" href="customer.html">
                         <i class="bi-eye dropdown-item-icon"></i> View Agent
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                         <i class="bi-slash-circle dropdown-item-icon"></i> DeActivate Agent
                       </a>
                       <a class="dropdown-item" href="#">
@@ -1426,10 +1426,10 @@
                       <a class="dropdown-item" href="customer.html">
                         <i class="bi-eye dropdown-item-icon"></i> View Agent
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                         <i class="bi-slash-circle dropdown-item-icon"></i> DeActivate Agent
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="wallet-transaction.html">
                         <i class="bi-list-ul dropdown-item-icon"></i> Wallet History
                       </a>
                       <a class="dropdown-item" href="#">
@@ -1976,6 +1976,55 @@
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
 
+  <!-- Modal -->
+<div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="m-2">
+          <i class="bi bi-exclamation-triangle display-2 text-warning"></i>
+        </div>
+        <h2>Are you want to  deactivate this user?</h2>
+        <p>Once you deactive this account, this user won't be able to make transaction but canonly access is account.</p>
+        <hr>
+        <div class="d-flex justify-content-around">
+          <!-- Deactivated Modal -->
+          <div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
+            <div class="toast-header">
+              <div class="d-flex align-items-center flex-grow-1">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-circle" src="./assets/img/160x160/img4.jpg" alt="Image description">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-0">Account Deactivated Successfully</h5>
+                  <!-- <small class="ms-auto">11 mins ago</small> -->
+                </div>
+                <div class="text-end">
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+              </div>
+            </div>
+            <div class="toast-body">
+              Dear Admin, <strong>Bob Dean</strong> account has been deactivated.
+            </div>
+          </div>
+   <!-- Deactivated Modal -->
+
+
+          <button type="button" class="btn btn-danger" id="liveToastBtn">Deactivate Agent</button>
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Don't Deactivate</button>
+         </div>
+      </div>
+   
+      
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
   <!-- ONLY DEV -->
   <!-- Builder -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBuilder" aria-labelledby="offcanvasBuilderLabel">
@@ -2402,6 +2451,13 @@
       });
     });
   </script>
+
+<script>
+  // INITIALIZATION OF LIVE TOAST
+  // =======================================================
+  const liveToast = new bootstrap.Toast(document.querySelector('#liveToast'))
+  document.querySelector('#liveToastBtn').addEventListener('click', () => liveToast.show())
+</script>
 
   <!-- JS Plugins Init. -->
   <script>
