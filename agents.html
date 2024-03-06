@@ -1919,7 +1919,7 @@
                       <a class="dropdown-item" href="customer.html">
                         <i class="bi-eye dropdown-item-icon"></i> View Agent
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                         <i class="bi-slash-circle dropdown-item-icon"></i> DeActivate Agent
                       </a>
                       <a class="dropdown-item" href="wallet-transaction.html">
@@ -2099,7 +2099,7 @@
                       <a class="dropdown-item" href="customer.html">
                         <i class="bi-eye dropdown-item-icon"></i> View Agent
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#activateAgentModal">
                         <i class="bi-check-circle dropdown-item-icon"></i>Activate Agent
                       </a>
                       <a class="dropdown-item" href="#">
@@ -2603,7 +2603,8 @@
 
             <div class="mb-3">
               <label class="form-label" for="exampleFormControlInput1">Email</label>
-              <input type="email" id="exampleFormControlInput1" class="form-control" placeholder="agentemail@mail.com">
+              <input type="email" name="email" id="exampleFormControlInput1" class="form-control"
+                placeholder="agentemail@mail.com">
             </div>
 
             <div class="mb-3">
@@ -2611,11 +2612,15 @@
               <input type="text" id="exampleFormControlInput1" class="form-control" placeholder="John Doe">
             </div>
 
-           
+
             <div class="mb-3">
               <label class="form-label" for="exampleFormControlTextarea1">Additional Message</label>
               <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Textarea field"
                 rows="4"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Submit Request </button>
+
             </div>
           </form>
         </div>
@@ -2675,7 +2680,84 @@
       </div>
     </div>
   </div>
+
+  <div id="activateAgentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <div class="m-2">
+            <i class="bi bi-exclamation-triangle display-2 text-success"></i>
+          </div>
+          <h2>Are you want to activate this user?</h2>
+          <p>Once you actived this account, this user will be able to make transaction and have access to his/her
+            account.
+          </p>
+          <hr>
+          <div class="d-flex justify-content-around">
+
+
+
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".agent-bd-example-modal-sm">Activate Agent</button>
+
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Don't Activate</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
   <!-- End Modal -->
+
+  <!-- Deactivated Modal -->
+  <div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true"
+    style="top: 20px; right: 20px; z-index: 1000;">
+    <div class="toast-header">
+      <div class="d-flex align-items-center flex-grow-1">
+        <div class="flex-shrink-0">
+          <img class="avatar avatar-sm avatar-circle" src="./assets/img/160x160/img4.jpg" alt="Image description">
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <h5 class="mb-0">Account Deactivated Successfully</h5>
+          <!-- <small class="ms-auto">11 mins ago</small> -->
+        </div>
+        <div class="text-end">
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+    <div class="toast-body">
+      Dear Admin, <strong>Bob Dean</strong> account has been deactivated.
+    </div>
+  </div>
+  <!-- Deactivated Modal -->
+
+  <!-- Active Agent Modal -->
+<div class="modal fade agent-bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title h4" id="mySmallModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="toast-body">
+         <h3> Are you sure you want to activate account?</h3>
+         <div  class="d-flex justify-content-around">
+          <button type="button" class="btn btn-danger"  data-bs-dismiss="modal" >Yes</button>
+
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Activate agent Modal End-->
 
   <!-- ONLY DEV -->
   <!-- Builder -->
@@ -3032,6 +3114,8 @@
 
   <script src="assets/js/demo.js"></script>
 
+
+
   <!-- END ONLY DEV -->
 
   <!-- JS Implementing Plugins -->
@@ -3130,55 +3214,55 @@
 
   <!-- JS Plugins Init. -->
   <script>
-    (function () {
-      window.onload = function () {
+      (function () {
+        window.onload = function () {
 
 
-        // INITIALIZATION OF NAVBAR VERTICAL ASIDE
-        // =======================================================
-        new HSSideNav('.js-navbar-vertical-aside').init()
+          // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+          // =======================================================
+          new HSSideNav('.js-navbar-vertical-aside').init()
 
 
-        // INITIALIZATION OF FORM SEARCH
-        // =======================================================
-        new HSFormSearch('.js-form-search')
+          // INITIALIZATION OF FORM SEARCH
+          // =======================================================
+          new HSFormSearch('.js-form-search')
 
 
-        // INITIALIZATION OF BOOTSTRAP DROPDOWN
-        // =======================================================
-        HSBsDropdown.init()
+          // INITIALIZATION OF BOOTSTRAP DROPDOWN
+          // =======================================================
+          HSBsDropdown.init()
 
 
-        // INITIALIZATION OF SELECT
-        // =======================================================
-        HSCore.components.HSTomSelect.init('.js-select')
+          // INITIALIZATION OF SELECT
+          // =======================================================
+          HSCore.components.HSTomSelect.init('.js-select')
 
 
-        // INITIALIZATION OF INPUT MASK
-        // =======================================================
-        HSCore.components.HSMask.init('.js-input-mask')
+          // INITIALIZATION OF INPUT MASK
+          // =======================================================
+          HSCore.components.HSMask.init('.js-input-mask')
 
 
-        // INITIALIZATION OF NAV SCROLLER
-        // =======================================================
-        new HsNavScroller('.js-nav-scroller')
+          // INITIALIZATION OF NAV SCROLLER
+          // =======================================================
+          new HsNavScroller('.js-nav-scroller')
 
 
-        // INITIALIZATION OF COUNTER
-        // =======================================================
-        new HSCounter('.js-counter')
+          // INITIALIZATION OF COUNTER
+          // =======================================================
+          new HSCounter('.js-counter')
 
 
-        // INITIALIZATION OF TOGGLE PASSWORD
-        // =======================================================
-        new HSTogglePassword('.js-toggle-password')
+          // INITIALIZATION OF TOGGLE PASSWORD
+          // =======================================================
+          new HSTogglePassword('.js-toggle-password')
 
 
-        // INITIALIZATION OF FILE ATTACHMENT
-        // =======================================================
-        new HSFileAttach('.js-file-attach')
-      }
-    })()
+          // INITIALIZATION OF FILE ATTACHMENT
+          // =======================================================
+          new HSFileAttach('.js-file-attach')
+        }
+      })()
   </script>
 
   <!-- Style Switcher JS -->
