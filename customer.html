@@ -45,6 +45,48 @@
   <!-- END ONLY DEV -->
 
   <script>
+    // Wait for the DOM content to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get reference to the select element
+        var selectElement = document.getElementById('exampleFormControlSelect1');
+        // Get reference to the input field
+        var othersInput = document.getElementById('othersCause');
+
+        // Add event listener to the select element
+        selectElement.addEventListener('change', function () {
+            // Check if the selected value is "Others"
+            if (selectElement.value === 'Others') {
+                // Show the input field
+                othersInput.style.display = 'block';
+            } else {
+                // Hide the input field
+                othersInput.style.display = 'none';
+            }
+        });
+    });
+
+    // Wait for the DOM content to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+            // Get reference to the button with ID 'approveBTN'
+            var approveButton = document.getElementById('approveBTN');
+            // Get reference to the element with class 'pending-status'
+            var pendingStatusElement = document.querySelector('.pending-status');
+
+            // Add click event listener to the 'approveBTN' button
+            approveButton.addEventListener('click', function () {
+                // Toggle class names
+                pendingStatusElement.classList.remove('bg-warning');
+                pendingStatusElement.classList.add('bg-success');
+                pendingStatusElement.innerHTML = "APPROVED";
+                // Disable the button
+                approveButton.disabled = true;
+                approveButton.classList.add('bg-secondary');
+
+            });
+        });
+</script>
+
+  <script>
     window.hs_config = { "autopath": "@@autopath", "deleteLine": "hs-builder:delete", "deleteLine:build": "hs-builder:build-delete", "deleteLine:dist": "hs-builder:dist-delete", "previewMode": false, "startPath": "/index.html", "vars": { "themeFont": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap", "version": "?v=1.0" }, "layoutBuilder": { "extend": { "switcherSupport": true }, "header": { "layoutMode": "default", "containerMode": "container-fluid" }, "sidebarLayout": "default" }, "themeAppearance": { "layoutSkin": "default", "sidebarSkin": "default", "styles": { "colors": { "primary": "#377dff", "transparent": "transparent", "white": "#fff", "dark": "132144", "gray": { "100": "#f9fafc", "900": "#1e2022" } }, "font": "Inter" } }, "languageDirection": { "lang": "en" }, "skipFilesFromBundle": { "dist": ["assets/js/hs.theme-appearance.js", "assets/js/hs.theme-appearance-charts.js", "assets/js/demo.js"], "build": ["assets/css/theme.css", "assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js", "assets/js/demo.js", "assets/css/theme-dark.css", "assets/css/docs.css", "assets/vendor/icon-set/style.css", "assets/js/hs.theme-appearance.js", "assets/js/hs.theme-appearance-charts.js", "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js", "assets/js/demo.js"] }, "minifyCSSFiles": ["assets/css/theme.css", "assets/css/theme-dark.css"], "copyDependencies": { "dist": { "*assets/js/theme-custom.js": "" }, "build": { "*assets/js/theme-custom.js": "", "node_modules/bootstrap-icons/font/*fonts/**": "assets/css" } }, "buildFolder": "", "replacePathsToCDN": {}, "directoryNames": { "src": "./src", "dist": "./dist", "build": "./build" }, "fileNames": { "dist": { "js": "theme.min.js", "css": "theme.min.css" }, "build": { "css": "theme.min.css", "js": "theme.min.js", "vendorCSS": "vendor.min.css", "vendorJS": "vendor.min.js" } }, "fileTypes": "jpg|png|svg|mp4|webm|ogv|json" }
     window.hs_config.gulpRGBA = (p1) => {
       const options = p1.split(',')
@@ -681,7 +723,13 @@
             <!-- End Avatar -->
 
             <h1 class="page-header-title">Onyinye James<i class="bi-patch-check-fill fs-2 text-success"
-                data-bs-toggle="tooltip" data-bs-placement="top" title="Active"></i></h1>
+                data-bs-toggle="tooltip" data-bs-placement="top" title="Active"></i>
+               
+              
+            </h1>
+            <div >
+              <p class="badge bg-success display-5">Active</p>
+            </div>
 
             <!-- List -->
             <ul class="list-inline list-px-2">
@@ -738,15 +786,15 @@
                     <li><i class="bi-envelope dropdown-item-icon"></i> onyinyejames@gmail.com</li>
                     <li><i class="bi-calendar dropdown-item-icon"></i> 01 January, 1991</li>
                     <li><i class="bi-briefcase dropdown-item-icon"></i> KYC Status: <span
-                        class="badge bg-success">ACTIVE</span> </li>
+                        class="badge bg-warning pending-status" >PENDING</span> </li>
                     <li class="my-3">
                       <div class="d-flex justify-content-between">
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                           <i class="bi-person-x dropdown-item-icon text-white"></i> Decline KYC
                         </button>
 
-                        <button class="btn btn-success " data-bs-toggle="modal" data-bs-target="#approveKYCModal">
-                          <i class="bi-check dropdown-item-icon text-white"></i> Approve KYC
+                        <button class="btn btn-success" id="approveBTN"  >
+                          <i class="bi-check dropdown-item-icon text-white" ></i> Approve KYC
                         </button>
                       </div>
                     </li>
@@ -984,26 +1032,28 @@
             </div>
 
             <!-- Toast -->
-<div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
-  <div class="toast-header">
-    <div class="d-flex align-items-center flex-grow-1">
-      <div class="flex-shrink-0">
-        <img class="avatar avatar-sm avatar-circle" src="../assets/img/160x160/img4.jpg" alt="Image description">
-      </div>
-      <div class="flex-grow-1 ms-3">
-        <h5 class="mb-0">Bob Dean</h5>
-        <small class="ms-auto">11 mins ago</small>
-      </div>
-      <div class="text-end">
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
-  </div>
-  <div class="toast-body">
-    Hello, world! This is a toast message.
-  </div>
-</div>
-<!-- End Toast -->
+            <div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true"
+              style="top: 20px; right: 20px; z-index: 1000;">
+              <div class="toast-header">
+                <div class="d-flex align-items-center flex-grow-1">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-sm avatar-circle" src="../assets/img/160x160/img4.jpg"
+                      alt="Image description">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h5 class="mb-0">Bob Dean</h5>
+                    <small class="ms-auto">11 mins ago</small>
+                  </div>
+                  <div class="text-end">
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>
+              </div>
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+            </div>
+            <!-- End Toast -->
 
             <div class="col-lg-7">
               <div class="d-grid gap-3 gap-lg-5">
@@ -1017,10 +1067,22 @@
                     <!-- Step -->
                     <div>
                       <div>
+                        <div class="pb-2">
+                          <h4 class="mb-0">BVN Information</h4>
+                        </div>
                         <div style="width: 15rem;">
-                          <img
-                            src="https://previews.123rf.com/images/apoev/apoev2107/apoev210700036/171406059-default-avatar-photo-placeholder-gray-profile-picture-icon-business-woman-illustration.jpg"
-                            class="img-thumbnail" alt="...">
+                          <!-- Gallery -->
+                          <div class="">
+                            <!-- Media Viewer -->
+                            <a  class="img-thumbnail"  href="assets/img/160x160/img10.jpg" data-fslightbox="gallery">
+
+                              <img class="img-fluid" src="./assets/img/160x160/img10.jpg" alt="Image Description">
+
+                            </a>
+                            <!-- End Media Viewer -->
+                          </div>
+                          <!-- End Gallery -->
+                         
                         </div>
                       </div>
                       <div class="mt-3">
@@ -1067,6 +1129,87 @@
                     </div>
                     <!-- End Step -->
                   </div>
+
+
+                  <!-- End Body -->
+                </div>
+                <!-- End Card -->
+
+                <div class="card">
+                  <!-- Header -->
+                  <!-- Body -->
+                  <div class="card-body card-body-height" style="height: 30rem;">
+                    <!-- Step -->
+                    <div>
+                      <div class="pb-2">
+                        <h4 class="mb-0">NIN Information</h4>
+                      </div>
+                      <div>
+                        <div style="width: 15rem;">
+                          <!-- Gallery -->
+                          <div class="">
+                            <!-- Media Viewer -->
+                            <a  class="img-thumbnail"  href="assets/img/160x160/img10.jpg" data-fslightbox="gallery">
+
+                              <img class="img-fluid" src="./assets/img/160x160/img10.jpg" alt="Image Description">
+
+                            </a>
+                            <!-- End Media Viewer -->
+                          </div>
+                          <!-- End Gallery -->
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <table class="table">
+
+                          <tbody>
+                            <tr>
+                              <th>Firstname</th>
+                              <td> Onyinye
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Lastname</th>
+                              <td>James</td>
+                            </tr>
+                            <tr>
+                              <th>Middlename</th>
+                              <td>Kalu</td>
+                            </tr>
+                            <tr>
+                              <th>Email</th>
+                              <td> onyinyejames@gmail.com
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Phone Number</th>
+                              <td> 090383784787
+                              </td>
+                            </tr>
+
+                            <th>Gender</th>
+                            <td>Female</td>
+                            </tr>
+                            <tr>
+                              <th>Date of Birth</th>
+                              <td> 01 January, 1991
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Residential Address</th>
+                              <td> NO. 5, Oledele, Hakeem Street, Lagos.
+                              </td>
+                            </tr>
+
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- End Step -->
+                  </div>
+
+
                   <!-- End Body -->
                 </div>
                 <!-- End Card -->
@@ -2128,29 +2271,7 @@
   </div>
   <!-- End Keyboard Shortcuts -->
 
-    <!-- Modal -->
-    <div id="approveKYCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-         
-          <h2 class="text-success">Admin {User} KYC Approved</h2>
-          <p>NOw that this user KYC has been approved, he/she will be able to make end to end transactions.</p>
-        <div>
 
-        </div>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-  <!-- End Modal -->
 
   <!-- Modal -->
   <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -2161,10 +2282,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         
+
           <h2>State reason why declining
           </h2>
-          
+
           <form>
             <div class="mb-3">
               <label class="form-label" for="exampleFormControlSelect1">Select cause of decline</label>
@@ -2185,8 +2306,14 @@
                 <option value="">Risk Mitigation</option>
                 <option value="">Non-Compliance with Training Requirements</option>
                 <option value="">Customer Complaints</option>
+                <option value="Others">Others</option>
               </select>
             </div>
+            <div class="mb-3" id="othersCause" style="display: none;">
+              <label class="form-label" for="exampleFormControlInput1">Others</label>
+              <input type="text" id="exampleFormControlInput1" class="form-control" placeholder="State cause..">
+            </div>
+
 
             <div class="mb-3">
               <label class="form-label" for="exampleFormControlInput1">Email</label>
@@ -2210,7 +2337,7 @@
 
             </div>
           </form>
-          
+
         </div>
 
 
@@ -2430,7 +2557,8 @@
   <!-- End Activity -->
 
   <!-- Deactivated Modal -->
-  <div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true" style="top: 20px; right: 20px; z-index: 1000;">
+  <div id="liveToast" class="position-fixed toast hide" role="alert" aria-live="assertive" aria-atomic="true"
+    style="top: 20px; right: 20px; z-index: 1000;">
     <div class="toast-header">
       <div class="d-flex align-items-center flex-grow-1">
         <div class="flex-shrink-0">
